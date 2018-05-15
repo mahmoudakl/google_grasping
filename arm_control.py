@@ -26,9 +26,7 @@ reset_conf = np.zeros(6)
 @nrp.MapVariable("dispose_blue_conf", initial_value=dispose_blue_conf)
 @nrp.MapVariable("reset_conf", initial_value=reset_conf)
 @nrp.Neuron2Robot()
-def arm_control(t,
-                command, last_command_executed,
-                approach_red_conf,
+def arm_control(t, command, last_command_executed, approach_red_conf,
                 grasp_red_conf, grasp_blue_conf,
                 dispose_red_conf, dispose_blue_conf,
                 reset_conf,

@@ -388,7 +388,7 @@
 		</link>
 <!--arm_7-->
 		<link name="hollie_007_wrist_lat_rot">
-			<pose>-0.01834778092995153 -0.4009597369285917 1.8650000020856399 4.019007348745999e-14 -2.384185794926808e-07 -1.518436702089857</pose>
+			<pose>-0.0183677 -0.400963 1.865 -8.74228e-08 1.50996e-07 -1.51844</pose>
 			<inertial>
 				<mass>0.00001</mass>
 				<pose>0.0 0.0 0.0 0.0 0.0 0.0</pose>
@@ -402,20 +402,20 @@
 				</inertia>
 			</inertial>
 			<collision name="VIS_hollhollie_007_wrist_lat_rot_Coll">
-				<pose>-1.158055340511055e-07 0.013130211271345615 2.311210437255795e-06 3.141590118408203 3.028529533821711e-07 -7.860362529754639e-07</pose>
+				<pose>-6.60936e-08 0.0131302 2.0743e-06 0 0 0</pose>
 				<geometry>
 					<mesh>
 						<uri>model://google_grasp/meshes/visual/VIS_hollhollie_007_wrist_lat_rot_Coll.dae</uri>
-						<scale>1.0 1.0 1.0</scale>
+						<scale>1 1 1</scale>
 					</mesh>
 				</geometry>
 			</collision>
 			<visual name="VIS_hollhollie_007_wrist_lat_rot">
-				<pose>-8.277268648271274e-08 0.01313027087599039 2.3112102098821197e-06 3.141590118408203 3.1224195140566735e-07 -7.860362529754639e-07</pose>
+				<pose>-6.60936e-08 0.0131302 2.0743e-06 3.14159 2.29074e-07 -6.18398e-07</pose>
 				<geometry>
 					<mesh>
 						<uri>model://google_grasp/meshes/visual/VIS_hollhollie_007_wrist_lat_rot.dae</uri>
-						<scale>1.0 1.0 1.0</scale>
+						<scale>1 1 1</scale>
 					</mesh>
 				</geometry>
 			</visual>
@@ -535,50 +535,50 @@
 			</visual>
 		</link>
 		<link name="hollie_011_thumb_topsegment_bf_rot">
-			<pose>0.03536718786328801 -0.4802390480892404 1.9517960766763784 1.8834040040418392 0.5706018043163879 1.7959899248997433</pose>
+			<pose>0.0353715 -0.480238 1.95179 -1.8834 -0.570602 -1.3456</pose>
 			<inertial>
-				<mass>9.999999747378752e-06</mass>
-				<pose>0.03537106513977051 -0.48023760318756104 1.9517898559570312 -1.8833998441696167 -0.5706019997596741 -1.3456000089645386</pose>
+				<mass>0.00001</mass>
+				<pose>0 0 0 0 0 0</pose>
 				<inertia>
-					<ixx>0.009999999776482582</ixx>
-					<ixy>0.0</ixy>
-					<ixz>0.0</ixz>
-					<iyy>0.009999999776482582</iyy>
-					<iyz>0.0</iyz>
-					<izz>0.009999999776482582</izz>
+					<ixx>0.01</ixx>
+					<ixy>0</ixy>
+					<ixz>0</ixz>
+					<iyy>0.01</iyy>
+					<iyz>0</iyz>
+					<izz>0.01</izz>
 				</inertia>
 			</inertial>
 			<collision name="VIS_hollhollie_011_thumb_topsegment_bf_rot_Coll">
-				<pose>-1.590524334460497e-07 3.150198608636856e-07 -6.146728992462158e-08 3.1415910720825195 4.3958405626653985e-07 1.4714889857714297e-06</pose>
+				<pose>-7.49715e-08 -2.47732e-07 -7.45058e-08 0 0 0</pose>
 				<geometry>
 					<mesh>
 						<uri>model://google_grasp/meshes/visual/VIS_hollhollie_011_thumb_topsegment_bf_rot_Coll.dae</uri>
-						<scale>1.0000004768371582 1.0000001192092896 1.0000005960464478</scale>
+						<scale>1 1 1</scale>
 					</mesh>
 				</geometry>
 			</collision>
 			<visual name="VIS_hollhollie_011_thumb_topsegment_bf_rot">
-				<pose>-3.974710125476122e-07 2.9639340937137604e-07 -5.029141902923584e-08 3.141589879989624 2.3283067207557906e-07 2.0749869236169616e-06</pose>
+				<pose>-7.49715e-08 -2.47732e-07 -7.45058e-08 3.14159 4.84288e-08 1.67266e-06</pose>
 				<geometry>
 					<mesh>
 						<uri>model://google_grasp/meshes/visual/VIS_hollhollie_011_thumb_topsegment_bf_rot.dae</uri>
-						<scale>0.9999998807907104 0.9999997019767761 1.000000238418579</scale>
+						<scale>1 1 1</scale>
 					</mesh>
 				</geometry>
 			</visual>
 		</link>
 		<link name="hand_f1_link">
-			<pose>-0.01834778092995154 -0.40095973692859166 1.8650000020856399 4.019007348745999e-14 -2.384185794926808e-07 -1.518436702089857</pose>
+			<pose>-0.0183677 -0.400963 1.865 -8.74228e-08 1.50996e-07 -1.51844</pose>
 			<inertial>
-				<mass>9.999999747378752e-06</mass>
-				<pose>-3.274359983151953e-08 6.951387376830098e-08 2.8465240120567614e-07 -2.288598320186394e-14 -1.315614114774221e-14 -7.450581307466564e-08</pose>
+				<mass>0.00001</mass>
+				<pose>0 0 0 0 0 0</pose>
 				<inertia>
-					<ixx>0.009999999776482582</ixx>
+					<ixx>0.01</ixx>
 					<ixy>0.0</ixy>
 					<ixz>0.0</ixz>
-					<iyy>0.009999999776482582</iyy>
+					<iyy>0.01</iyy>
 					<iyz>0.0</iyz>
-					<izz>0.009999999776482582</izz>
+					<izz>0.01</izz>
 				</inertia>
 			</inertial>
 		</link>
@@ -712,34 +712,34 @@
 			</visual>
 		</link>
 		<link name="hollie_015_indexfing_topsegment_bf_rot">
-			<pose>-0.017037925811464016 -0.4259101747968256 2.049040006842766 3.141592406904882 -1.5707961638742167 1.6231561981848475</pose>
+			<pose>-0.0170593 -0.425928 2.04904 2.77323 -1.57079 1.99152</pose>
 			<inertial>
-				<mass>9.999999747378752e-06</mass>
-				<pose>-5.459863814394339e-07 7.104930773493834e-06 -7.272370794453309e-08 4.097823236293152e-08 2.3370752444407117e-07 1.3483570171501924e-07</pose>
+				<mass>0.00001</mass>
+				<pose>0 0 0 0 0 0</pose>
 				<inertia>
-					<ixx>0.009999999776482582</ixx>
-					<ixy>0.0</ixy>
-					<ixz>0.0</ixz>
-					<iyy>0.009999999776482582</iyy>
-					<iyz>0.0</iyz>
-					<izz>0.009999999776482582</izz>
+					<ixx>0.01</ixx>
+					<ixy>0</ixy>
+					<ixz>0</ixz>
+					<iyy>0.01</iyy>
+					<iyz>0</iyz>
+					<izz>0.01</izz>
 				</inertia>
 			</inertial>
 			<collision name="VIS_hollhollie_015_indexfing_topsegment_bf_rot_Coll">
-				<pose>-5.459864382828528e-07 7.211101546999998e-06 -4.967083100382297e-07 -2.7008347842638614e-06 2.2746861816358432e-07 1.578979258454183e-08</pose>
+				<pose>-2.63651e-07 1.04846e-07 -3.66848e-07 0 0 0</pose>
 				<geometry>
 					<mesh>
 						<uri>model://google_grasp/meshes/visual/VIS_hollhollie_015_indexfing_topsegment_bf_rot_Coll.dae</uri>
-						<scale>1.0000001192092896 1.0000001192092896 1.000000238418579</scale>
+						<scale>1 1 1</scale>
 					</mesh>
 				</geometry>
 			</collision>
 			<visual name="VIS_hollhollie_015_indexfing_topsegment_bf_rot">
-				<pose>-5.459864382828528e-07 7.151496902224608e-06 -4.6370456630029366e-07 -2.8200440738146426e-06 2.2746861816358432e-07 1.578979258454183e-08</pose>
+				<pose>-2.63651e-07 1.04846e-07 -3.66848e-07 -2.77162e-06 3.99925e-08 -4.39782e-08</pose>
 				<geometry>
 					<mesh>
 						<uri>model://google_grasp/meshes/visual/VIS_hollhollie_015_indexfing_topsegment_bf_rot.dae</uri>
-						<scale>1.0000001192092896 1.0000001192092896 1.0000001192092896</scale>
+						<scale>1 1 1</scale>
 					</mesh>
 				</geometry>
 			</visual>
@@ -796,7 +796,7 @@
 				<geometry>
 					<mesh>
 						<uri>model://google_grasp/meshes/visual/VIS_hollhollie_017_midfing_bf_rot_Coll.dae</uri>
-						<scale>1.0 1.0 1.000000238418579</scale>
+						<scale>1 1 1</scale>
 					</mesh>
 				</geometry>
 			</collision>
@@ -805,7 +805,7 @@
 				<geometry>
 					<mesh>
 						<uri>model://google_grasp/meshes/visual/VIS_hollhollie_017_midfing_bf_rot.dae</uri>
-						<scale>1.0 1.0 1.000000238418579</scale>
+						<scale>1 1 1</scale>
 					</mesh>
 				</geometry>
 			</visual>
@@ -829,7 +829,7 @@
 				<geometry>
 					<mesh>
 						<uri>model://google_grasp/meshes/visual/VIS_hollhollie_018_midfing_midsegment_bf_rot_Coll.dae</uri>
-						<scale>1.0 1.0 1.0000003576278687</scale>
+						<scale>1 1 1</scale>
 					</mesh>
 				</geometry>
 			</collision>
@@ -838,40 +838,40 @@
 				<geometry>
 					<mesh>
 						<uri>model://google_grasp/meshes/visual/VIS_hollhollie_018_midfing_midsegment_bf_rot.dae</uri>
-						<scale>1.0 1.0 1.000000238418579</scale>
+						<scale>1 1 1</scale>
 					</mesh>
 				</geometry>
 			</visual>
 		</link>
 		<link name="hollie_019_midfing_topsegment_bf_rot">
-			<pose>-0.01834775592185265 -0.400950215730074 2.0570400021949578 3.141592406904882 -1.5707961638742167 1.6231561981848475</pose>
+			<pose>-0.0183677 -0.400963 2.05704 2.77323 -1.57079 1.99152</pose>
 			<inertial>
-				<mass>9.999999747378752e-06</mass>
-				<pose>-6.364933824443142e-08 6.456253231590381e-06 -1.2073655852873344e-07 4.0978221704790485e-08 1.7410290809038997e-07 1.3483571592587396e-07</pose>
+				<mass>0.00001</mass>
+				<pose>0 0 0 0 0 0</pose>
 				<inertia>
-					<ixx>0.009999999776482582</ixx>
-					<ixy>0.0</ixy>
-					<ixz>0.0</ixz>
-					<iyy>0.009999999776482582</iyy>
-					<iyz>0.0</iyz>
-					<izz>0.009999999776482582</izz>
+					<ixx>0.01</ixx>
+					<ixy>0</ixy>
+					<ixz>0</ixz>
+					<iyy>0.01</iyy>
+					<iyz>0</iyz>
+					<izz>0.01</izz>
 				</inertia>
 			</inertial>
 			<collision name="VIS_hollhollie_019_midfing_topsegment_bf_rot_Coll">
-				<pose>-6.364945193126914e-08 6.296065748756519e-06 -8.892523055692436e-07 -4.358589080766251e-07 1.803418001600221e-07 2.538816090691398e-07</pose>
+				<pose>-2.47364e-08 -1.62007e-07 -7.48884e-07 0 0 0</pose>
 				<geometry>
 					<mesh>
 						<uri>model://google_grasp/meshes/visual/VIS_hollhollie_019_midfing_topsegment_bf_rot_Coll.dae</uri>
-						<scale>1.0 1.0 1.0000003576278687</scale>
+						<scale>1 1 1</scale>
 					</mesh>
 				</geometry>
 			</collision>
 			<visual name="VIS_hollhollie_019_midfing_topsegment_bf_rot">
-				<pose>-6.364945193126914e-08 6.294203103607288e-06 -8.891358902474167e-07 -4.358589080766251e-07 1.803418001600221e-07 2.538816090691398e-07</pose>
+				<pose>-2.47364e-08 -1.62007e-07 -7.48884e-07 -4.95464e-07 3.37536e-08 -1.63024e-07</pose>
 				<geometry>
 					<mesh>
 						<uri>model://google_grasp/meshes/visual/VIS_hollhollie_019_midfing_topsegment_bf_rot.dae</uri>
-						<scale>1.0 1.0 1.000000238418579</scale>
+						<scale>1 1 1</scale>
 					</mesh>
 				</geometry>
 			</visual>
@@ -895,7 +895,7 @@
 				<geometry>
 					<mesh>
 						<uri>model://google_grasp/meshes/visual/VIS_hollhollie_020_outerhand_rot_Coll.dae</uri>
-						<scale>1.0 0.9999999403953552 1.0</scale>
+						<scale>1 1 1</scale>
 					</mesh>
 				</geometry>
 			</collision>
@@ -904,7 +904,7 @@
 				<geometry>
 					<mesh>
 						<uri>model://google_grasp/meshes/visual/VIS_hollhollie_020_outerhand_rot.dae</uri>
-						<scale>1.0 0.9999999403953552 1.0</scale>
+						<scale>1 1 1</scale>
 					</mesh>
 				</geometry>
 			</visual>
@@ -973,7 +973,7 @@
 				<geometry>
 					<mesh>
 						<uri>model://google_grasp/meshes/visual/VIS_hollhollie_021_littlefinger_lr_rot_Coll.dae</uri>
-						<scale>1.0 0.9999998807907104 0.9999997615814209</scale>
+						<scale>1 1 1</scale>
 					</mesh>
 				</geometry>
 			</collision>
@@ -982,7 +982,7 @@
 				<geometry>
 					<mesh>
 						<uri>model://google_grasp/meshes/visual/VIS_hollhollie_021_littlefinger_lr_rot.dae</uri>
-						<scale>1.0 0.9999998211860657 0.9999998211860657</scale>
+						<scale>1 1 1</scale>
 					</mesh>
 				</geometry>
 			</visual>
@@ -1006,7 +1006,7 @@
 				<geometry>
 					<mesh>
 						<uri>model://google_grasp/meshes/visual/VIS_hollhollie_022_littlefinger_bf_rot_Coll.dae</uri>
-						<scale>1.0 0.9999998807907104 0.9999998807907104</scale>
+						<scale>1 1 1</scale>
 					</mesh>
 				</geometry>
 			</collision>
@@ -1015,7 +1015,7 @@
 				<geometry>
 					<mesh>
 						<uri>model://google_grasp/meshes/visual/VIS_hollhollie_022_littlefinger_bf_rot.dae</uri>
-						<scale>1.0 0.9999998807907104 0.9999998211860657</scale>
+						<scale>1 1 1</scale>
 					</mesh>
 				</geometry>
 			</visual>
@@ -1054,34 +1054,34 @@
 			</visual>
 		</link>
 		<link name="hollie_024_littlefinger_topsegment_bf_rot">
-			<pose>-0.020637467830031345 -0.35725010855899053 2.0250399939671264 3.1415925261141715 -1.5707961638742167 1.6231561981848475</pose>
+			<pose>-0.0206577 -0.357268 2.02504 2.77323 -1.57079 1.99152</pose>
 			<inertial>
-				<mass>9.999999747378752e-06</mass>
-				<pose>-7.883311354817124e-07 3.3314966003672453e-06 -9.800174893825897e-08 0.02670348808169365 1.0853346310568668e-07 1.4452926961894264e-06</pose>
+				<mass>0.00001</mass>
+				<pose>0 0 0 0 0 0</pose>
 				<inertia>
-					<ixx>0.009999999776482582</ixx>
-					<ixy>0.0</ixy>
-					<ixz>0.0</ixz>
-					<iyy>0.009999999776482582</iyy>
-					<iyz>0.0</iyz>
-					<izz>0.009999999776482582</izz>
+					<ixx>0.01</ixx>
+					<ixy>0</ixy>
+					<ixz>0</ixz>
+					<iyy>0.01</iyy>
+					<iyz>0</iyz>
+					<izz>0.01</izz>
 				</inertia>
 			</inertial>
 			<collision name="VIS_hollhollie_024_littlefinger_topsegment_bf_rot_Coll">
-				<pose>-1.026750055643788e-06 2.7317250896885525e-06 4.1154814311994414e-07 -5.029141334489395e-07 2.139597796713133e-07 -1.0423635643519447e-07</pose>
+				<pose>-5.29155e-07 -5.1065e-07 5.22609e-07 0 0 0</pose>
 				<geometry>
 					<mesh>
 						<uri>model://google_grasp/meshes/visual/VIS_hollhollie_024_littlefinger_topsegment_bf_rot_Coll.dae</uri>
-						<scale>1.0 0.9999998807907104 0.9999998211860657</scale>
+						<scale>1 1 1</scale>
 					</mesh>
 				</geometry>
 			</collision>
 			<visual name="VIS_hollhollie_024_littlefinger_topsegment_bf_rot">
-				<pose>-1.2651686347453506e-06 2.7112362204206875e-06 5.023521225666627e-07 -0.02905253693461418 2.1689443485684023e-07 1.3268505654195906e-06</pose>
+				<pose>-5.29155e-07 -5.1065e-07 5.22609e-07 -3.09199e-07 8.1242e-08 -3.73274e-07</pose>
 				<geometry>
 					<mesh>
 						<uri>model://google_grasp/meshes/visual/VIS_hollhollie_024_littlefinger_topsegment_bf_rot.dae</uri>
-						<scale>1.0 0.9999999403953552 0.9999998211860657</scale>
+						<scale>1 1 1</scale>
 					</mesh>
 				</geometry>
 			</visual>
@@ -1201,34 +1201,34 @@
 			</visual>
 		</link>
 		<link name="hollie_028_ringfinger_topsegment_bf_rot">
-			<pose>-0.019517606830065228 -0.37872020943930673 2.050039997602833 3.1415925261141715 -1.5707961638742167 1.6231561981848475</pose>
+			<pose>-0.0195325 -0.378738 2.05004 2.77323 -1.57079 1.99152</pose>
 			<inertial>
-				<mass>9.999999747378752e-06</mass>
-				<pose>-5.52634787709394e-07 1.7679907386991545e-06 -6.982020295254188e-08 0.02684665471315384 1.3460294212563895e-07 1.4456181816058233e-06</pose>
+				<mass>0.00001</mass>
+				<pose>0 0 0 0 0 0</pose>
 				<inertia>
-					<ixx>0.009999999776482582</ixx>
-					<ixy>0.0</ixy>
-					<ixz>0.0</ixz>
-					<iyy>0.009999999776482582</iyy>
-					<iyz>0.0</iyz>
-					<izz>0.009999999776482582</izz>
+					<ixx>0.01</ixx>
+					<ixy>0</ixy>
+					<ixz>0</ixz>
+					<iyy>0.01</iyy>
+					<iyz>0</iyz>
+					<izz>0.01</izz>
 				</inertia>
 			</inertial>
 			<collision name="VIS_hollie_028_ringfinger_topsegment_bf_rot_Coll">
-				<pose>1.6262079327589163e-07 1.589176235938794e-06 -2.697054526379361e-07 0.020018091425299644 2.2886094086516096e-07 -1.0423630669720296e-07</pose>
+				<pose>9.02224e-07 -4.65304e-08 -2.12862e-07 0 0 0</pose>
 				<geometry>
 					<mesh>
 						<uri>model://google_grasp/meshes/visual/VIS_hollie_028_ringfinger_topsegment_bf_rot_Coll.dae</uri>
-						<scale>1.0 0.9999997019767761 0.9999997019767761</scale>
+						<scale>1 1 1</scale>
 					</mesh>
 				</geometry>
 			</collision>
 			<visual name="VIS_hollhollie_028_ringfinger_topsegment_bf_rot">
-				<pose>4.0103938658830884e-07 1.6059398149081971e-06 -2.1079935663692595e-07 -0.027183478698134422 3.4597891840348893e-07 1.3216736078902613e-06</pose>
+				<pose>9.02224e-07 -4.65304e-08 -2.12862e-07 0.0200179 8.74808e-08 -2.54228e-07</pose>
 				<geometry>
 					<mesh>
 						<uri>model://google_grasp/meshes/visual/VIS_hollhollie_028_ringfinger_topsegment_bf_rot.dae</uri>
-						<scale>1.0 0.9999997019767761 0.9999997019767761</scale>
+						<scale>1 1 1</scale>
 					</mesh>
 				</geometry>
 			</visual>
@@ -1556,16 +1556,16 @@
 			</visual>
 		</link>
 		
-		<joint name="arm_0_joint_base_z_rot" type="fixed">
+		<joint name="arm_0_joint_base_z_rot" type="prismatic">
 			<parent>base_link</parent>
 			<child>arm_0_link_link_base_z_rot</child>
 			<axis>
-				<xyz>0.0 0.0 1.0</xyz>
+				<xyz>-0.0523359 0.99863 0</xyz>
 				<limit>
-					<lower>-1.5707963267948966</lower>
-					<upper>1.5707963267948966</upper>
+					<lower>0</lower>
+					<upper>0</upper>
   				        <effort>1000</effort>
-       					<velocity>4</velocity>
+       					<velocity>1</velocity>
 				</limit>			
 				<dynamics>
           				<damping>1</damping>
@@ -1573,6 +1573,7 @@
           				<spring_reference>0</spring_reference>
           				<spring_stiffness>0</spring_stiffness>
         			</dynamics>
+        			<use_parent_model_frame>1</use_parent_model_frame>
 			</axis>
 
 		</joint>
@@ -1582,10 +1583,10 @@
 			<axis>
 				<xyz>0.0 0.0 1.0</xyz>
 				<limit>
-					<lower>-1.5707963267948966</lower>
-					<upper>1.5707963267948966</upper>
+					<lower></lower>
+					<upper></upper>
   				        <effort>1000</effort>
-       					<velocity>4</velocity>
+       					<velocity>10</velocity>
 				</limit>
 				<dynamics>
           				<damping>1</damping>
@@ -1593,18 +1594,19 @@
           				<spring_reference>0</spring_reference>
           				<spring_stiffness>0</spring_stiffness>
         			</dynamics>
+        			<use_parent_model_frame>1</use_parent_model_frame>
 			</axis>
 		</joint>
 		<joint name="hollie_001_base_x_rot_joint" type="revolute">
 			<parent>hollie_000</parent>
 			<child>hollie_001_base_x_rot</child>
 			<axis>
-				<xyz>0.0 0.0 1.0</xyz>
+				<xyz>0.99863 0.0523359 -4.37114e-08</xyz>
 				<limit>
-					<lower>-1.5707963267948966</lower>
-					<upper>1.5707963267948966</upper>
+					<lower>-1.5707963</lower>
+					<upper>1.5707963</upper>
   				        <effort>1000</effort>
-       					<velocity>4</velocity>
+       					<velocity>1</velocity>
 				</limit>
 				<dynamics>
           				<damping>1</damping>
@@ -1612,18 +1614,19 @@
           				<spring_reference>0</spring_reference>
           				<spring_stiffness>0</spring_stiffness>
         			</dynamics>
+        			<use_parent_model_frame>1</use_parent_model_frame>
 			</axis>
 		</joint>
 		<joint name="hollie_002_upper_x_rot_joint" type="revolute">
 			<parent>hollie_001_base_x_rot</parent>
 			<child>hollie_002_upper_x_rot</child>
 			<axis>
-				<xyz>0.0 0.0 1.0</xyz>
+				<xyz>-0.99863 -0.0523361 4.37114e-08</xyz>
 				<limit>
 					<lower>-2.748893571891069</lower>
 					<upper>2.748893571891069</upper>
   				        <effort>1000</effort>
-       					<velocity>4</velocity>
+       					<velocity>10</velocity>
 				</limit>
 				<dynamics>
           				<damping>1</damping>
@@ -1631,18 +1634,19 @@
           				<spring_reference>0</spring_reference>
           				<spring_stiffness>0</spring_stiffness>
         			</dynamics>
+        			<use_parent_model_frame>1</use_parent_model_frame>
 			</axis>
 		</joint>
 		<joint name="hollie_003_joint" type="revolute">
 			<parent>hollie_002_upper_x_rot</parent>
 			<child>hollie_003</child>
 			<axis>
-				<xyz>0.0 0.0 1.0</xyz>
+				<xyz>9.52055e-08 -1.46214e-07 1</xyz>
 				<limit>
-					<lower>-1.5707963267948966</lower>
-					<upper>1.5707963267948966</upper>
+					<lower></lower>
+					<upper></upper>
   				        <effort>1000</effort>
-       					<velocity>4</velocity>
+       					<velocity>10</velocity>
 				</limit>
 				<dynamics>
           				<damping>1</damping>
@@ -1650,18 +1654,19 @@
           				<spring_reference>0</spring_reference>
           				<spring_stiffness>0</spring_stiffness>
         			</dynamics>
+        			<use_parent_model_frame>1</use_parent_model_frame>
 			</axis>
 		</joint>
 		<joint name="hollie_004_wrist_x_rot_joint" type="revolute">
 			<parent>hollie_003</parent>
 			<child>hollie_004_wrist_x_rot</child>
 			<axis>
-				<xyz>0.0 0.0 1.0</xyz>
+				<xyz>-0.99863 -0.0523362 4.37114e-08</xyz>
 				<limit>
 					<lower>-2.6179938779914944</lower>
 					<upper>2.6179938779914944</upper>
   				        <effort>1000</effort>
-       					<velocity>4</velocity>
+       					<velocity>1</velocity>
 				</limit>
 				<dynamics>
           				<damping>1</damping>
@@ -1669,18 +1674,19 @@
           				<spring_reference>0</spring_reference>
           				<spring_stiffness>0</spring_stiffness>
         			</dynamics>
+        			<use_parent_model_frame>1</use_parent_model_frame>
 			</axis>
 		</joint>
-		<joint name="hollie_005_joint" type="fixed">
+		<joint name="hollie_005_joint" type="revolute">
 			<parent>hollie_004_wrist_x_rot</parent>
 			<child>hollie_005</child>
 			<axis>
-				<xyz>0.0 0.0 1.0</xyz>
+				<xyz>9.52055e-08 -1.46214e-07 1</xyz>
 				<limit>
-					<lower>-1.5707963267948966</lower>
-					<upper>1.5707963267948966</upper>
+					<lower></lower>
+					<upper></upper>
   				        <effort>1000</effort>
-       					<velocity>4</velocity>
+       					<velocity>1</velocity>
 				</limit>
 				<dynamics>
           				<damping>1</damping>
@@ -1688,18 +1694,19 @@
           				<spring_reference>0</spring_reference>
           				<spring_stiffness>0</spring_stiffness>
         			</dynamics>
+        			<use_parent_model_frame>1</use_parent_model_frame>
 			</axis>
 		</joint>
-		<joint name="hollie_006_wrist_lat_rot_joint" type="revolute">
+		<joint name="hollie_006_wrist_lat_rot_joint" type="prismatic">
 			<parent>hollie_005</parent>
 			<child>hollie_006_wrist_lat_rot</child>
 			<axis>
-				<xyz>0.0 0.0 1.0</xyz>
+				<xyz>0.0523362 -0.99863 -1.50996e-07</xyz>
 				<limit>
-					<lower>-1.5707963267948966</lower>
-					<upper>1.5707963267948966</upper>
+					<lower>0</lower>
+					<upper>0</upper>
   				        <effort>1000</effort>
-       					<velocity>4</velocity>
+       					<velocity>1</velocity>
 				</limit>
 				<dynamics>
           				<damping>1</damping>
@@ -1707,18 +1714,19 @@
           				<spring_reference>0</spring_reference>
           				<spring_stiffness>0</spring_stiffness>
         			</dynamics>
+        			<use_parent_model_frame>1</use_parent_model_frame>
 			</axis>
 		</joint>
-		<joint name="hollie_007_wrist_lat_rot_joint" type="fixed">
+		<joint name="hollie_007_wrist_lat_rot_joint" type="prismatic">
 			<parent>hollie_006_wrist_lat_rot</parent>
 			<child>hollie_007_wrist_lat_rot</child>
 			<axis>
-				<xyz>0.0 0.0 1.0</xyz>
+				<xyz>0.0523362 -0.99863 -1.50996e-07</xyz>
 				<limit>
-					<lower>-1.5707963267948966</lower>
-					<upper>1.5707963267948966</upper>
+					<lower>0</lower>
+					<upper>0</upper>
   				        <effort>1000</effort>
-       					<velocity>4</velocity>
+       					<velocity>1</velocity>
 				</limit>
 				<dynamics>
           				<damping>1</damping>
@@ -1726,6 +1734,7 @@
           				<spring_reference>0</spring_reference>
           				<spring_stiffness>0</spring_stiffness>
         			</dynamics>
+        			<use_parent_model_frame>1</use_parent_model_frame>
 			</axis>
 		</joint>
 		<joint name="hollie_008_thumb_lat_rot_joint" type="revolute">
@@ -1735,9 +1744,9 @@
 				<xyz>0.0 0.0 1.0</xyz>
 				<limit>
 					<lower>0.0</lower>
-					<upper>3.141592653589793</upper>
+					<upper>0.9879</upper>
   				        <effort>1000</effort>
-       					<velocity>4</velocity>
+       					<velocity>1</velocity>
 				</limit>
 				<dynamics>
           				<damping>1</damping>
@@ -1745,18 +1754,19 @@
           				<spring_reference>0</spring_reference>
           				<spring_stiffness>0</spring_stiffness>
         			</dynamics>
+        			<use_parent_model_frame></use_parent_model_frame>
 			</axis>
 		</joint>
-		<joint name="hand_Thumb_Helper_link_joint" type="revolute">
+		<joint name="hand_Thumb_Helper_link_joint" type="prismatic">
 			<parent>hollie_008_thumb_lat_rot</parent>
 			<child>hand_Thumb_Helper_link</child>
 			<axis>
-				<xyz>0.0 0.0 1.0</xyz>
+				<xyz>0.258465 0.0135455 0.965926</xyz>
 				<limit>
-					<lower>2.0943951023931953</lower>
-					<upper>2.0943951023931953</upper>
-  				        <effort>15</effort>
-       					<velocity>4</velocity>
+					<lower>0</lower>
+					<upper>0</upper>
+  				        <effort>1000</effort>
+       					<velocity>1</velocity>
 				</limit>
 				<dynamics>
           				<damping>1</damping>
@@ -1764,18 +1774,19 @@
           				<spring_reference>0</spring_reference>
           				<spring_stiffness>0</spring_stiffness>
         			</dynamics>
+        			<use_parent_model_frame>1</use_parent_model_frame>
 			</axis>
 		</joint>
 		<joint name="hollie_009_thumb_base_rot_joint" type="revolute">
 			<parent>hand_Thumb_Helper_link</parent>
 			<child>hollie_009_thumb_base_rot</child>
 			<axis>
-				<xyz>-0.0 -0.0 -1.0</xyz>
+				<xyz>0 0 -1</xyz>
 				<limit>
-					<lower>-5.0</lower>
-					<upper>0.9599</upper>
+					<lower>0</lower>
+					<upper>0.9704</upper>
   				        <effort>1000</effort>
-       					<velocity>4</velocity>
+       					<velocity>1</velocity>
 				</limit>
 				<dynamics>
           				<damping>1</damping>
@@ -1783,6 +1794,7 @@
           				<spring_reference>0</spring_reference>
           				<spring_stiffness>0</spring_stiffness>
         			</dynamics>
+        			<use_parent_model_frame>0</use_parent_model_frame>
 			</axis>
 		</joint>
 		<joint name="hollie_010_thumb_tip_rot_joint" type="revolute">
@@ -1791,10 +1803,10 @@
 			<axis>
 				<xyz>-0.0 -0.0 -1.0</xyz>
 				<limit>
-					<lower>-5</lower>
-					<upper>0</upper>
+					<lower>0</lower>
+					<upper>0.98506</upper>
   				        <effort>1000</effort>
-       					<velocity>4</velocity>
+       					<velocity>1</velocity>
 				</limit>
 				<dynamics>
           				<damping>1</damping>
@@ -1802,18 +1814,19 @@
           				<spring_reference>0</spring_reference>
           				<spring_stiffness>0</spring_stiffness>
         			</dynamics>
+        			<use_parent_model_frame>0</use_parent_model_frame>
 			</axis>
 		</joint>
 		<joint name="hollie_011_thumb_topsegment_bf_rot_joint" type="revolute">
 			<parent>hollie_010_thumb_tip_rot</parent>
 			<child>hollie_011_thumb_topsegment_bf_rot</child>
 			<axis>
-				<xyz>-0.0 -0.0 -1.0</xyz>
+				<xyz>0 0 -1</xyz>
 				<limit>
-					<lower>-5</lower>
-					<upper>0.1</upper>
+					<lower>0</lower>
+					<upper>1.406</upper>
   				        <effort>1000</effort>
-       					<velocity>4</velocity>
+       					<velocity>1</velocity>
 				</limit>
 				<dynamics>
           				<damping>1</damping>
@@ -1821,18 +1834,19 @@
           				<spring_reference>0</spring_reference>
           				<spring_stiffness>0</spring_stiffness>
         			</dynamics>
+        			<use_parent_model_frame>0</use_parent_model_frame>
 			</axis>
 		</joint>
-		<joint name="hand_f1_joint" type="fixed">
+		<joint name="hand_f1_joint" type="prismatic">
 			<parent>hollie_007_wrist_lat_rot</parent>
 			<child>hand_f1_link</child>
 			<axis>
-				<xyz>0.0 0.0 1.0</xyz>
+				<xyz>0.0523362 -0.99863 -1.50996e-07</xyz>
 				<limit>
-					<lower>-1.5707963267948966</lower>
-					<upper>1.5707963267948966</upper>
+					<lower>0</lower>
+					<upper>0</upper>
   				        <effort>1000</effort>
-       					<velocity>4</velocity>
+       					<velocity>1</velocity>
 				</limit>
 				<dynamics>
           				<damping>1</damping>
@@ -1840,18 +1854,19 @@
           				<spring_reference>0</spring_reference>
           				<spring_stiffness>0</spring_stiffness>
         			</dynamics>
+        			<use_parent_model_frame>1</use_parent_model_frame>
 			</axis>
 		</joint>
-		<joint name="hand_f2_joint" type="fixed">
+		<joint name="hand_f2_joint" type="prismatic">
 			<parent>hand_f1_link</parent>
 			<child>hand_f2_link</child>
 			<axis>
-				<xyz>0.0 0.0 1.0</xyz>
+				<xyz>0.0523362 -0.99863 -1.50996e-07</xyz>
 				<limit>
 					<lower>0.0</lower>
 					<upper>0.0</upper>
   				        <effort>1000</effort>
-       					<velocity>4</velocity>
+       					<velocity>1</velocity>
 				</limit>				
 				<dynamics>
           				<damping>1</damping>
@@ -1859,18 +1874,19 @@
           				<spring_reference>0</spring_reference>
           				<spring_stiffness>0</spring_stiffness>
         			</dynamics>
+        			<use_parent_model_frame>1</use_parent_model_frame>
 			</axis>
 		</joint>
-		<joint name="hand_f3_joint" type="fixed">
+		<joint name="hand_f3_joint" type="prismatic">
 			<parent>hand_f2_link</parent>
 			<child>hand_f3_link</child>
 			<axis>
-				<xyz>0.0 0.0 1.0</xyz>
+				<xyz>0.0523362 -0.99863 -1.50996e-07</xyz>
 				<limit>
-					<lower>0.0</lower>
-					<upper>0.0</upper>
+					<lower>0</lower>
+					<upper>0</upper>
   				        <effort>1000</effort>
-       					<velocity>4</velocity>
+       					<velocity>1</velocity>
 				</limit>
 				<dynamics>
           				<damping>1</damping>
@@ -1878,18 +1894,19 @@
           				<spring_reference>0</spring_reference>
           				<spring_stiffness>0</spring_stiffness>
         			</dynamics>
+        			<use_parent_model_frame>1</use_parent_model_frame>
 			</axis>
 		</joint>
 		<joint name="hollie_012_indexfing_lr_rot_joint" type="revolute">
 			<parent>hand_f3_link</parent>
 			<child>hollie_012_indexfing_lr_rot</child>
 			<axis>
-				<xyz>0.0 0.0 1.0</xyz>
+				<xyz>-0.99863 -0.0523363 8.74227e-08</xyz>
 				<limit>
 					<lower>0.0</lower>
-					<upper>0.2883299983156006</upper>
+					<upper>0.2883</upper>
   				        <effort>1000</effort>
-       					<velocity>4</velocity>
+       					<velocity>1</velocity>
 				</limit>
 				<dynamics>
           				<damping>1</damping>
@@ -1897,18 +1914,19 @@
           				<spring_reference>0</spring_reference>
           				<spring_stiffness>0</spring_stiffness>
         			</dynamics>
+        			<use_parent_model_frame>1</use_parent_model_frame>
 			</axis>
 		</joint>
 		<joint name="hollie_013_indexfing_bf_rot_joint" type="revolute">
 			<parent>hollie_012_indexfing_lr_rot</parent>
 			<child>hollie_013_indexfing_bf_rot</child>
 			<axis>
-				<xyz>0.0 0.0 1.0</xyz>
+				<xyz>-0.0523362 0.99863 2.26494e-07</xyz>
 				<limit>
 					<lower>0.0</lower>
-					<upper>0.24434609527920614</upper>
+					<upper>0.79849</upper>
   				        <effort>1000</effort>
-       					<velocity>4</velocity>
+       					<velocity>1</velocity>
 				</limit>
 				<dynamics>
           				<damping>1</damping>
@@ -1916,18 +1934,19 @@
           				<spring_reference>0</spring_reference>
           				<spring_stiffness>0</spring_stiffness>
         			</dynamics>
+        			<use_parent_model_frame>1</use_parent_model_frame>
 			</axis>
 		</joint>
 		<joint name="hollie_014_indexfing_midsegment_bf_rot_joint" type="revolute">
 			<parent>hollie_013_indexfing_bf_rot</parent>
 			<child>hollie_014_indexfing_midsegment_bf_rot</child>
 			<axis>
-				<xyz>0.0 0.0 1.0</xyz>
+				<xyz>-0.0523362 0.99863 2.26494e-07</xyz>
 				<limit>
-					<lower>0.0</lower>
-					<upper>1.3264502315156905</upper>
+					<lower>0</lower>
+					<upper>1.334</upper>
   				        <effort>1000</effort>
-       					<velocity>4</velocity>
+       					<velocity>1</velocity>
 				</limit>
 				<dynamics>
           				<damping>1</damping>
@@ -1935,18 +1954,19 @@
           				<spring_reference>0</spring_reference>
           				<spring_stiffness>0</spring_stiffness>
         			</dynamics>
+        			<use_parent_model_frame>1</use_parent_model_frame>
 			</axis>
 		</joint>
 		<joint name="hollie_015_indexfing_topsegment_bf_rot_joint" type="revolute">
 			<parent>hollie_014_indexfing_midsegment_bf_rot</parent>
 			<child>hollie_015_indexfing_topsegment_bf_rot</child>
 			<axis>
-				<xyz>0.0 0.0 1.0</xyz>
+				<xyz>-0.0523362 0.99863 2.26494e-07</xyz>
 				<limit>
-					<lower>0.0</lower>
-					<upper>1.3962634015954636</upper>
+					<lower>0</lower>
+					<upper>1.394</upper>
   				        <effort>1000</effort>
-       					<velocity>4</velocity>
+       					<velocity>1</velocity>
 				</limit>
 				<dynamics>
           				<damping>1</damping>
@@ -1954,18 +1974,19 @@
           				<spring_reference>0</spring_reference>
           				<spring_stiffness>0</spring_stiffness>
         			</dynamics>
+        			<use_parent_model_frame>1</use_parent_model_frame>
 			</axis>
 		</joint>
-		<joint name="hollie_016_midfing_lr_rot_joint" type="revolute">
+		<joint name="hollie_016_midfing_lr_rot_joint" type="prismatic">
 			<parent>hand_f1_link</parent>
 			<child>hollie_016_midfing_lr_rot</child>
 			<axis>
-				<xyz>0.0 0.0 1.0</xyz>
+				<xyz>9.91568e-08 -2.21608e-07 1</xyz>
 				<limit>
-					<lower>-1.5707963267948966</lower>
-					<upper>1.5707963267948966</upper>
+					<lower>0</lower>
+					<upper>0</upper>
   				        <effort>1000</effort>
-       					<velocity>4</velocity>
+       					<velocity>1</velocity>
 				</limit>
 				<dynamics>
           				<damping>1</damping>
@@ -1973,18 +1994,19 @@
           				<spring_reference>0</spring_reference>
           				<spring_stiffness>0</spring_stiffness>
         			</dynamics>
+        			<use_parent_model_frame>1</use_parent_model_frame>
 			</axis>
 		</joint>
 		<joint name="hollie_017_midfing_bf_rot_joint" type="revolute">
 			<parent>hollie_016_midfing_lr_rot</parent>
 			<child>hollie_017_midfing_bf_rot</child>
 			<axis>
-				<xyz>0.0 0.0 1.0</xyz>
+				<xyz>-0.0523362 0.99863 2.26494e-07</xyz>
 				<limit>
-					<lower>0.0</lower>
-					<upper>0.24434609527920614</upper>
+					<lower>0</lower>
+					<upper>0.79849</upper>
   				        <effort>1000</effort>
-       					<velocity>4</velocity>
+       					<velocity>1</velocity>
 				</limit>
 				<dynamics>
           				<damping>1</damping>
@@ -1992,18 +2014,19 @@
           				<spring_reference>0</spring_reference>
           				<spring_stiffness>0</spring_stiffness>
         			</dynamics>
+        			<use_parent_model_frame>1</use_parent_model_frame>
 			</axis>
 		</joint>
 		<joint name="hollie_018_midfing_midsegment_bf_rot_joint" type="revolute">
 			<parent>hollie_017_midfing_bf_rot</parent>
 			<child>hollie_018_midfing_midsegment_bf_rot</child>
 			<axis>
-				<xyz>0.0 0.0 1.0</xyz>
+				<xyz>-0.0523362 0.99863 2.26494e-07</xyz>
 				<limit>
-					<lower>0.0</lower>
-					<upper>1.3264502315156905</upper>
+					<lower>0</lower>
+					<upper>1.334</upper>
   				        <effort>1000</effort>
-       					<velocity>4</velocity>
+       					<velocity>1</velocity>
 				</limit>
 				<dynamics>
           				<damping>1</damping>
@@ -2011,18 +2034,19 @@
           				<spring_reference>0</spring_reference>
           				<spring_stiffness>0</spring_stiffness>
         			</dynamics>
+        			<use_parent_model_frame>1</use_parent_model_frame>
 			</axis>
 		</joint>
 		<joint name="hollie_019_midfing_topsegment_bf_rot_joint" type="revolute">
 			<parent>hollie_018_midfing_midsegment_bf_rot</parent>
 			<child>hollie_019_midfing_topsegment_bf_rot</child>
 			<axis>
-				<xyz>0.0 0.0 1.0</xyz>
+				<xyz>-0.0523362 0.99863 2.26494e-07</xyz>
 				<limit>
 					<lower>0.0</lower>
-					<upper>1.3962634015954636</upper>
+					<upper>1.334</upper>
   				        <effort>1000</effort>
-       					<velocity>4</velocity>
+       					<velocity>1</velocity>
 				</limit>
 				<dynamics>
           				<damping>1</damping>
@@ -2030,18 +2054,19 @@
           				<spring_reference>0</spring_reference>
           				<spring_stiffness>0</spring_stiffness>
         			</dynamics>
+        			<use_parent_model_frame>1</use_parent_model_frame>
 			</axis>
 		</joint>
 		<joint name="hollie_020_outerhand_rot_joint" type="revolute">
 			<parent>hollie_007_wrist_lat_rot</parent>
 			<child>hollie_020_outerhand_rot</child>
 			<axis>
-				<xyz>0.0 0.0 1.0</xyz>
+				<xyz>0.0 0.0 -1.0</xyz>
 				<limit>
-					<lower>-0.5235987755982988</lower>
-					<upper>0.0</upper>
+					<lower>0</lower>
+					<upper>0.98786</upper>
   				        <effort>1000</effort>
-       					<velocity>4</velocity>
+       					<velocity>1</velocity>
 				</limit>
 				<dynamics>
           				<damping>1</damping>
@@ -2049,18 +2074,19 @@
           				<spring_reference>0</spring_reference>
           				<spring_stiffness>0</spring_stiffness>
         			</dynamics>
+        			<use_parent_model_frame>1</use_parent_model_frame>
 			</axis>
 		</joint>
-		<joint name="hand_f5_link_joint" type="fixed">
+		<joint name="hand_f5_link_joint" type="prismatic">
 			<parent>hollie_020_outerhand_rot</parent>
 			<child>hand_f5_link</child>
 			<axis>
-				<xyz>0.0 0.0 1.0</xyz>
+				<xyz>0.0523362 -0.99863 -1.50996e-07</xyz>
 				<limit>
-					<lower>0.0</lower>
-					<upper>0.0</upper>
+					<lower>0</lower>
+					<upper>0</upper>
   				        <effort>1000</effort>
-       					<velocity>4</velocity>
+       					<velocity>1</velocity>
 				</limit>
 				<dynamics>
           				<damping>1</damping>
@@ -2068,18 +2094,19 @@
           				<spring_reference>0</spring_reference>
           				<spring_stiffness>0</spring_stiffness>
         			</dynamics>
+        			<use_parent_model_frame>1</use_parent_model_frame>
 			</axis>
 		</joint>
-		<joint name="hand_f6_link_joint" type="fixed">
+		<joint name="hand_f6_link_joint" type="prismatic">
 			<parent>hand_f5_link</parent>
 			<child>hand_f6_link</child>
 			<axis>
-				<xyz>0.0 0.0 1.0</xyz>
+				<xyz>0.0523362 -0.99863 -1.50996e-07</xyz>
 				<limit>
-					<lower>0.0</lower>
-					<upper>0.0</upper>
+					<lower>0</lower>
+					<upper>0</upper>
   				        <effort>1000</effort>
-       					<velocity>4</velocity>
+       					<velocity>1</velocity>
 				</limit>
 				<dynamics>
           				<damping>1</damping>
@@ -2087,18 +2114,19 @@
           				<spring_reference>0</spring_reference>
           				<spring_stiffness>0</spring_stiffness>
         			</dynamics>
+        			<use_parent_model_frame>1</use_parent_model_frame>
 			</axis>
 		</joint>
-		<joint name="hand_f7_link_joint" type="fixed">
+		<joint name="hand_f7_link_joint" type="prismatic">
 			<parent>hand_f6_link</parent>
 			<child>hand_f7_link</child>
 			<axis>
-				<xyz>0.0 0.0 1.0</xyz>
+				<xyz>0.0523362 -0.99863 -1.50996e-07</xyz>
 				<limit>
-					<lower>-1.5707963267948966</lower>
-					<upper>1.5707963267948966</upper>
+					<lower>0</lower>
+					<upper>0</upper>
   				        <effort>1000</effort>
-       					<velocity>4</velocity>
+       					<velocity>1</velocity>
 				</limit>
 				<dynamics>
           				<damping>1</damping>
@@ -2106,18 +2134,19 @@
           				<spring_reference>0</spring_reference>
           				<spring_stiffness>0</spring_stiffness>
         			</dynamics>
+        			<use_parent_model_frame>1</use_parent_model_frame>
 			</axis>
 		</joint>
 		<joint name="hollie_021_littlefinger_lr_rot_joint" type="revolute">
 			<parent>hand_f7_link</parent>
 			<child>hollie_021_littlefinger_lr_rot</child>
 			<axis>
-				<xyz>0.0 0.0 1.0</xyz>
+				<xyz>0.99863 0.0523362 -8.74228e-08</xyz>
 				<limit>
 					<lower>0.0</lower>
-					<upper>0.5828999828023386</upper>
+					<upper>0.5829</upper>
   				        <effort>1000</effort>
-       					<velocity>4</velocity>
+       					<velocity>1</velocity>
 				</limit>
 				<dynamics>
           				<damping>1</damping>
@@ -2125,18 +2154,19 @@
           				<spring_reference>0</spring_reference>
           				<spring_stiffness>0</spring_stiffness>
         			</dynamics>
+        			<use_parent_model_frame>1</use_parent_model_frame>
 			</axis>
 		</joint>
 		<joint name="hollie_022_littlefinger_bf_rot_joint" type="revolute">
 			<parent>hollie_021_littlefinger_lr_rot</parent>
 			<child>hollie_022_littlefinger_bf_rot</child>
 			<axis>
-				<xyz>0.0 0.0 1.0</xyz>
+				<xyz>-0.0523362 0.99863 2.26494e-07</xyz>
 				<limit>
 					<lower>0.0</lower>
-					<upper>0.24434609527920614</upper>
+					<upper>0.98175</upper>
   				        <effort>1000</effort>
-       					<velocity>4</velocity>
+       					<velocity>1</velocity>
 				</limit>
 				<dynamics>
           				<damping>1</damping>
@@ -2144,16 +2174,17 @@
           				<spring_reference>0</spring_reference>
           				<spring_stiffness>0</spring_stiffness>
         			</dynamics>
+        			<use_parent_model_frame>1</use_parent_model_frame>
 			</axis>
 		</joint>
 		<joint name="hollie_023_littlefinger_midsegment_bf_rot_joint" type="revolute">
 			<parent>hollie_022_littlefinger_bf_rot</parent>
 			<child>hollie_023_littlefinger_midsegment_bf_rot</child>
 			<axis>
-				<xyz>0.0 0.0 1.0</xyz>
+				<xyz>-0.0523362 0.99863 2.26494e-07</xyz>
 				<limit>
-					<lower>0.0</lower>
-					<upper>1.3264502315156905</upper>
+					<lower>0</lower>
+					<upper>1.334</upper>
   				        <effort>1000</effort>
        					<velocity>4</velocity>
 				</limit>
@@ -2163,18 +2194,19 @@
           				<spring_reference>0</spring_reference>
           				<spring_stiffness>0</spring_stiffness>
         			</dynamics>
+        			<use_parent_model_frame>1</use_parent_model_frame>
 			</axis>
 		</joint>
 		<joint name="hollie_024_littlefinger_topsegment_bf_rot_joint" type="revolute">
 			<parent>hollie_023_littlefinger_midsegment_bf_rot</parent>
 			<child>hollie_024_littlefinger_topsegment_bf_rot</child>
 			<axis>
-				<xyz>0.0 0.0 1.0</xyz>
+				<xyz>-0.0523362 0.99863 2.26494e-07</xyz>
 				<limit>
 					<lower>0.0</lower>
-					<upper>1.3962634015954636</upper>
+					<upper>1.3971</upper>
   				        <effort>1000</effort>
-       					<velocity>4</velocity>
+       					<velocity>1</velocity>
 				</limit>
 				<dynamics>
           				<damping>1</damping>
@@ -2182,18 +2214,19 @@
           				<spring_reference>0</spring_reference>
           				<spring_stiffness>0</spring_stiffness>
         			</dynamics>
+        			<use_parent_model_frame>1</use_parent_model_frame>
 			</axis>
 		</joint>
-		<joint name="hand_f8_joint" type="fixed">
+		<joint name="hand_f8_joint" type="prismatic">
 			<parent>hand_f6_link</parent>
 			<child>hand_f8_link</child>
 			<axis>
-				<xyz>0.0 0.0 1.0</xyz>
+				<xyz>0.0523362 -0.99863 -1.50996e-07</xyz>
 				<limit>
-					<lower>-1.5707963267948966</lower>
-					<upper>1.5707963267948966</upper>
+					<lower>0</lower>
+					<upper>0</upper>
   				        <effort>1000</effort>
-       					<velocity>4</velocity>
+       					<velocity>1</velocity>
 				</limit>
 				<dynamics>
           				<damping>1</damping>
@@ -2201,18 +2234,19 @@
           				<spring_reference>0</spring_reference>
           				<spring_stiffness>0</spring_stiffness>
         			</dynamics>
+        			<use_parent_model_frame>1</use_parent_model_frame>
 			</axis>
 		</joint>
 		<joint name="hollie_025_ringfinger_lr_rot_joint" type="revolute">
 			<parent>hand_f8_link</parent>
 			<child>hollie_025_ringfinger_lr_rot</child>
 			<axis>
-				<xyz>0.0 0.0 1.0</xyz>
+				<xyz>0.99863 0.0523362 -8.74228e-08</xyz>
 				<limit>
 					<lower>0.0</lower>
-					<upper>0.2883299983156006</upper>
+					<upper>0.28833</upper>
   				        <effort>1000</effort>
-       					<velocity>4</velocity>
+       					<velocity>1</velocity>
 				</limit>
 				<dynamics>
           				<damping>1</damping>
@@ -2220,18 +2254,19 @@
           				<spring_reference>0</spring_reference>
           				<spring_stiffness>0</spring_stiffness>
         			</dynamics>
+        			<use_parent_model_frame>1</use_parent_model_frame>
 			</axis>
 		</joint>
 		<joint name="hollie_026_ringfinger_bf_rot_joint" type="revolute">
 			<parent>hollie_025_ringfinger_lr_rot</parent>
 			<child>hollie_026_ringfinger_bf_rot</child>
 			<axis>
-				<xyz>0.0 0.0 1.0</xyz>
+				<xyz>-0.0523362 0.99863 2.26494e-07</xyz>
 				<limit>
-					<lower>0.0</lower>
-					<upper>0.9817499679337369</upper>
+					<lower>0</lower>
+					<upper>0.98175</upper>
   				        <effort>1000</effort>
-       					<velocity>4</velocity>
+       					<velocity>1</velocity>
 				</limit>
 				<dynamics>
           				<damping>1</damping>
@@ -2239,18 +2274,19 @@
           				<spring_reference>0</spring_reference>
           				<spring_stiffness>0</spring_stiffness>
         			</dynamics>
+        			<use_parent_model_frame>1</use_parent_model_frame>
 			</axis>
 		</joint>
 		<joint name="hollie_027_ringfinger_midsegment_bf_rot_joint" type="revolute">
 			<parent>hollie_026_ringfinger_bf_rot</parent>
 			<child>hollie_027_ringfinger_midsegment_bf_rot</child>
 			<axis>
-				<xyz>0.0 0.0 1.0</xyz>
+				<xyz>-0.0523362 0.99863 2.26494e-07</xyz>
 				<limit>
-					<lower>0.0</lower>
-					<upper>1.3340000268899561</upper>
+					<lower>0</lower>
+					<upper>1.334</upper>
   				        <effort>1000</effort>
-       					<velocity>4</velocity>
+       					<velocity>1</velocity>
 				</limit>
 				<dynamics>
           				<damping>1</damping>
@@ -2258,18 +2294,19 @@
           				<spring_reference>0</spring_reference>
           				<spring_stiffness>0</spring_stiffness>
         			</dynamics>
+        			<use_parent_model_frame>1</use_parent_model_frame>
 			</axis>
 		</joint>
 		<joint name="hollie_028_ringfinger_topsegment_bf_rot_joint" type="revolute">
 			<parent>hollie_027_ringfinger_midsegment_bf_rot</parent>
 			<child>hollie_028_ringfinger_topsegment_bf_rot</child>
 			<axis>
-				<xyz>0.0 0.0 1.0</xyz>
+				<xyz>-0.0523362 0.99863 2.26494e-07</xyz>
 				<limit>
 					<lower>0.0</lower>
-					<upper>1.39499999797433</upper>
+					<upper>1.395</upper>
   				        <effort>1000</effort>
-       					<velocity>4</velocity>
+       					<velocity>1</velocity>
 				</limit>
 				<dynamics>
           				<damping>1</damping>
@@ -2277,12 +2314,15 @@
           				<spring_reference>0</spring_reference>
           				<spring_stiffness>0</spring_stiffness>
         			</dynamics>
+        			<use_parent_model_frame>1</use_parent_model_frame>
 			</axis>
 		</joint>
 
     
 <!--    PID controller	-->
     <static>0</static>
+    
+
     <plugin name="grasp_schunk" filename="libgeneric_controller_plugin.so" >
 
  <!--   <controller joint_name="arm_0_joint_base_z_rot">
@@ -2316,39 +2356,37 @@
 	<pid>500.0 10.0 50.0</pid>
     </controller>
 
-
     <controller joint_name="hollie_005_joint">
         <type>position</type>
 	<pid>500.0 10.0 50.0</pid>
     </controller>
 
-
-     <controller joint_name="hand_f1_joint">
+    <controller joint_name="hand_f1_joint">
         <type>position</type>
 	<pid>100.0 0.1 0.1</pid>
     </controller>
 
-     <controller joint_name="hand_f2_joint">
+    <controller joint_name="hand_f2_joint">
         <type>position</type>
 	<pid>100.0 0.1 0.1</pid>
     </controller>
 
-     <controller joint_name="hand_f3_joint">
+    <controller joint_name="hand_f3_joint">
         <type>position</type>
 	<pid>100.0 0.1 0.1</pid>
     </controller>
 
-     <controller joint_name="hand_f5_link_joint">
+    <controller joint_name="hand_f5_link_joint">
         <type>position</type>
 	<pid>100.0 0.1 0.1</pid>
     </controller>
 
-     <controller joint_name="hand_f6_link_joint">
+    <controller joint_name="hand_f6_link_joint">
         <type>position</type>
 	<pid>100.0 0.1 0.1</pid>
     </controller>
 
-     <controller joint_name="hand_f8_joint">
+    <controller joint_name="hand_f8_joint">
         <type>position</type>
 	<pid>100.0 0.1 0.1</pid>
     </controller>
@@ -2358,7 +2396,7 @@
 	<pid>100.0 0.1 0.1</pid>
     </controller>
 
-     <controller joint_name="hollie_007_wrist_lat_rot_joint">
+    <controller joint_name="hollie_007_wrist_lat_rot_joint">
         <type>position</type>
 	<pid>100.0 0.1 0.1</pid>
     </controller>
@@ -2373,7 +2411,7 @@
 	<pid>100.0 0.1 0.1</pid>
     </controller>
 
-     <controller joint_name="hollie_009_thumb_base_rot_joint">
+    <controller joint_name="hollie_009_thumb_base_rot_joint">
         <type>position</type>
 	<pid>100.0 0.1 0.1</pid>
     </controller>
@@ -2398,52 +2436,52 @@
 	<pid>100.0 0.1 0.1</pid>
     </controller>
 
-     <controller joint_name="hollie_014_indexfing_midsegment_bf_rot_joint">
+    <controller joint_name="hollie_014_indexfing_midsegment_bf_rot_joint">
         <type>position</type>
 	<pid>100.0 0.1 0.1</pid>
     </controller>
 
-     <controller joint_name="hollie_015_indexfing_topsegment_bf_rot_joint">
+    <controller joint_name="hollie_015_indexfing_topsegment_bf_rot_joint">
         <type>position</type>
 	<pid>100.0 0.1 0.1</pid>
     </controller>
 
-     <controller joint_name="hollie_016_midfing_lr_rot_joint">
+    <controller joint_name="hollie_016_midfing_lr_rot_joint">
         <type>position</type>
 	<pid>100.0 0.1 0.1</pid>
     </controller>
 
-     <controller joint_name="hollie_017_midfing_bf_rot_joint">
+    <controller joint_name="hollie_017_midfing_bf_rot_joint">
         <type>position</type>
 	<pid>100.0 0.1 0.1</pid>
     </controller>
 
-     <controller joint_name="hollie_018_midfing_midsegment_bf_rot_joint">
+    <controller joint_name="hollie_018_midfing_midsegment_bf_rot_joint">
         <type>position</type>
 	<pid>100.0 0.1 0.1</pid>
     </controller>
 
-     <controller joint_name="hollie_019_midfing_topsegment_bf_rot_joint">
+    <controller joint_name="hollie_019_midfing_topsegment_bf_rot_joint">
         <type>position</type>
 	<pid>100.0 0.1 0.1</pid>
     </controller>
 
-     <controller joint_name="hollie_021_littlefinger_lr_rot_joint">
+    <controller joint_name="hollie_021_littlefinger_lr_rot_joint">
         <type>position</type>
 	<pid>100.0 0.1 0.1</pid>
     </controller>
 
-     <controller joint_name="hollie_022_littlefinger_bf_rot_joint">
+    <controller joint_name="hollie_022_littlefinger_bf_rot_joint">
         <type>position</type>
 	<pid>100.0 0.1 0.1</pid>
     </controller>
 
-     <controller joint_name="hollie_023_littlefinger_midsegment_bf_rot_joint">
+    <controller joint_name="hollie_023_littlefinger_midsegment_bf_rot_joint">
         <type>position</type>
 	<pid>100.0 0.1 0.1</pid>
     </controller>
 
-     <controller joint_name="hollie_024_littlefinger_topsegment_bf_rot_joint">
+    <controller joint_name="hollie_024_littlefinger_topsegment_bf_rot_joint">
         <type>position</type>
 	<pid>100.0 0.1 0.1</pid>
     </controller>
@@ -2468,26 +2506,21 @@
 	<pid>100.0 0.1 0.1</pid>
     </controller>
 
-     <controller joint_name="hollie_020_outerhand_rot_joint">
+    <controller joint_name="hollie_020_outerhand_rot_joint">
         <type>position</type>
 	<pid>100.0 0.1 0.1</pid>
     </controller>
 
     </plugin>
 
-<!--
    <plugin name="gazebo_grasp_fix" filename="libgazebo_grasp_fix.so">
         <arm>
            <arm_name>robot</arm_name>
            <palm_link>hollie_007_wrist_lat_rot</palm_link>
            <gripper_link>hollie_011_thumb_topsegment_bf_rot</gripper_link>
-           <!-index finger-
            <gripper_link>hollie_015_indexfing_topsegment_bf_rot</gripper_link>
-           <!-middle finger-
            <gripper_link>hollie_019_midfing_topsegment_bf_rot</gripper_link>
-           <!-pinky finger-
            <gripper_link>hollie_024_littlefinger_topsegment_bf_rot</gripper_link>
-           <!-ring finger-
            <gripper_link>hollie_028_ringfinger_topsegment_bf_rot</gripper_link>
         </arm>
        <forces_angle_tolerance>100</forces_angle_tolerance>
@@ -2498,7 +2531,8 @@
        <disable_collisions_on_attach>false</disable_collisions_on_attach>
        <contact_topic>__default_topic__</contact_topic>
     </plugin>
--->
+    
+
 </model>
 </sdf>
 
