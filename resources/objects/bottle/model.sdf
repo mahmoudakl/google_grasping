@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+	<model name="Bottle">
+		<link name="Obj_8">
+			<pose>0 0 0.04 0 0 0</pose>
+			<inertial>
+				<mass>0.7749353051185608</mass>
+				<pose>0.0007665753364562988 0.0874413400888443 -0.000755668617784977 -0.005236117169260979 1.1641533959050321e-08 -8.847565879932517e-08</pose>
+				<inertia>
+					<ixx>0.0006</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>0.0006</iyy>
+					<iyz>0.0</iyz>
+					<izz>0.0006</izz>
+				</inertia>
+			</inertial>
+			<collision name="COL_Obt_8_Bottle_Coll">
+				<pose>0.0009608566761016846 -0.00979718565940857 -0.0001743817701935768 -0.005236152093857527 1.1641533959050321e-08 -3.72529100900465e-08</pose>
+				<geometry>
+					<mesh>
+						<uri>model://bottle/meshes/collisions/COL_Obt_8_Bottle_Coll.dae</uri>
+						<scale>0.09999999403953552 0.10000000149011612 0.10000000149011612</scale>
+					</mesh>
+				</geometry>
+			</collision>
+			<visual name="VIS_Obt_8_Bottle">
+				<pose>0.0009608566761016846 -0.00979718565940857 -0.0001743817701935768 -0.005236152093857527 1.1641533959050321e-08 -3.72529100900465e-08</pose>
+				<geometry>
+					<mesh>
+						<uri>model://bottle/meshes/visual/VIS_Obt_8_Bottle.dae</uri>
+						<scale>0.09999999403953552 0.10000000149011612 0.10000000149011612</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+	</model>
+</sdf>

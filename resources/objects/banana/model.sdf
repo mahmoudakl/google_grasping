@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+	<model name="OBJECT">
+		<link name="Obj_3">
+			<pose>0 0 0.1 2.2 -0.296705961227417 0.01745329052209854</pose>
+			<inertial>
+				<mass>0.8622732758522034</mass>
+				<pose>0.03477764129638672 0.0029336530715227127 0.01468808762729168 2.1619239021219983e-07 1.229939812219527e-07 -1.3813895805014909e-07</pose>
+				<inertia>
+					<ixx>0.010104811936616898</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>0.02979417145252228</iyy>
+					<iyz>0.0</iyz>
+					<izz>0.022718265652656555</izz>
+				</inertia>
+			</inertial>
+			<collision name="VIS_Obj_3_Banana_Coll">
+				<pose>-0.18325240910053253 -0.042692720890045166 -0.0038590345066040754 3.054346677799913e-07 5.162897664945376e-08 -1.8141007274152798e-07</pose>
+				<geometry>
+					<mesh>
+						<uri>model://banana/meshes/collisions/COL_Obj_3_Banana_Coll.dae</uri>
+						<scale>0.11999999731779099 0.11999999731779099 0.11999999731779099</scale>
+					</mesh>
+				</geometry>
+			</collision>
+			<visual name="VIS_Obj_3_Banana">
+				<pose>-0.18325240910053253 -0.042692720890045166 -0.0038590345066040754 3.054346677799913e-07 5.162897664945376e-08 -1.8141007274152798e-07</pose>
+				<geometry>
+					<mesh>
+						<uri>model://banana/meshes/visual/VIS_Obj_3_Banana.dae</uri>
+						<scale>0.11999999731779099 0.11999999731779099 0.11999999731779099</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+	</model>
+</sdf>

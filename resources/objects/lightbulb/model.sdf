@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+	<model name="Lightbulb">
+		<link name="Obj_6">
+			<pose>0 0 0.03 0 -0.2 0</pose>
+			<inertial>
+				<mass>206.3406524658203</mass>
+				<pose>0.025539740920066833 0.004055231809616089 -0.00989457219839096 -0.008726701140403748 -2.0372681319713593e-07 -5.335702368824968e-08</pose>
+				<inertia>
+					<ixx>0.07458875122070312</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>0.2093234375</iyy>
+					<iyz>0.0</iyz>
+					<izz>0.19273070068359375</izz>
+				</inertia>
+			</inertial>
+			<collision name="COL_Obj_6_Lightbulb_Coll">
+				<pose>0.06560074537992477 0.03130060434341431 0.053160153329372406 -0.008726701140403748 -2.813370656440384e-07 -1.1641532893236217e-07</pose>
+				<geometry>
+					<mesh>
+						<uri>model://lightbulb/meshes/collisions/COL_Obj_6_Lightbulb_Coll.dae</uri>
+						<scale>0.012000000104308128 0.011999999172985554 0.012000000104308128</scale>
+					</mesh>
+				</geometry>
+			</collision>
+			<visual name="VIS_Obj_6_Lightbulb">
+				<pose>0.06560074537992477 0.03130060434341431 0.053160153329372406 -0.008726701140403748 -2.813370656440384e-07 -1.1641532893236217e-07</pose>
+				<geometry>
+					<mesh>
+						<uri>model://lightbulb/meshes/visual/VIS_Obj_6_Lightbulb.dae</uri>
+						<scale>0.012000000104308128 0.011999999172985554 0.012000000104308128</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+	</model>
+</sdf>

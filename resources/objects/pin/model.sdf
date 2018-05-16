@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+	<model name="Pin">
+		<link name="Obj_7">
+			<pose>0 0 0.05 0 0 0</pose>
+			<inertial>
+				<mass>602.91064453125</mass>
+				<pose>-0.0012545990757644176 0.11181618273258209 -0.00020163343288004398 -1.333925592206242e-08 9.701278003149127e-09 -1.0671405448192672e-07</pose>
+				<inertia>
+					<ixx>0.25</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>0.1</iyy>
+					<iyz>0.0</iyz>
+					<izz>0.25</izz>
+				</inertia>
+			</inertial>
+			<collision name="COL_Obj_7_Pin_Coll">
+				<pose>-0.001885515172034502 0.11175277829170227 -0.00020167962065897882 6.548361852765083e-08 9.701278003149127e-09 -1.0671405448192672e-07</pose>
+				<geometry>
+					<mesh>
+						<uri>model://pin/meshes/collisions/COL_Obj_7_Pin_Coll.dae</uri>
+						<scale>0.011999999172985554 0.012000000104308128 0.012000000104308128</scale>
+					</mesh>
+				</geometry>
+			</collision>
+			<visual name="VIS_Obj_7_Pin">
+				<pose>-0.001885515172034502 0.11175277829170227 -0.00020167962065897882 6.548361852765083e-08 9.701278003149127e-09 -1.0671405448192672e-07</pose>
+				<geometry>
+					<mesh>
+						<uri>model://pin/meshes/visual/VIS_Obj_7_Pin.dae</uri>
+						<scale>0.011999999172985554 0.012000000104308128 0.012000000104308128</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+	</model>
+</sdf>

@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+	<model name="Can">
+		<link name="Obj_4">
+			<pose>0 0 0.01 1.57 0 0</pose>
+			<inertial>
+				<mass>17.113351821899414</mass>
+				<pose>2.03549861907959e-05 0.04110730439424515 -0.0034202360548079014 3.2571827546235e-07 -3.7510421435626995e-08 6.208817637798347e-08</pose>
+				<inertia>
+					<ixx>0.02040497589111328</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>0.016866682052612305</iyy>
+					<iyz>0.0</iyz>
+					<izz>0.020349002838134766</izz>
+				</inertia>
+			</inertial>
+			<collision name="COL_Obj_4_Can_Coll">
+				<pose>-6.841868162155151e-05 -0.003405243158340454 -0.0034073039423674345 3.878064660511882e-07 -6.85544989664777e-08 -3.1044088188991736e-08</pose>
+				<geometry>
+					<mesh>
+						<uri>model://can/meshes/collisions/COL_Obj_4_Can_Coll.dae</uri>
+						<scale>0.029999999329447746 0.029999999329447746 0.029999997466802597</scale>
+					</mesh>
+				</geometry>
+			</collision>
+			<visual name="VIS_Obj_4_Can">
+				<pose>-6.841868162155151e-05 -0.003405243158340454 -0.0034073039423674345 3.878064660511882e-07 -6.85544989664777e-08 -3.1044088188991736e-08</pose>
+				<geometry>
+					<mesh>
+						<uri>model://can/meshes/visual/VIS_Obj_4_Can.dae</uri>
+						<scale>0.029999999329447746 0.029999999329447746 0.029999997466802597</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+	</model>
+</sdf>

@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+	<model name="Cup">
+		<link name="Obj_1">
+			<pose>0 0 0.01 1.57 0 0</pose>
+			<inertial>
+				<mass>11.517146110534668</mass>
+				<pose>0.016391828656196594 0.03499368578195572 0.0005457252264022827 0.0003556840238161385 0.0007357799913734198 0.0001756824494805187</pose>
+				<inertia>
+					<ixx>0.077557806968688965</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>0.11491321563720703</iyy>
+					<iyz>0.0</iyz>
+					<izz>0.11905232429504395</izz>
+				</inertia>
+			</inertial>
+			<collision name="COL_Obj_1_Cup">
+				<pose>-0.0016019195318222046 -0.0062777698040008545 0.0005717352032661438 0.00035545119317248464 0.0007355937268584967 0.00017555439262650907</pose>
+				<geometry>
+					<mesh>
+						<uri>model://cup/meshes/collisions/COL_Obj_1_Cup_Coll.dae</uri>
+						<scale>0.03999999910593033 0.03999999910593033 0.03999999910593033</scale>
+					</mesh>
+				</geometry>
+			</collision>
+			<visual name="VIS_Obj_1_Cup">
+				<pose>-0.0016019195318222046 -0.0062777698040008545 0.0005717352032661438 0.00035545119317248464 0.0007355937268584967 0.00017555439262650907</pose>
+				<geometry>
+					<mesh>
+						<uri>model://cup/meshes/visual/VIS_Obj_1_Cup.dae</uri>
+						<scale>0.03999999910593033 0.03999999910593033 0.03999999910593033</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+	</model>
+</sdf>

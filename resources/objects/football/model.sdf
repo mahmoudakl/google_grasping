@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+	<model name="Football">
+		<link name="Obj_5">
+			<pose>0 0 0.05 0 0 0</pose>
+			<inertial>
+				<mass>36.96764373779297</mass>
+				<pose>0.0002767220139503479 -0.0027475282549858093 -0.0002614259719848633 4.967053541804489e-07 2.0178657678115997e-07 1.4357890165683784e-07</pose>
+				<inertia>
+					<ixx>0.047036720275878906</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>0.09572296905517578</iyy>
+					<iyz>0.0</iyz>
+					<izz>0.09578512573242188</izz>
+				</inertia>
+			</inertial>
+			<collision name="COL_Obj_5_Football_Coll">
+				<pose>0.00024665892124176025 -0.002815559506416321 -0.00025914236903190613 4.2685610424086917e-07 1.2417633854511223e-07 1.1641532182693481e-08</pose>
+				<geometry>
+					<mesh>
+						<uri>model://football/meshes/collisions/COL_Obj_5_Football_Coll.dae</uri>
+						<scale>0.029999999329447746 0.029999999329447746 0.029999999329447746</scale>
+					</mesh>
+				</geometry>
+			</collision>
+			<visual name="VIS_Obj_5_Football">
+				<pose>0.00024665892124176025 -0.002815559506416321 -0.00025914236903190613 4.2685610424086917e-07 1.2417633854511223e-07 1.1641532182693481e-08</pose>
+				<geometry>
+					<mesh>
+						<uri>model://football/meshes/visual/VIS_Obj_5_Football.dae</uri>
+						<scale>0.029999999329447746 0.029999999329447746 0.029999999329447746</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+	</model>
+</sdf>
