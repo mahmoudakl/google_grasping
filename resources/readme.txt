@@ -2,9 +2,11 @@
 To get the newest google robot model and objects in your environment editor to drop in the bin, do:
 
 - drop google_grasp robot in your $HBP/Models
+- drop musc_arm robot in your $HBP/Models
 - drop objects folder in your $HBP/Models
 - add these lines to _rpmbuild/models.txt
 	google_grasp
+	musc_arm
 	objects/banana
 	objects/bottle
 	objects/can
