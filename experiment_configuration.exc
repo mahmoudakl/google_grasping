@@ -1,23 +1,22 @@
-<ExD 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xmlns="http://schemas.humanbrainproject.eu/SP10/2014/ExDConfig" xsi:schemaLocation="http://schemas.humanbrainproject.eu/SP10/2014/ExDConfig ../ExDConfFile.xsd">
-  <name>Google Grasping - Single Robot_Manipulation</name>
-  <thumbnail>google_grasping_single.png</thumbnail>
-  <description>This experiments loads the Schunk arm with gripper in the holodeck. Objects are placed in a bin to be grasped. The robot can be controlled via ROS by PID position controller, the camera image is published for vision.</description>
-  <tags>icub robotics holodeck template</tags>
-  <timeout>840.0</timeout>
-  <configuration src="google_grasping_single.3ds" type="3d-settings" />
-  <configuration src="google_grasping_single.uis" type="user-interaction-settings" />
-  <maturity>development</maturity>
-  <environmentModel src="google_virtuallab.sdf">
-    <robotPose theta="0.707106896726" ux="0.0" uy="0.0" uz="1.57" x="1.929" y="0.286" z="0.0" />
-  </environmentModel>
-  <bibiConf src="bibi_configuration.bibi" />
-  <experimentControl>
-    <stateMachine id="statemachine_0_1525861273136_frontend_generated" src="statemachine_0_1525861273136_frontend_generated.exd" xsi:type="SMACHStateMachine" />
-  </experimentControl>
-  <cameraPose>
-    <cameraPosition x="4.82578462912" y="-1.36703889486" z="1.62090225602" />
-    <cameraLookAt x="1.929" y="0.286" z="1.0" />
-  </cameraPose>
-</ExD>
+<?xml version="1.0" ?>
+<ns1:ExD xmlns:ns1="http://schemas.humanbrainproject.eu/SP10/2014/ExDConfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ns1:name>Google Grasping - Single Robot_Manipulation</ns1:name>
+	<ns1:thumbnail>google_grasping_single.png</ns1:thumbnail>
+	<ns1:description>This experiments loads the Schunk arm with gripper in the holodeck. Objects are placed in a bin to be grasped. The robot can be controlled via ROS by PID position controller, the camera image is published for vision.</ns1:description>
+	<ns1:tags>icub robotics holodeck template</ns1:tags>
+	<ns1:timeout>840.0</ns1:timeout>
+	<ns1:configuration src="google_grasping_single.3ds" type="3d-settings"/>
+	<ns1:configuration src="google_grasping_single.uis" type="user-interaction-settings"/>
+	<ns1:maturity>development</ns1:maturity>
+	<ns1:environmentModel src="google_virtuallab.sdf">
+		<ns1:robotPose pitch="0.003035" roll="0.039276" theta="0.707106896726" ux="0.0" uy="0.0" uz="1.57" x="2.12141" y="0.246332" yaw="2.29078" z="0.014197"/>
+	</ns1:environmentModel>
+	<ns1:bibiConf src="bibi_configuration.bibi"/>
+	<ns1:experimentControl>
+		<ns1:stateMachine id="statemachine_0_1525861273136_frontend_generated" src="statemachine_0_1525861273136_frontend_generated.exd" xsi:type="ns1:SMACHStateMachine"/>
+	</ns1:experimentControl>
+	<ns1:cameraPose>
+		<ns1:cameraPosition x="4.82578462912" y="-1.36703889486" z="1.62090225602"/>
+		<ns1:cameraLookAt x="1.929" y="0.286" z="1.0"/>
+	</ns1:cameraPose>
+</ns1:ExD>

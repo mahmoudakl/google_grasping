@@ -14,12 +14,13 @@ from smach_ros import ServiceState
 from hbp_nrp_excontrol.nrp_states import WaitToClockState, ClockDelayState, LinkPoseMonitorState
 import rospy
 from std_msgs.msg import String
-from gazebo_msgs.srv import SetModelState
-from gazebo_msgs.msg import ModelState
 from hbp_nrp_excontrol.logs import clientLogger
+import numpy as np
 
 arm_state = rospy.Publisher('/arm_robot/arm_commands', String, latch=True, queue_size=10)
 hand_state = rospy.Publisher('/arm_robot/hand_commands', String, latch=True, queue_size=10)
+
+counter = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 
 def notify_user_cb(adv_message):
     @smach.cb_interface(input_keys=[], output_keys=[], outcomes=['finished'])
@@ -28,39 +29,34 @@ def notify_user_cb(adv_message):
         return 'finished'
     return fun
 
-
 # Sends commands to the arm advertising a message to the user.
 # returns a callback for CBState.
-def send_arm_command(command, color=None, adv_message=None):
+def send_arm_command(command, direction=None, adv_message=None):
     @smach.cb_interface(input_keys=[], output_keys=[], outcomes=['finished', 'preempted'])
     def fun(user_data):
         if adv_message is not None:
             clientLogger.advertise(adv_message)
-        if color is not None:
-            arm_state.publish('{}_{}'.format(command, color))
+        if direction is not None:
+            arm_state.publish('{}_{}'.format(command, direction))
         else:
             arm_state.publish(command)
         return 'finished'
     return fun
 
+def approach_tray_cb():
+    user_notification_message = "Approaching the tray"
+    return send_arm_command('APPROACH', 'TRAY', user_notification_message)
 
-def approach_color_cb(color):
-    user_notification_message = "Let's remove the {} object from the table.".format(color)
-    return send_arm_command('APPROACH', 'RED', user_notification_message)
+def grasp_move_cb(num):
+    user_notification_message = "Grasp attempt #%s" % num
+    return send_arm_command('GRASP', num, user_notification_message)
 
-
-def grasp_move_color_cb(color, adv_message=None):
-    return send_arm_command('GRASP', color, adv_message)
-
-
-def dispose_color_cb(color):
-    user_notification_message = "Disposing of the {} object.".format(color)
-    return send_arm_command('DISPOSE', color, user_notification_message)
-
+def dispose_tray_cb():
+    user_notification_message = "Disposing"
+    return send_arm_command('DISPOSE', 'TRAY', user_notification_message)
 
 def reset_arm_cb():
     return send_arm_command('RESET')
-
 
 def send_hand_command(command):
     @smach.cb_interface(input_keys=[], output_keys=[], outcomes=['finished', 'preempted'])
@@ -69,14 +65,11 @@ def send_hand_command(command):
         return 'finished'
     return fun
 
-
 def open_hand_cb():
     return send_hand_command("RELEASE")
 
-
 def close_hand_cb():
     return send_hand_command("GRASP")
-
 
 def link_pose_motitor_cb(x, y, z, epsilon):
     eps_x = epsilon[0]
@@ -86,57 +79,6 @@ def link_pose_motitor_cb(x, y, z, epsilon):
     return lambda ud, p: not ((x - eps_x < p.position.x < x + eps_x) and
                               (y - eps_y < p.position.y < y + eps_y) and 
                               (z - eps_z < p.position.z < z + eps_z))
-
-# link used as a reference for checking the arm position
-# link "hollie_007_wrist_lat_rot" joint "hollie_007_wrist_lat_rot_joint"
-PALM_LINK = "robot::hollie_007_wrist_lat_rot"
-
-epsilon = (0.002, 0.002, 0.01)  # (x,y,z) error range for link position checking
-
-# Callbacks for LinkPoseMonitorState
-# APPROACH
-cb_approach_red = link_pose_motitor_cb(0.38848934741, -0.108695219197, 1.1385, epsilon)
-link_pose_monitor_approach_red = LinkPoseMonitorState(cb_approach_red, PALM_LINK)
-
-# GRASP
-cb_grasp_move_red = link_pose_motitor_cb(0.361675980386, -0.128106639108, 1.13859611942, epsilon)
-link_pose_monitor_grasp_move_red = LinkPoseMonitorState(cb_grasp_move_red, PALM_LINK)
-
-cb_grasp_move_blue = link_pose_motitor_cb(-0.269, -0.181, 1.138, epsilon)
-link_pose_monitor_grasp_move_blue = LinkPoseMonitorState(cb_grasp_move_blue, PALM_LINK)
-
-# DISPOSE
-cb_dispose_red = link_pose_motitor_cb(0.63518, 0.32965, 1.1363, epsilon)
-link_pose_monitor_dispose_red = LinkPoseMonitorState(cb_dispose_red, PALM_LINK)
-
-cb_dispose_blue = link_pose_motitor_cb(0.523, 0.03675, 1.16237, epsilon)
-link_pose_monitor_dispose_blue = LinkPoseMonitorState(cb_dispose_blue, PALM_LINK)
-
-# ModelState message factory which are used for resetting the cylinders to the original position
-def model_state_msg(color):
-    ms_msg = ModelState()
-    ms_msg.model_name = color + '_cylinder'
-    # set orientation RYP axes
-    ms_msg.pose.orientation.x = 0
-    ms_msg.pose.orientation.y = 0
-    ms_msg.pose.orientation.z = 0
-    # reference frame
-    ms_msg.reference_frame = 'world'
-    # pose
-    if color is 'RED':
-        ms_msg.pose.position.x = 0.37797
-        ms_msg.pose.position.y = -0.25321
-        ms_msg.pose.position.z = 1.12015
-    elif color is 'BLUE':
-        ms_msg.pose.position.x = -0.37797
-        ms_msg.pose.position.y = -0.25321
-        ms_msg.pose.position.z = 1.12015
-    # scale
-    ms_msg.scale.x = ms_msg.scale.y = ms_msg.scale.z = 1.0
-    return ms_msg
-
-gazebo_set_model_state_service = '/gazebo/set_model_state'
-
 
 # SM DEFINITION
 
@@ -158,7 +100,7 @@ with sm:
 
     StateMachine.add(
         "display_description",
-        CBState(notify_user_cb("In this demo, the Hollie arm robot will try to grasp a object")),
+        CBState(notify_user_cb("In this demo, the Hollie arm robot will try to grasp a object from the tray")),
         transitions={'finished': 'reset_arm'}
     )
 
@@ -172,78 +114,684 @@ with sm:
 
     StateMachine.add(
         'wait_reset',
-        ClockDelayState(3),
+        ClockDelayState(2),
         transitions={'valid': 'wait_reset',
-                     'invalid': 'approach_red',
+                     'invalid': 'approach_tray_0',
                      'preempted': PREEMPTED}
     )
 
     StateMachine.add(
-        'approach_red',
-        CBState(approach_color_cb('RED')),
-        transitions={'finished': 'wait_approach_red',
+        'approach_tray_0',
+        CBState(approach_tray_cb()),
+        transitions={'finished': 'wait_approach_tray_0',
                      'preempted': PREEMPTED}
     )
 
     StateMachine.add(
-        "wait_approach_red",
+        "wait_approach_tray_0",
+        ClockDelayState(3),
+        transitions={'valid': 'wait_approach_tray_0',
+                     'invalid': 'grasp_move_0',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        'grasp_move_0',
+        CBState(grasp_move_cb('0')),
+        transitions={'finished': 'wait_grasping_position_0',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        "wait_grasping_position_0",
         ClockDelayState(2),
-        transitions={'valid': 'wait_approach_red',
-                     'invalid': 'grasp_move_red',
+        transitions={'valid': 'wait_grasping_position_0',
+                     'invalid': 'close_hand_0',
                      'preempted': PREEMPTED}
     )
 
     StateMachine.add(
-        'grasp_move_red',
-        CBState(grasp_move_color_cb('RED')),
-        transitions={'finished': 'wait_grasping_position_red',
-                     'preempted': PREEMPTED}
-    )
-
-    StateMachine.add(
-        "wait_grasping_position_red",
-        ClockDelayState(1),
-        transitions={'valid': 'wait_grasping_position_red',
-                     'invalid': 'close_hand_red',
-                     'preempted': PREEMPTED}
-    )
-
-    StateMachine.add(
-        'close_hand_red',
+        'close_hand_0',
         CBState(close_hand_cb()),
-        transitions={'finished': 'wait_close_hand_red',
+        transitions={'finished': 'wait_close_hand_0',
                      'preempted': PREEMPTED}
     )
 
     StateMachine.add(
-        "wait_close_hand_red",
+        "wait_close_hand_0",
         ClockDelayState(2),
-        transitions={'valid': 'wait_close_hand_red',
-                     'invalid': 'dispose_red',
+        transitions={'valid': 'wait_close_hand_0',
+                     'invalid': 'dispose_0',
                      'preempted': PREEMPTED}
     )
 
     StateMachine.add(
-        'dispose_red',
-        CBState(dispose_color_cb('RED')),
-        transitions={'finished': 'wait_dispose_red',
+        'dispose_0',
+        CBState(dispose_tray_cb()),
+        transitions={'finished': 'wait_dispose_0',
                      'preempted': PREEMPTED}
     )
     
     StateMachine.add(
-        "wait_dispose_red",
+        "wait_dispose_0",
         ClockDelayState(2),
-        transitions={'valid': 'wait_dispose_red',
-                     'invalid': 'open_hand_red',
+        transitions={'valid': 'wait_dispose_0',
+                     'invalid': 'open_hand_0',
                      'preempted': PREEMPTED}
     )
 
     StateMachine.add(
-        'open_hand_red',
+        'open_hand_0',
+        CBState(open_hand_cb()),
+        transitions={'finished': 'approach_tray_1',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        'approach_tray_1',
+        CBState(approach_tray_cb()),
+        transitions={'finished': 'wait_approach_tray_1',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        "wait_approach_tray_1",
+        ClockDelayState(3),
+        transitions={'valid': 'wait_approach_tray_1',
+                     'invalid': 'grasp_move_1',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        'grasp_move_1',
+        CBState(grasp_move_cb('1')),
+        transitions={'finished': 'wait_grasping_position_1',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        "wait_grasping_position_1",
+        ClockDelayState(2),
+        transitions={'valid': 'wait_grasping_position_1',
+                     'invalid': 'close_hand_1',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        'close_hand_1',
+        CBState(close_hand_cb()),
+        transitions={'finished': 'wait_close_hand_1',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        "wait_close_hand_1",
+        ClockDelayState(2),
+        transitions={'valid': 'wait_close_hand_1',
+                     'invalid': 'dispose_1',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        'dispose_1',
+        CBState(dispose_tray_cb()),
+        transitions={'finished': 'wait_dispose_1',
+                     'preempted': PREEMPTED}
+    )
+    
+    StateMachine.add(
+        "wait_dispose_1",
+        ClockDelayState(2),
+        transitions={'valid': 'wait_dispose_1',
+                     'invalid': 'open_hand_1',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        'open_hand_1',
+        CBState(open_hand_cb()),
+        transitions={'finished': 'approach_tray_2',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        'approach_tray_2',
+        CBState(approach_tray_cb()),
+        transitions={'finished': 'wait_approach_tray_2',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        "wait_approach_tray_2",
+        ClockDelayState(3),
+        transitions={'valid': 'wait_approach_tray_2',
+                     'invalid': 'grasp_move_2',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        'grasp_move_2',
+        CBState(grasp_move_cb('2')),
+        transitions={'finished': 'wait_grasping_position_2',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        "wait_grasping_position_2",
+        ClockDelayState(2),
+        transitions={'valid': 'wait_grasping_position_2',
+                     'invalid': 'close_hand_2',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        'close_hand_2',
+        CBState(close_hand_cb()),
+        transitions={'finished': 'wait_close_hand_2',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        "wait_close_hand_2",
+        ClockDelayState(2),
+        transitions={'valid': 'wait_close_hand_2',
+                     'invalid': 'dispose_2',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        'dispose_2',
+        CBState(dispose_tray_cb()),
+        transitions={'finished': 'wait_dispose_2',
+                     'preempted': PREEMPTED}
+    )
+    
+    StateMachine.add(
+        "wait_dispose_2",
+        ClockDelayState(2),
+        transitions={'valid': 'wait_dispose_2',
+                     'invalid': 'open_hand_2',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        'open_hand_2',
+        CBState(open_hand_cb()),
+        transitions={'finished': 'approach_tray_3',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        'approach_tray_3',
+        CBState(approach_tray_cb()),
+        transitions={'finished': 'wait_approach_tray_3',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        "wait_approach_tray_3",
+        ClockDelayState(3),
+        transitions={'valid': 'wait_approach_tray_3',
+                     'invalid': 'grasp_move_3',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        'grasp_move_3',
+        CBState(grasp_move_cb('3')),
+        transitions={'finished': 'wait_grasping_position_3',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        "wait_grasping_position_3",
+        ClockDelayState(2),
+        transitions={'valid': 'wait_grasping_position_3',
+                     'invalid': 'close_hand_3',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        'close_hand_3',
+        CBState(close_hand_cb()),
+        transitions={'finished': 'wait_close_hand_3',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        "wait_close_hand_3",
+        ClockDelayState(2),
+        transitions={'valid': 'wait_close_hand_3',
+                     'invalid': 'dispose_3',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        'dispose_3',
+        CBState(dispose_tray_cb()),
+        transitions={'finished': 'wait_dispose_3',
+                     'preempted': PREEMPTED}
+    )
+    
+    StateMachine.add(
+        "wait_dispose_3",
+        ClockDelayState(2),
+        transitions={'valid': 'wait_dispose_3',
+                     'invalid': 'open_hand_3',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        'open_hand_3',
+        CBState(open_hand_cb()),
+        transitions={'finished': 'approach_tray_4',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        'approach_tray_4',
+        CBState(approach_tray_cb()),
+        transitions={'finished': 'wait_approach_tray_4',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        "wait_approach_tray_4",
+        ClockDelayState(3),
+        transitions={'valid': 'wait_approach_tray_4',
+                     'invalid': 'grasp_move_4',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        'grasp_move_4',
+        CBState(grasp_move_cb('4')),
+        transitions={'finished': 'wait_grasping_position_4',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        "wait_grasping_position_4",
+        ClockDelayState(2),
+        transitions={'valid': 'wait_grasping_position_4',
+                     'invalid': 'close_hand_4',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        'close_hand_4',
+        CBState(close_hand_cb()),
+        transitions={'finished': 'wait_close_hand_4',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        "wait_close_hand_4",
+        ClockDelayState(2),
+        transitions={'valid': 'wait_close_hand_4',
+                     'invalid': 'dispose_4',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        'dispose_4',
+        CBState(dispose_tray_cb()),
+        transitions={'finished': 'wait_dispose_4',
+                     'preempted': PREEMPTED}
+    )
+    
+    StateMachine.add(
+        "wait_dispose_4",
+        ClockDelayState(2),
+        transitions={'valid': 'wait_dispose_4',
+                     'invalid': 'open_hand_4',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        'open_hand_4',
+        CBState(open_hand_cb()),
+        transitions={'finished': 'approach_tray_5',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        'approach_tray_5',
+        CBState(approach_tray_cb()),
+        transitions={'finished': 'wait_approach_tray_5',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        "wait_approach_tray_5",
+        ClockDelayState(3),
+        transitions={'valid': 'wait_approach_tray_5',
+                     'invalid': 'grasp_move_5',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        'grasp_move_5',
+        CBState(grasp_move_cb('5')),
+        transitions={'finished': 'wait_grasping_position_5',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        "wait_grasping_position_5",
+        ClockDelayState(2),
+        transitions={'valid': 'wait_grasping_position_5',
+                     'invalid': 'close_hand_5',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        'close_hand_5',
+        CBState(close_hand_cb()),
+        transitions={'finished': 'wait_close_hand_5',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        "wait_close_hand_5",
+        ClockDelayState(2),
+        transitions={'valid': 'wait_close_hand_5',
+                     'invalid': 'dispose_5',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        'dispose_5',
+        CBState(dispose_tray_cb()),
+        transitions={'finished': 'wait_dispose_5',
+                     'preempted': PREEMPTED}
+    )
+    
+    StateMachine.add(
+        "wait_dispose_5",
+        ClockDelayState(2),
+        transitions={'valid': 'wait_dispose_5',
+                     'invalid': 'open_hand_5',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        'open_hand_5',
+        CBState(open_hand_cb()),
+        transitions={'finished': 'approach_tray_6',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        'approach_tray_6',
+        CBState(approach_tray_cb()),
+        transitions={'finished': 'wait_approach_tray_6',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        "wait_approach_tray_6",
+        ClockDelayState(3),
+        transitions={'valid': 'wait_approach_tray_6',
+                     'invalid': 'grasp_move_6',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        'grasp_move_6',
+        CBState(grasp_move_cb('6')),
+        transitions={'finished': 'wait_grasping_position_6',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        "wait_grasping_position_6",
+        ClockDelayState(2),
+        transitions={'valid': 'wait_grasping_position_6',
+                     'invalid': 'close_hand_6',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        'close_hand_6',
+        CBState(close_hand_cb()),
+        transitions={'finished': 'wait_close_hand_6',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        "wait_close_hand_6",
+        ClockDelayState(2),
+        transitions={'valid': 'wait_close_hand_6',
+                     'invalid': 'dispose_6',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        'dispose_6',
+        CBState(dispose_tray_cb()),
+        transitions={'finished': 'wait_dispose_6',
+                     'preempted': PREEMPTED}
+    )
+    
+    StateMachine.add(
+        "wait_dispose_6",
+        ClockDelayState(2),
+        transitions={'valid': 'wait_dispose_6',
+                     'invalid': 'open_hand_6',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        'open_hand_6',
+        CBState(open_hand_cb()),
+        transitions={'finished': 'approach_tray_7',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        'approach_tray_7',
+        CBState(approach_tray_cb()),
+        transitions={'finished': 'wait_approach_tray_7',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        "wait_approach_tray_7",
+        ClockDelayState(3),
+        transitions={'valid': 'wait_approach_tray_7',
+                     'invalid': 'grasp_move_7',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        'grasp_move_7',
+        CBState(grasp_move_cb('7')),
+        transitions={'finished': 'wait_grasping_position_7',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        "wait_grasping_position_7",
+        ClockDelayState(2),
+        transitions={'valid': 'wait_grasping_position_7',
+                     'invalid': 'close_hand_7',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        'close_hand_7',
+        CBState(close_hand_cb()),
+        transitions={'finished': 'wait_close_hand_7',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        "wait_close_hand_7",
+        ClockDelayState(2),
+        transitions={'valid': 'wait_close_hand_7',
+                     'invalid': 'dispose_7',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        'dispose_7',
+        CBState(dispose_tray_cb()),
+        transitions={'finished': 'wait_dispose_7',
+                     'preempted': PREEMPTED}
+    )
+    
+    StateMachine.add(
+        "wait_dispose_7",
+        ClockDelayState(2),
+        transitions={'valid': 'wait_dispose_7',
+                     'invalid': 'open_hand_7',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        'open_hand_7',
+        CBState(open_hand_cb()),
+        transitions={'finished': 'approach_tray_8',
+                     'preempted': PREEMPTED}
+    )
+
+
+    StateMachine.add(
+        'approach_tray_8',
+        CBState(approach_tray_cb()),
+        transitions={'finished': 'wait_approach_tray_8',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        "wait_approach_tray_8",
+        ClockDelayState(3),
+        transitions={'valid': 'wait_approach_tray_8',
+                     'invalid': 'grasp_move_8',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        'grasp_move_8',
+        CBState(grasp_move_cb('8')),
+        transitions={'finished': 'wait_grasping_position_8',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        "wait_grasping_position_8",
+        ClockDelayState(2),
+        transitions={'valid': 'wait_grasping_position_8',
+                     'invalid': 'close_hand_8',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        'close_hand_8',
+        CBState(close_hand_cb()),
+        transitions={'finished': 'wait_close_hand_8',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        "wait_close_hand_8",
+        ClockDelayState(2),
+        transitions={'valid': 'wait_close_hand_8',
+                     'invalid': 'dispose_8',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        'dispose_8',
+        CBState(dispose_tray_cb()),
+        transitions={'finished': 'wait_dispose_8',
+                     'preempted': PREEMPTED}
+    )
+    
+    StateMachine.add(
+        "wait_dispose_8",
+        ClockDelayState(2),
+        transitions={'valid': 'wait_dispose_8',
+                     'invalid': 'open_hand_8',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        'open_hand_8',
+        CBState(open_hand_cb()),
+        transitions={'finished': 'approach_tray_9',
+                     'preempted': PREEMPTED}
+    )
+
+
+    StateMachine.add(
+        'approach_tray_9',
+        CBState(approach_tray_cb()),
+        transitions={'finished': 'wait_approach_tray_9',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        "wait_approach_tray_9",
+        ClockDelayState(3),
+        transitions={'valid': 'wait_approach_tray_9',
+                     'invalid': 'grasp_move_9',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        'grasp_move_9',
+        CBState(grasp_move_cb('9')),
+        transitions={'finished': 'wait_grasping_position_9',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        "wait_grasping_position_9",
+        ClockDelayState(2),
+        transitions={'valid': 'wait_grasping_position_9',
+                     'invalid': 'close_hand_9',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        'close_hand_9',
+        CBState(close_hand_cb()),
+        transitions={'finished': 'wait_close_hand_9',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        "wait_close_hand_9",
+        ClockDelayState(2),
+        transitions={'valid': 'wait_close_hand_9',
+                     'invalid': 'dispose',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        'dispose',
+        CBState(dispose_tray_cb()),
+        transitions={'finished': 'wait_dispose',
+                     'preempted': PREEMPTED}
+    )
+    
+    StateMachine.add(
+        "wait_dispose",
+        ClockDelayState(2),
+        transitions={'valid': 'wait_dispose',
+                     'invalid': 'open_hand',
+                     'preempted': PREEMPTED}
+    )
+
+    StateMachine.add(
+        'open_hand',
         CBState(open_hand_cb()),
         transitions={'finished': 'display_clear_message',
                      'preempted': PREEMPTED}
     )
+
     
     StateMachine.add(
         "display_clear_message",

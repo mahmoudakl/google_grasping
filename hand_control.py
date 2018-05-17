@@ -65,13 +65,17 @@ def hand_control(t, command, last_command_executed,
                     topic_thumb_medial,
                     Thumb_Opposition, topic_Thumb_Opposition,
                     topic_palm):
+
     if command.value is None:
         return
     else:
         command_str = command.value.data
+
     if command_str == last_command_executed.value:
         return
+
     clientLogger.info("HAND received: {}".format(command_str))
+
     # Index
     def flex_index(RANGE_MAX, FACTORS, grasp):
         Index_Proximal.value = RANGE_MAX["Index_Proximal"] * FACTORS["Index_Proximal"] * grasp
@@ -80,6 +84,7 @@ def hand_control(t, command, last_command_executed,
         topic_Index_Medial.send_message(std_msgs.msg.Float64(Index_Medial.value))
         # distal joint mimics Medial with a 1.045 coefficient
         topic_index_distal.send_message(std_msgs.msg.Float64(Index_Medial.value * 1.045))
+
     # Middle
     def flex_middle(RANGE_MAX, FACTORS, grasp):
         Middle_Proximal.value = RANGE_MAX["Middle_Proximal"] * FACTORS["Middle_Proximal"] * grasp
@@ -88,6 +93,7 @@ def hand_control(t, command, last_command_executed,
         topic_Middle_Medial.send_message(std_msgs.msg.Float64(Middle_Medial.value))
         middle_distal = Middle_Medial.value * 1.0434
         topic_middle_distal.send_message(std_msgs.msg.Float64(middle_distal))
+
     # Ring
     def flex_ring(RANGE_MAX, FACTORS, grasp):
         Ring_Proximal.value = RANGE_MAX["Ring_Proximal"] * FACTORS["Ring_Proximal"] * grasp
@@ -96,6 +102,7 @@ def hand_control(t, command, last_command_executed,
         topic_ring_medial.send_message(std_msgs.msg.Float64(ring_medial))
         ring_distal = Ring_Proximal.value * 1.42307
         topic_ring_distal.send_message(std_msgs.msg.Float64(ring_distal))
+
     # Pinky
     def flex_pinky(RANGE_MAX, FACTORS, grasp):
         Pinky_Proximal.value = RANGE_MAX["Pinky_Proximal"] * FACTORS["Pinky_Proximal"] * grasp
@@ -104,6 +111,7 @@ def hand_control(t, command, last_command_executed,
         topic_pinky_medial.send_message(std_msgs.msg.Float64(pinky_medial))
         pinky_distal = Pinky_Proximal.value * 1.42307
         topic_pinky_distal.send_message(std_msgs.msg.Float64(pinky_distal))
+
     # Thumb
     def flex_thumb(RANGE_MAX, FACTORS, grasp):
         Thumb_Opposition.value = RANGE_MAX["Thumb_Opposition"] * FACTORS["Thumb_Opposition"] * grasp
@@ -116,6 +124,7 @@ def hand_control(t, command, last_command_executed,
         topic_thumb_medial.send_message(std_msgs.msg.Float64(thumb_medial))
         # Palm
         topic_palm.send_message(std_msgs.msg.Float64(Thumb_Opposition.value * 0.3))
+
     do_flex = {
         "Index": flex_index,
         "Middle": flex_middle,
@@ -123,6 +132,7 @@ def hand_control(t, command, last_command_executed,
         "Pinky": flex_pinky,
         "Thumb": flex_thumb
     }
+
     def parse_grasping_command(cmd):
         do_grasp = None
         if cmd == "GRASP":
@@ -130,6 +140,7 @@ def hand_control(t, command, last_command_executed,
         elif cmd == "RELEASE":
             do_grasp = 0
         return do_grasp
+        
     grasp = parse_grasping_command(command_str)
     if grasp is not None:
         last_command_executed.value = command_str
