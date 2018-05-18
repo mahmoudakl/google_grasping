@@ -1122,32 +1122,32 @@
 
     <controller joint_name="hollie_000_joint">
         <type>position</type>
-	<pid>500.0 10.0 50.0</pid>
+	<pid>150.0 10.0 50.0</pid>
     </controller>
   
     <controller joint_name="hollie_001_base_x_rot_joint">
         <type>position</type>
-	<pid>500.0 10.0 50.0</pid>
+	<pid>150.0 10.0 50.0</pid>
     </controller>
 
     <controller joint_name="hollie_002_upper_x_rot_joint">
         <type>position</type>
-	<pid>500.0 10.0 50.0</pid>
+	<pid>150.0 10.0 50.0</pid>
     </controller>
 
     <controller joint_name="hollie_003_joint">
         <type>position</type>
-	<pid>500.0 10.0 50.0</pid>
+	<pid>150.0 10.0 50.0</pid>
     </controller>
 
      <controller joint_name="hollie_004_wrist_x_rot_joint">
         <type>position</type>
-	<pid>500.0 10.0 50.0</pid>
+	<pid>150.0 10.0 50.0</pid>
     </controller>
 
     <controller joint_name="hollie_005_joint">
         <type>position</type>
-	<pid>500.0 10.0 50.0</pid>
+	<pid>150.0 10.0 50.0</pid>
     </controller>
 
     <controller joint_name="hand_f1_joint">
