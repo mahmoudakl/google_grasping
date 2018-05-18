@@ -1182,6 +1182,7 @@
         <arm>
            <arm_name>robot</arm_name>
            <palm_link>finger1</palm_link>
+           <gripper_link>finger1</gripper_link>
            <gripper_link>finger2</gripper_link>
         </arm>
        <forces_angle_tolerance>100</forces_angle_tolerance>

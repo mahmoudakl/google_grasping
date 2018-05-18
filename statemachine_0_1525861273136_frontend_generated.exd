@@ -131,9 +131,16 @@ with sm:
         "wait_approach_tray_0",
         ClockDelayState(3),
         transitions={'valid': 'wait_approach_tray_0',
-                     'invalid': 'grasp_move_0',
+                     'invalid': 'open_gripper_0',
                      'preempted': PREEMPTED}
     )
+
+    StateMachine.add(
+        'open_gripper_0',
+        CBState(open_hand_cb()),
+        transitions={'finished': 'grasp_move_0',
+                     'preempted': PREEMPTED}
+        )
 
     StateMachine.add(
         'grasp_move_0',
