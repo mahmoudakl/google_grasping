@@ -1149,36 +1149,6 @@
         <type>position</type>
 	<pid>150.0 10.0 50.0</pid>
     </controller>
-
-    <controller joint_name="hand_f1_joint">
-        <type>position</type>
-	<pid>100.0 0.1 0.1</pid>
-    </controller>
-
-    <controller joint_name="hand_f2_joint">
-        <type>position</type>
-	<pid>100.0 0.1 0.1</pid>
-    </controller>
-
-    <controller joint_name="hand_f3_joint">
-        <type>position</type>
-	<pid>100.0 0.1 0.1</pid>
-    </controller>
-
-    <controller joint_name="hand_f5_link_joint">
-        <type>position</type>
-	<pid>100.0 0.1 0.1</pid>
-    </controller>
-
-    <controller joint_name="hand_f6_link_joint">
-        <type>position</type>
-	<pid>100.0 0.1 0.1</pid>
-    </controller>
-
-    <controller joint_name="hand_f8_joint">
-        <type>position</type>
-	<pid>100.0 0.1 0.1</pid>
-    </controller>
   
     <controller joint_name="hollie_006_wrist_lat_rot_joint">
         <type>position</type>
@@ -1196,11 +1166,11 @@
         <type>position</type>
 	<pid>100.0 0.1 0.1</pid>
     </controller>
-    <controller joint_name="finger1">
+    <controller joint_name="finger1_joint">
         <type>position</type>
 	<pid>100.0 0.1 0.1</pid>
     </controller>
-    <controller joint_name="finger2">
+    <controller joint_name="finger2_joint">
         <type>position</type>
 	<pid>100.0 0.1 0.1</pid>
     </controller>
