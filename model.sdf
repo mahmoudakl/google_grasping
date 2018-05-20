@@ -136,7 +136,7 @@
 <!-- bin objects -->
 		<link name="Obj_1">
 			<self_collide>true</self_collide>
-			<pose>0.25 -0.6800000071525574 0.9399999976158142 0.972148358821869 -0.27750730514526367 -2.687807083129883</pose>
+			<pose>0.25 -0.8800000071525574 0.9399999976158142 0.972148358821869 -0.27750730514526367 -2.687807083129883</pose>
 			<inertial>
 				<mass>11.517146110534668</mass>
 				<pose>0 0 0 0 0 0</pose>
@@ -236,111 +236,10 @@
 				</geometry>
 			</visual>
 		</link>
-		<link name="Obj_4">
-			<self_collide>true</self_collide>
-			<pose>0.20000000298023224 -0.949999988079071 0.9300000071525574 1.5707963705062866 -0.6806783676147461 -0.9669124484062195</pose>
-			<inertial>
-				<mass>17.113351821899414</mass>
-				<pose>0 0 0 0 0 0</pose>
-				<inertia>
-					<ixx>0.02040497589111328</ixx>
-					<ixy>0.0</ixy>
-					<ixz>0.0</ixz>
-					<iyy>0.016866682052612305</iyy>
-					<iyz>0.0</iyz>
-					<izz>0.020349002838134766</izz>
-				</inertia>
-			</inertial>
-			<collision name="COL_Obj_4_Can_Coll">
-				<pose>-6.83516263961792e-05 -0.003405354917049408 -0.0034073293209075928 4.6566137257286755e-07 3.1044091741705415e-08 -4.6566135836201283e-08</pose>
-				<geometry>
-					<mesh>
-						<uri>model://google_grasp/meshes/collisions/COL_Obj_4_Can_Coll.dae</uri>
-						<scale>0.029999999329447746 0.029999999329447746 0.029999997466802597</scale>
-					</mesh>
-				</geometry>
-			</collision>
-			<visual name="VIS_Obj_4_Can">
-				<pose>-6.83516263961792e-05 -0.003405354917049408 -0.0034073293209075928 4.6566137257286755e-07 3.1044091741705415e-08 -4.6566135836201283e-08</pose>
-				<geometry>
-					<mesh>
-						<uri>model://google_grasp/meshes/visual/VIS_Obj_4_Can.dae</uri>
-						<scale>0.029999999329447746 0.029999999329447746 0.029999997466802597</scale>
-					</mesh>
-				</geometry>
-			</visual>
-		</link>
-		<link name="Obj_5">
-			<self_collide>true</self_collide>
-			<pose>0.07000000029802322 -0.7200000047683716 1.0 1.0629055500030518 -0.45727628469467163 0.7452555894851685</pose>
-			<inertial>
-				<mass>36.96764373779297</mass>
-				<pose>0 0 0 0 0 0</pose>
-				<inertia>
-					<ixx>0.047036720275878906</ixx>
-					<ixy>0.0</ixy>
-					<ixz>0.0</ixz>
-					<iyy>0.09572296905517578</iyy>
-					<iyz>0.0</iyz>
-					<izz>0.09578512573242188</izz>
-				</inertia>
-			</inertial>
-			<collision name="COL_Obj_5_Football_Coll">
-				<pose>0.00024674832820892334 -0.002815432846546173 -0.00025904737412929535 3.8029008919693297e-07 1.5522044805038604e-07 -4.268562037168522e-08</pose>
-				<geometry>
-					<mesh>
-						<uri>model://google_grasp/meshes/collisions/COL_Obj_5_Football_Coll.dae</uri>
-						<scale>0.029999999329447746 0.029999999329447746 0.029999999329447746</scale>
-					</mesh>
-				</geometry>
-			</collision>
-			<visual name="VIS_Obj_5_Football">
-				<pose>0.00024674832820892334 -0.002815432846546173 -0.00025904737412929535 3.8029008919693297e-07 1.5522044805038604e-07 -4.268562037168522e-08</pose>
-				<geometry>
-					<mesh>
-						<uri>model://football/meshes/visual/VIS_Obj_5_Football.dae</uri>
-						<scale>0.029999999329447746 0.029999999329447746 0.029999999329447746</scale>
-					</mesh>
-				</geometry>
-			</visual>
-		</link>
-		<link name="Obj_6">
-			<self_collide>true</self_collide>
-			<pose>0.30000001192092896 -0.7900000214576721 1.0 2.3212878704071045 -0.692895770072937 -0.16231562197208405</pose>
-			<inertial>
-				<mass>206.3406524658203</mass>
-				<pose>0 0 0 0 0 0</pose>
-				<inertia>
-					<ixx>0.07458875122070312</ixx>
-					<ixy>0.0</ixy>
-					<ixz>0.0</ixz>
-					<iyy>0.2093234375</iyy>
-					<iyz>0.0</iyz>
-					<izz>0.19273070068359375</izz>
-				</inertia>
-			</inertial>
-			<collision name="COL_Obj_6_Lightbulb_Coll">
-				<pose>0.06560074537992477 0.031300514936447144 0.053160324692726135 -0.008726583793759346 -3.0073960033405456e-07 -2.0372681319713593e-07</pose>
-				<geometry>
-					<mesh>
-						<uri>model://google_grasp/meshes/collisions/COL_Obj_6_Lightbulb_Coll.dae</uri>
-						<scale>0.012000000104308128 0.011999999172985554 0.012000000104308128</scale>
-					</mesh>
-				</geometry>
-			</collision>
-			<visual name="VIS_Obj_6_Lightbulb">
-				<pose>0.06560074537992477 0.031300514936447144 0.053160324692726135 -0.008726583793759346 -3.0073960033405456e-07 -2.0372681319713593e-07</pose>
-				<geometry>
-					<mesh>
-						<uri>model://google_grasp/meshes/visual/VIS_Obj_6_Lightbulb.dae</uri>
-						<scale>0.012000000104308128 0.011999999172985554 0.012000000104308128</scale>
-					</mesh>
-				</geometry>
-			</visual>
-		</link>
+		
 		<link name="Obj_7">
 			<self_collide>true</self_collide>
-			<pose>-0.027499999850988388 -0.9700000286102295 1.00000143051147 -0.5253441333770752 -0.2059488594532013 -0.23911009728908542</pose>
+			<pose>-0.027499999850988388 -0.7700000286102295 1.00000143051147 -0.5253441333770752 -0.2059488594532013 -0.23911009728908542</pose>
 			<inertial>
 				<mass>602.91064453125</mass>
 				<pose>0 0 0 0 0 0</pose>
@@ -372,8 +271,6 @@
 				</geometry>
 			</visual>
 		</link>
-
-
 
 <!-- manipulation arm_0-->
 		<link name="arm_0_link_link_base_z_rot">
@@ -882,7 +779,6 @@
 			</axis>
 
 		</joint>
-
 
 		<joint name="wrist_gripper" type="revolute">
 			<parent>base</parent>

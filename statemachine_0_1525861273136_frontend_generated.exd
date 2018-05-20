@@ -795,13 +795,6 @@ with sm:
     StateMachine.add(
         'open_hand',
         CBState(open_hand_cb()),
-        transitions={'finished': 'display_clear_message',
+        transitions={'finished': 'reset_arm',
                      'preempted': PREEMPTED}
-    )
-
-    
-    StateMachine.add(
-        "display_clear_message",
-        CBState(notify_user_cb("The Object is cleared! Getting back into resting position...")),
-        transitions={'finished': 'reset_arm'}
     )

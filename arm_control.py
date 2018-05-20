@@ -1,23 +1,42 @@
 # Imported Python Transfer Function
 import numpy as np
 
-# APPROACH
+# APPROACH Gripper
+#approach_tray_conf = np.array([0.0, 0.3, -1.0, 0.0, 0.0, 0.0])
+
+# GRASP Gripper
+#grasp_conf_0 = np.array([0.6, 0.5, -2.2, 0.0, 0.0, 0.0])
+#grasp_conf_1 = np.array([0.4, 0.4, -2.2, 0.0, -0.3, 0.2])
+#grasp_conf_2 = np.array([0.3, 0.4, -2.0, 1.0, 0.0, 0.0])
+#grasp_conf_3 = np.array([-0.15, 0.4, -1.8, -0.2, 0.0, 0.2])
+#grasp_conf_4 = np.array([0.3, 0.4, -2.3, 0.0, -0.3, 0.5])
+#grasp_conf_5 = np.array([0.0, 0.4, -2.0, -0.3, 0.3, 0.0])
+#grasp_conf_6 = np.array([0.6, 0.4, -2.0, 1.0, 0.0, 0.7])
+#grasp_conf_7 = np.array([0.0, 0.4, -2.4, 0.4, 0.5, 0.0])
+#grasp_conf_8 = np.array([0.3, 0.5, -2.0, 0.6, -0.5, 0.0])
+#grasp_conf_9 = np.array([0.8, 0.1, -2.5, 0.7, 0.0, 1.0])
+
+# DISPOSE Gripper
+#dispose_tray_conf = np.array([-0.7, -0.3, -2.0, 0.0, 0.0, 0.0])
+
+
+# APPROACH Hand
 approach_tray_conf = np.array([0.0, 0.3, -1.0, 0.0, 0.0, 0.0])
 
-# GRASP
-grasp_conf_0 = np.array([0.6, 0.5, -2.4, 0.0, 0.0, 0.0])
-grasp_conf_1 = np.array([0.4, 0.4, -2.2, 0.0, -0.3, 1.0])
-grasp_conf_2 = np.array([0.3, 0.4, -1.6, 1.0, 0.0, 0.0])
-grasp_conf_3 = np.array([-0.15, 0.4, -1.8, -0.2, 0.0, 0.2])
+# GRASP Hand
+grasp_conf_0 = np.array([0.4, 0.5, -2.0, 0.0, 0.0, 0.0])
+grasp_conf_1 = np.array([0.4, 0.5, -2.2, 0.0, -0.3, 1.0])
+grasp_conf_2 = np.array([0.3, 0.6, -1.6, 1.0, 0.0, 0.0])
+grasp_conf_3 = np.array([-0.15, 0.5, -2.2, -0.2, 0.0, 0.2])
 grasp_conf_4 = np.array([0.3, 0.4, -2.2, 0.0, -0.3, 0.5])
-grasp_conf_5 = np.array([0.0, 0.4, -2.0, 0.3, 0.3, 0.0])
+grasp_conf_5 = np.array([0.0, 0.5, -2.0, 0.3, 0.3, 0.0])
 grasp_conf_6 = np.array([0.6, 0.4, -2.0, 1.0, 0.0, 0.7])
-grasp_conf_7 = np.array([0.0, 0.4, -2.4, 0.4, 0.5, 0.0])
+grasp_conf_7 = np.array([0.0, 0.4, -2.2, 0.2, 0.5, 0.0])
 grasp_conf_8 = np.array([0.3, 0.5, -2.0, 0.6, -0.5, 0.0])
-grasp_conf_9 = np.array([0.8, 0.1, -2.5, 0.7, 0.0, 1.0])
+grasp_conf_9 = np.array([0.35, 0.5, -1.5, 0.7, 0.0, 0.7])
 
-# DISPOSE
-dispose_tray_conf = np.array([-0.7, -0.3, -2.0, 0.0, 0.0, 0.0])
+# DISPOSE Hand
+dispose_tray_conf = np.array([-0.7, 0.3, -1.5, 0.0, 0.0, 0.0])
 
 # RESET
 reset_conf = np.zeros(6)

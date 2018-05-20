@@ -3,7 +3,7 @@
 	<ns1:brainModel>
 		<ns1:file>idle_brain.py</ns1:file>
 	</ns1:brainModel>
-	<ns1:bodyModel>model.sdf</ns1:bodyModel>
+	<ns1:bodyModel>model_hand.sdf</ns1:bodyModel>
 	<ns1:transferFunction src="arm_control.py" xsi:type="ns1:PythonTransferFunction"/>
-	<ns1:transferFunction src="gripper_control.py" xsi:type="ns1:PythonTransferFunction"/>
+	<ns1:transferFunction src="hand_control.py" xsi:type="ns1:PythonTransferFunction"/>
 </ns1:bibi>
