@@ -8348,10 +8348,10 @@
       </link>
     </model>
     <state world_name="default">
-      <sim_time>89 103000000</sim_time>
+      <sim_time>92 384000000</sim_time>
       <real_time>0 0</real_time>
-      <wall_time>1526477034 925905774</wall_time>
-      <iterations>1</iterations>
+      <wall_time>1533569150 30961346</wall_time>
+      <iterations>3281</iterations>
       <model name="bench_0">
         <pose frame="">-3.05972 -2.65418 -0.280649 0 -0 0</pose>
         <scale>1 1 1</scale>
@@ -10286,5 +10286,50 @@
         <gravity>1</gravity>
       </link>
     </model>
-    </world>
+    <model name="Cup_1">
+      <static>1</static>
+      <link name="Cup::Obj_1">
+        <collision name="COL_Obj_1_Cup">
+          <pose frame="">0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://cup/meshes/collisions/COL_Obj_1_Cup_Coll.dae</uri>
+              <scale>0.03999999910593033 0.03999999910593033 0.03999999910593033</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="VIS_Obj_1_Cup">
+          <cast_shadows>1</cast_shadows>
+          <geometry>
+            <mesh>
+              <uri>model://cup/meshes/visual/VIS_Obj_1_Cup.dae</uri>
+              <scale>0.03999999910593033 0.03999999910593033 0.03999999910593033</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+        </velocity_decay>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+        <pose frame="">0 0 0 0 -0 0</pose>
+      </link>
+      <pose frame="">2.415 1.015 1.164 1.5707963267948966 0 0</pose>
+    </model>
+  </world>
 </sdf>
