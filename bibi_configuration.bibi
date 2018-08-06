@@ -1,9 +1,9 @@
 <?xml version="1.0" ?>
-<ns1:bibi xmlns:ns1="http://schemas.humanbrainproject.eu/SP10/2014/BIBI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<ns1:brainModel>
-		<ns1:file>idle_brain.py</ns1:file>
-	</ns1:brainModel>
-	<ns1:bodyModel>model_hand.sdf</ns1:bodyModel>
-	<ns1:transferFunction src="arm_control.py" xsi:type="ns1:PythonTransferFunction"/>
-	<ns1:transferFunction src="hand_control.py" xsi:type="ns1:PythonTransferFunction"/>
-</ns1:bibi>
+<bibi xmlns:ns1="http://schemas.humanbrainproject.eu/SP10/2014/BIBI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<brainModel>
+		<file>idle_brain.py</file>
+	</brainModel>
+	<bodyModel>model_hand.sdf</bodyModel>
+	<transferFunction src="arm_control.py" xsi:type="PythonTransferFunction"/>
+	<transferFunction src="hand_control.py" xsi:type="PythonTransferFunction"/>
+</bibi>
