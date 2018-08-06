@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<ExD xmlns:ns1="http://schemas.humanbrainproject.eu/SP10/2014/ExDConfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<name>Google Grasping - Single Robot_Manipulation</name>
+	<thumbnail>google_grasping_single.png</thumbnail>
+	<description>This experiments loads the Schunk arm with gripper in the holodeck. Objects are placed in a bin to be grasped. The robot can be controlled via ROS by PID position controller, the camera image is published for vision.</description>
+	<tags>icub robotics holodeck template</tags>
+	<timeout>840.0</timeout>
+	<configuration src="google_grasping_single.3ds" type="3d-settings"/>
+	<configuration src="google_grasping_single.uis" type="user-interaction-settings"/>
+	<maturity>development</maturity>
+	<environmentModel src="google_virtuallab.sdf">
+		<robotPose pitch="0.003035" roll="0.039276" theta="0.707106896726" ux="0.0" uy="0.0" uz="1.57" x="2.12141" y="0.246332" yaw="2.29078" z="0.014197"/>
+	</environmentModel>
+	<bibiConf src="bibi_configuration.bibi"/>
+	<experimentControl>
+		<stateMachine id="statemachine_0_1525861273136_frontend_generated" src="statemachine_0_1525861273136_frontend_generated.exd" xsi:type="SMACHStateMachine"/>
+	</experimentControl>
+	<cameraPose>
+		<cameraPosition x="4.82578462912" y="-1.36703889486" z="1.62090225602"/>
+		<cameraLookAt x="1.929" y="0.286" z="1.0"/>
+	</cameraPose>
+</ExD>
