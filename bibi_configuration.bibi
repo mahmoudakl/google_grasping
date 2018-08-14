@@ -4,7 +4,5 @@
   <brainModel>
     <file>idle_brain.py</file>
   </brainModel>
-  <bodyModel assetPath="google_grasp" customAsset="false">model.sdf</bodyModel>
-  <transferFunction src="arm_control.py" xsi:type="PythonTransferFunction" />
-  <transferFunction src="hand_control.py" xsi:type="PythonTransferFunction" />
+  <bodyModel assetPath="ur_description" customAsset="false">ur_description/model.sdf</bodyModel>
 </bibi>
