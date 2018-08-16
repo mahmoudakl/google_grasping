@@ -9,8 +9,8 @@
   <configuration src="google_grasping_single.3ds" type="3d-settings" />
   <configuration src="google_grasping_single.uis" type="user-interaction-settings" />
   <maturity>production</maturity>
-  <environmentModel src="google_virtuallab.sdf">
-    <robotPose theta="0.707106896726" ux="0.0" uy="0.0" uz="1.57" x="1.929" y="0.286" z="0.3" />
+  <environmentModel src="google_virtuallab_multiple.sdf">
+    <robotPose theta="1.57" ux="0.0" uy="0.0" uz="1.57" x="1.929" y="0.0" z="0.05" />
   </environmentModel>
   <bibiConf src="bibi_configuration.bibi" />
   <cameraPose>
