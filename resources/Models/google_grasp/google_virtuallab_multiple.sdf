@@ -34,51 +34,16 @@
       </attenuation>
       <cast_shadows>1</cast_shadows>
     </light>
-    <model name="biologylabchair_1">
-      <static>1</static>
-      <link name="biologylabchair::body">
-        <collision name="biologylabchair-coll">
-          <pose frame="">0 0 0 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <uri>model://biologylabchair/meshes/biologylabchair-coll.dae</uri>
-              <scale>1 1 1</scale>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name="biologylabchair">
-          <cast_shadows>1</cast_shadows>
-          <geometry>
-            <mesh>
-              <uri>model://biologylabchair/meshes/biologylabchair.dae</uri>
-              <scale>1 1 1</scale>
-            </mesh>
-          </geometry>
-        </visual>
-        <velocity_decay>
-          <linear>0</linear>
-          <angular>0</angular>
-        </velocity_decay>
-        <self_collide>0</self_collide>
-        <kinematic>0</kinematic>
-        <gravity>1</gravity>
-        <pose frame="">0 0 0 0 -0 0</pose>
-      </link>
-      <pose frame="">-4.62126 -6.8336 -0.008675 0 0 -2.17822</pose>
-    </model>
+    <include>
+      <uri>model://ur_description</uri>
+      <name>robot3</name>
+      <pose frame="">1.929 2.5 0.05 0 -0 1.57</pose>
+    </include>
+    <include>
+      <uri>model://ur_description</uri>
+      <name>robot2</name>
+      <pose frame="">1.929 -2.5 0.05 0 -0 1.57</pose>
+    </include>
     <model name="biologylabchair_0">
       <static>1</static>
       <link name="biologylabchair::body">
@@ -10330,7 +10295,97 @@
         <gravity>1</gravity>
         <pose frame="">0 0 0 0 -0 0</pose>
       </link>
-      <pose frame="">2.0 0.45 0.87 1.5707963267948966 0 0</pose>
+      <pose frame="">2.421955 -0.221369 0.87 1.5707963267948966 0 0</pose>
+    </model>
+    <model name="Cup_2">
+      <static>1</static>
+      <link name="Cup::Obj_1">
+        <collision name="COL_Obj_1_Cup">
+          <pose frame="">0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://cup/meshes/collisions/COL_Obj_1_Cup_Coll.dae</uri>
+              <scale>0.03999999910593033 0.03999999910593033 0.03999999910593033</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="VIS_Obj_1_Cup">
+          <cast_shadows>1</cast_shadows>
+          <geometry>
+            <mesh>
+              <uri>model://cup/meshes/visual/VIS_Obj_1_Cup.dae</uri>
+              <scale>0.03999999910593033 0.03999999910593033 0.03999999910593033</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+        </velocity_decay>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+        <pose frame="">0 0 0 0 -0 0</pose>
+      </link>
+      <pose frame="">2.421955 -2.687558 0.87 1.5707963267948966 0 0</pose>
+    </model>
+    <model name="Cup_3">
+      <static>1</static>
+      <link name="Cup::Obj_1">
+        <collision name="COL_Obj_1_Cup">
+          <pose frame="">0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://cup/meshes/collisions/COL_Obj_1_Cup_Coll.dae</uri>
+              <scale>0.03999999910593033 0.03999999910593033 0.03999999910593033</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="VIS_Obj_1_Cup">
+          <cast_shadows>1</cast_shadows>
+          <geometry>
+            <mesh>
+              <uri>model://cup/meshes/visual/VIS_Obj_1_Cup.dae</uri>
+              <scale>0.03999999910593033 0.03999999910593033 0.03999999910593033</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+        </velocity_decay>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+        <pose frame="">0 0 0 0 -0 0</pose>
+      </link>
+      <pose frame="">2.421955 2.367901 0.87 1.5707963267948966 0 0</pose>
     </model>
   </world>
 </sdf>
