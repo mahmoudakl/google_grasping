@@ -16,7 +16,7 @@ cd google_grasping
 git submodule init
 git submodule update --recursive
 cp resources/GazeboRosPackages/* $HBP/GazeboRosPackages/src -a
-cp resources/Models/* $HBP/Models/ -a # add folder names in models.txt if needed
+cp resources/Models/* $HBP/Models/ -a
 cp resources/Experiments/* $HBP/Experiments -a
 cd $HBP/Models
 ./create-symlinks.sh
