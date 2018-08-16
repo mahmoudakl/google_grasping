@@ -1,5 +1,5 @@
 # Google Grasping Experiment in the Neurorobotics Platform
-This repository contains files for a Neurorobotics Platform Experiment that aims at recreating the google grasping experiment in simulation. To get started, you need a local installation of the Neurorobotics Platform, and you have to clone this repository in ~/.opt/nrpStorage.
+This repository contains files for a Neurorobotics Platform Experiment that aims at recreating the google grasping experiment in simulation. To get started, you need a local installation of the Neurorobotics Platform.
 
 ## Prerequisites
 ```
