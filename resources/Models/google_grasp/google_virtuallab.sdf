@@ -10288,7 +10288,6 @@
       </link>
     </model>
     <model name="Cup_1">
-      <static>1</static>
       <link name="Cup::Obj_1">
         <collision name="COL_Obj_1_Cup">
           <pose frame="">0 0 0 0 -0 0</pose>
