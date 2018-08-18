@@ -17,7 +17,8 @@ from keras.optimizers import Adam
 from keras.optimizers import sgd
 import keras
 import pickle
-
+import tf
+import pdb
 
 
 sgs = SmartGrasper()
@@ -104,6 +105,8 @@ class GraspQuality(object):
         ball_pose.orientation.w = quaternion[3]
 
         self.sgs.move_tip_absolute(ball_pose)
+        import pdb; pdb.set_trace()
+        rospy.loginfo("Moving tip to " + str(ball_pose))
 
         self.sgs.move_tip(y=grasp_distance)
 
@@ -163,6 +166,7 @@ def __compute_euclidean_distance(self):
 
 def initializeAnExperiment():
     # Reset the world
+    # pdb.set_trace()
     sgs.reset_world()
     # Give gazebo some time
     time.sleep(0.1)
@@ -222,6 +226,7 @@ def initializeAnExperiment():
     return sgs, state
 
 def take_step(current_state, action):
+    # pdb.set_trace()
     next_state = current_state[0].tolist()
     reward = 0
 
@@ -292,7 +297,7 @@ def get_batch(model,  batch_size=10):
 
 
 # Number of episodes
-NUM_OF_EPISODES = 20
+NUM_OF_EPISODES = 1000
 # Max steps
 NUM_MAX_STEPS = 1000
 STATE_SIZE = 10
@@ -317,7 +322,7 @@ experiment_cont = True
 grasp_quality = GraspQuality(sgs)
 epsilonGrasp = 0.05
 # Use a saved model if you want
-model = keras.models.load_model('/home/akl-ma/NRP/GazeboRosPackages/src/smart_grasping_sandbox/scripts/model-Q.h5')
+model = keras.models.load_model('model-Q.h5')
 
 #model = Sequential()
 #model.add(Dense(hidden_size, input_shape=(STATE_SIZE, ), activation='relu'))
