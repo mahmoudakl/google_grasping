@@ -1,7 +1,7 @@
 <ExD 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
   xmlns="http://schemas.humanbrainproject.eu/SP10/2014/ExDConfig" xsi:schemaLocation="http://schemas.humanbrainproject.eu/SP10/2014/ExDConfig ../ExDConfFile.xsd">
-  <name>Google Grasping - GITHUB</name>
+  <name>Google Grasping - Single Robot_Manipulation</name>
   <thumbnail>google_grasping_single.png</thumbnail>
   <description>This experiments loads the Schunk arm with gripper in the holodeck. Objects are placed in a bin to be grasped. The robot can be controlled via ROS by PID position controller, the camera image is published for vision.</description>
   <tags>icub robotics holodeck template</tags>
@@ -9,12 +9,13 @@
   <configuration src="google_grasping_single.3ds" type="3d-settings" />
   <configuration src="google_grasping_single.uis" type="user-interaction-settings" />
   <maturity>production</maturity>
-  <environmentModel src="google_grasp/google_virtuallab.sdf">
-    <robotPose theta="1.57" ux="0.0" uy="0.0" uz="1.57" x="1.929" y="0.0" z="0.05" />
+  <environmentModel src="google_virtuallab.sdf">
+    <robotPose theta="1.57" ux="0.0" uy="0.0" uz="1.57" x="1.929" y="0.286" z="0.3" />
   </environmentModel>
   <bibiConf src="bibi_configuration.bibi" />
   <cameraPose>
     <cameraPosition x="4.82578462912" y="-1.36703889486" z="1.62090225602" />
     <cameraLookAt x="1.929" y="0.286" z="1.0" />
   </cameraPose>
+  <rosLaunch src="smart_grasping_sandbox.launch" />
 </ExD>
