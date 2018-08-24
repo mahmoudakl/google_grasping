@@ -7,7 +7,7 @@
   <configuration src="google_grasping_single.3ds" type="3d-settings"/>
   <configuration src="google_grasping_single.uis" type="user-interaction-settings"/>
   <maturity>production</maturity>
-  <environmentModel src="empty_virtuallab.sdf">
+  <environmentModel src="empty_virtuallab/empty_virtuallab.sdf">
     <robotPose theta="1.57" ux="0.0" uy="0.0" uz="1.57" x="0" y="0.0" z="0.035"/>
   </environmentModel>
   <bibiConf src="bibi_configuration.bibi"/>
