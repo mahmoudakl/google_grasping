@@ -114,7 +114,6 @@
     </model> -->
     <model name='cricket_ball'>
       <link name='link'>
-        <pose frame='google_table__table'>1.1 0.9 0.85 0 0 0</pose>
         <inertial>
           <mass>0.1467</mass>
           <inertia>
@@ -127,6 +126,7 @@
           </inertia>
         </inertial>
         <collision name='collision'>
+          <pose frame="">0 0 0 0 -0 0</pose>
           <geometry>
             <sphere>
               <radius>0.0375</radius>
@@ -148,9 +148,9 @@
                 <coefficient>1</coefficient>
                 <use_patch_radius>0</use_patch_radius>
                 <surface_radius>0.01</surface_radius>
-                <ode/>
+                <!--<ode/>-->
               </torsional>
-              <ode/>
+              <!--<ode/>-->
             </friction>
             <bounce/>
           </surface>
@@ -165,7 +165,7 @@
           <material>
             <script>
               <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Red</name>
+              <name>Gazebo/Green</name>
             </script>
           </material>
         </visual>
@@ -175,14 +175,15 @@
         </velocity_decay>
         <self_collide>0</self_collide>
         <kinematic>0</kinematic>
+        <pose frame="">0 0 0 0 -0 0</pose>
       </link>
-      <!--<pose frame=''>0.15003 -5.5e-05 0.82 0.003644 -0.00082 0.000309</pose>-->
+      <pose frame="">1 0.9 0.85 0 0 0</pose>
     </model>
-<!--Tables -->
+    <!--Tables -->
     <model name="google_table">
       <!-- <static>1</static> -->
-      <link name="table">
-      <pose frame="">1 0 0.03 0 -0 3.14</pose>
+     <link name="table">
+      <pose frame="">0 0 0.0 0 -0 0</pose>
       <inertial>
         <mass>100.0</mass>
         <inertia>
@@ -194,9 +195,9 @@
           <izz>100.0</izz>
         </inertia>
       </inertial>
-<!-- small table -->
+      <!-- small table -->
       <visual name="VIS_Table_11_2">
-        <pose>-0.02002 -0.87278 0.71271 1.57079 -0.0 0.0</pose>
+        <pose>-0.02002 0.87278 0.71271 1.57079 -0.0 0.0</pose>
         <geometry>
           <mesh>
             <uri>model://google_grasp/meshes/visual/VIS_Table_11_2.dae</uri>
@@ -205,7 +206,7 @@
         </geometry>
       </visual>
       <collision name="VIS_base_link_table_1">
-        <pose>-0.02002 -0.87278 0.71271 1.57079 -0.0 0.0</pose>
+        <pose>-0.02002 0.87278 0.71271 1.57079 -0.0 0.0</pose>
         <geometry>
           <mesh>
             <uri>model://google_grasp/meshes/visual/VIS_Table_11_2.dae</uri>
@@ -213,7 +214,7 @@
           </mesh>
         </geometry>
       </collision>
-<!-- big Table -->
+      <!-- big Table -->
       <visual name="VIS_base_link_13">
         <pose>0.0 0.0 0.5 0.0 -0.0 0.0</pose>
         <geometry>
@@ -223,23 +224,24 @@
           </mesh>
         </geometry>
       </visual>
-    <collision name="COL_base_link_13">
-      <pose>0.0 0.0 0.5 0.0 -0.0 0.0</pose>
-      <geometry>
+      <collision name="COL_base_link_13">
+       <pose>0.0 0.0 0.5 0.0 -0.0 0.0</pose>
+       <geometry>
         <mesh>
           <uri>model://google_grasp/meshes/visual/VIS_base_link_13.dae</uri>
           <scale>1.0 1.0 1.0</scale>
         </mesh>
-      </geometry>
-    </collision>
-    </link>
-    <joint name='myJoint' type='fixed'>
-      <parent>world</parent>
-      <child>table</child>
-      <pose>0 0 0.0 0 0 0</pose>
-    </joint>
+       </geometry>
+      </collision>
+     </link>
+     <!-- <joint name='myJoint' type='fixed'>
+       <parent>world</parent>
+       <child>table</child>
+       <pose>0 0 0.0 0 0 0</pose>
+     </joint>-->
+     <pose frame="">1 0 0.03 0 -0 0</pose>
     </model>
-<!-- End Table Model-->
+    <!-- End Table Model-->
     <model name="biologylabchair1">
       <static>1</static>
       <link name="biologylabchair::body">
@@ -870,7 +872,7 @@
       </link>
       <pose frame="">0 0 0 0 -0 0</pose>
     </model>
-<!-- -->
+    <!-- -->
     <model name="squarewindow_8">
       <static>1</static>
       <link name="squarewindow::body">
@@ -1367,7 +1369,7 @@
       </link>
       <pose frame="">1.68274 0.336662 0.000504 0 -0 0</pose>
     </model>
--->
+    -->
     <model name="concretewall1_27">
       <static>1</static>
       <link name="concretewall::body">
@@ -8567,17 +8569,17 @@
         </link>
       </model>
       <model name='cricket_ball'>
-        <pose frame='google_table__table'>1.1 0.9 0.85 0 0 0</pose>
+        <pose frame="">1 0.9 0.85 0 0 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame='google_table__table'>1.1 0.9 0.85 0 0 0</pose>
+          <pose frame="">1 0.9 0.85 0 0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
       <model name='google_table'>
-        <pose frame=''>0 0 0.0 0 -0 0</pose>
+        <pose frame=''>1 0 0.03 0 -0 0</pose>
         <scale>1 1 1</scale>
         <!-- <link name='link'>
           <pose frame=''>0.3 -0.8 0.0 0 -0 0</pose>
