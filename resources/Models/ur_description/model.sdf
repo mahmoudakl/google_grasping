@@ -1397,10 +1397,12 @@
         </ode>
       </physics>
     </joint>
+<!--  -->
     <plugin name='ros_control' filename='libgazebo_ros_control.so'>
       <robotNamespace></robotNamespace>
       <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
     </plugin>
+<!-- -->
     <static>0</static>
     <plugin name='imu_controller' filename='libgazebo_ros_imu.so'>
       <alwaysOn>true</alwaysOn>

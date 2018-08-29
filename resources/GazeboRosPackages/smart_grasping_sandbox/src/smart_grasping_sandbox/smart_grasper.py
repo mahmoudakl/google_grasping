@@ -17,7 +17,6 @@ from control_msgs.msg import FollowJointTrajectoryAction, \
     FollowJointTrajectoryGoal
 from sensor_msgs.msg import JointState
 from trajectory_msgs.msg import JointTrajectoryPoint
-from tf2_msgs.msg import TFMessage
 from tf.transformations import quaternion_from_euler
 from math import pi
 from copy import deepcopy
@@ -35,7 +34,6 @@ class SmartGrasper(object):
     """
 
     __last_joint_state = None
-    __object_pose = None
     __current_model_name = "cricket_ball"
     __path_to_models = os.getenv("HOME") + "/.gazebo/models/"
 
@@ -129,8 +127,7 @@ class SmartGrasper(object):
         Gets the pose of the ball in the world frame.
         @return The pose of the ball.
         """
-        # return self.__get_pose_srv.call(self.__current_model_name, "world").pose
-        return self.__object_pose
+        return self.__get_pose_srv.call(self.__current_model_name, "world").pose
 
     def get_tip_pose(self):
         """
@@ -227,6 +224,17 @@ class SmartGrasper(object):
         self.hand_commander.set_named_target("open")
         plan = self.hand_commander.plan()
         if not self.hand_commander.execute(plan, wait=True):
+            return False
+        return True
+
+    def start(self):
+        """
+        puts the arm into starting position.
+        @return True on success
+        """
+        self.arm_commander.set_named_target("start_grasp")
+        plan = self.arm_commander.plan()
+        if not self.arm_commander.execute(plan, wait=True):
             return False
         return True
 
@@ -435,12 +443,3 @@ class SmartGrasper(object):
 
     def __joint_state_cb(self, msg):
         self.__last_joint_state = msg
-
-    def __tf_callback(self, data):
-        for (ids,transform) in enumerate(data.transforms):
-           #rospy.loginfo(transform.child_frame_id)
-           if transform.child_frame_id=="cricket_ball__link":
-              t = transform.transform
-
-              self.__object_pose = Pose(position=Point(t.translation.x,t.translation.y,t.translation.z), orientation=t.rotation)
-              # rospy.loginfo(str(transform.transform.translation))
