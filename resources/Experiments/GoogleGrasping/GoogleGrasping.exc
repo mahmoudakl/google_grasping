@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ExD xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xmlns="http://schemas.humanbrainproject.eu/SP10/2014/ExDConfig"
+     xsi:schemaLocation="http://schemas.humanbrainproject.eu/SP10/2014/ExDConfig ../ExDConfFile.xsd">
+    <name>Google grasping experiment</name>
+    <thumbnail>GoogleGrasping.jpg</thumbnail>
+    <description>This experiment loads the universal robot arm with the shadow hand.</description>
+    <tags>grasping moveit</tags>
+    <timeout>840</timeout>
+    <configuration type="3d-settings" src="GoogleGrasping.ini"/>
+    <configuration type="brainvisualizer" src="brainvisualizer.json"/>
+	<configuration type="user-interaction-settings" src="GoogleGrasping.uis"/>
+    <maturity>production</maturity>
+    <environmentModel src="google_virtuallab/google_virtuallab.sdf">
+        <robotPose x="0" y="0" z="1.1" roll="0.0" pitch="-0.0" yaw="0"/>
+    </environmentModel>
+    <bibiConf src="GoogleGrasping.bibi"/>
+    <cameraPose>
+        <cameraPosition x="4.5" y="0" z="1.8"/>
+        <cameraLookAt x="0" y="0" z="0.6"/>
+    </cameraPose>
+    <!-- <rosLaunch src="smart_grasping_sandbox.launch"/> -->
+</ExD>
