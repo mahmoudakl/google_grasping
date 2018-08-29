@@ -33,10 +33,10 @@
         </geometry>
       </visual>
     </link>
-    <joint name='world_joint' type='fixed'>
+    <!-- <joint name='world_joint' type='fixed'>
       <child>base_link</child>
       <parent>world</parent>
-    </joint>
+    </joint> -->
     <link name='shoulder_link'>
       <pose frame=''>0 0 0.1273 0 -0 0</pose>
       <inertial>

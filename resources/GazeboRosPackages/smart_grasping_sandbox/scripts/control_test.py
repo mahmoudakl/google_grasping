@@ -4,6 +4,7 @@ import os
 from smart_grasping_sandbox.smart_grasper import SmartGrasper
 from geometry_msgs.msg import Pose
 from gazebo_msgs.srv import  SpawnEntity, DeleteModel, GetWorldProperties, GetModelState
+from gazebo_msgs.msg import LinkStates
 import rospy
 import pdb
 
@@ -12,6 +13,22 @@ __delete_model = rospy.ServiceProxy("/gazebo/delete_model", DeleteModel)
 __get_world_properties = rospy.ServiceProxy("/gazebo/get_world_properties", GetWorldProperties)
 __get_model_state = rospy.ServiceProxy("/gazebo/get_model_state", GetModelState)
 __path_to_models = os.getenv("HOME") + "/.gazebo/models/"
+
+
+def __on_link_states_msg(msg):
+    for (idx, name) in enumerate(msg.name):
+        if(name=="cricket_ball::link"):
+            rospy.loginfo("Pose of the ball: " + str(msg.pose[idx].position.x) + " "
+            + str(msg.pose[idx].position.y) + " "
+            + str(msg.pose[idx].position.z))
+    ball_pose = get_absolute_model_pose("cricket_ball")
+    rospy.loginfo("P0se of the ball: " + str(ball_pose.position.x) + " "
+    + str(ball_pose.position.y) + " "
+    + str(ball_pose.position.z))
+# __model_states_sub = rospy.Subscriber('/gazebo/link_states', LinkStates, __on_link_states_msg, queue_size=1)
+
+
+
 
 def get_absolute_model_pose(name):
     state = __get_model_state(name, "world")
@@ -37,18 +54,19 @@ def spawn_model(name, pose, reference_frame):
     except:
         rospy.logerr(res)
 
-ball_pose = get_absolute_model_pose("cricket_ball")
+
 sgs = SmartGrasper()
-tip_pose = sgs.get_tip_pose()
-tip_pose.position = ball_pose.position
-tip_pose.position.z += 0.1
-
-import pdb; pdb.set_trace()
-# pose.position.x = 0.15
-pose = Pose()
-pose.position.z = 0.8
-pose.position.y = 0.5
-spawn_model("cricket_ball", pose, "google_table__table")
+sgs.pick()
+# sgs.move_tip_absolute(tip_pose)
 
 
-import pdb; pdb.set_trace()
+# sgs.move_tip(x=-0.03)
+# import pdb; pdb.set_trace()
+# # pose.position.x = 0.15
+# pose = Pose()
+# pose.position.z = 0.8
+# pose.position.y = 0.5
+# spawn_model("cricket_ball", pose, "google_table__table")
+#
+#
+# import pdb; pdb.set_trace()

@@ -1,5 +1,5 @@
 <launch>
-  <arg name="gui" default="false"/>
+  <arg name="gui" default="true"/>
   <arg name="start_gazebo" default="false"/>
   <arg name="limited" default="false"/>
   <arg name="paused" default="false"/>
@@ -15,8 +15,14 @@
       <env name="MESH_WORKSPACE_PATH" value="/home/missxa/NRP/GazeboRosPackages/src/"/>
   </include>
 
-  
-  <node name="world_to_arm_base" pkg="tf" type="static_transform_publisher" args="0 -1 1 0 0 0 world base_link 100" />
+  <include file="$(find gazebo2rviz)/launch/gazebo2rviz.launch">
+      <env name="GAZEBO_MODEL_PATH" value="/home/missxa/NRP/GazeboRosPackages/src/://home/missxa/NRP/GazeboRosPackages/src/universal_robot:~/.gazebo/models:${GAZEBO_MODEL_PATH}"/>
+      <env name="MESH_WORKSPACE_PATH" value="/home/missxa/NRP/GazeboRosPackages/src/"/>
+  </include>
+
+  <!-- <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"/> -->
+
+  <node name="world_to_arm_base" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 world base_link 100" />
   <include file="$(find ur_gazebo)/launch/controller_utils.launch"/>
 
   <rosparam file="$(find ur_gazebo)/controller/arm_controller_ur10.yaml" command="load"/>
@@ -26,4 +32,7 @@
   <rosparam command="load" file="$(find fh_desc)/config/hand_H_gazebo_trajectory.yaml"/>
   <node name="spawn_hand_controller" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="--shutdown-timeout=1.0 --timeout=360.0 hand_controller" />
 
+  <group if="$(arg gui)">
+      <include file="$(find smart_grasp_moveit_config)/launch/moveit_rviz.launch"/>
+  </group>
 </launch>
