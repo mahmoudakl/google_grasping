@@ -6,6 +6,16 @@
   <arg name="gzweb" default="false"/>
   <arg name="verbose" default="false"/>
 
+  <param name="robot_description" command="$(find xacro)/xacro '$(find fh_desc)/model.urdf'" />
+
+  <include file="$(find smart_grasp_moveit_config)/launch/move_group.launch"/>
+
+  <include file="$(find gazebo2rviz)/launch/gazebo2moveit.launch">
+      <env name="GAZEBO_MODEL_PATH" value="/home/missxa/NRP/GazeboRosPackages/src/://home/missxa/NRP/GazeboRosPackages/src/universal_robot:~/.gazebo/models:${GAZEBO_MODEL_PATH}"/>
+      <env name="MESH_WORKSPACE_PATH" value="/home/missxa/NRP/GazeboRosPackages/src/"/>
+  </include>
+
+  
   <node name="world_to_arm_base" pkg="tf" type="static_transform_publisher" args="0 -1 1 0 0 0 world base_link 100" />
   <include file="$(find ur_gazebo)/launch/controller_utils.launch"/>
 

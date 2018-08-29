@@ -1,11 +1,13 @@
 # Copyright (C) 2018 Shadow Robot Company Ltd - All Rights Reserved.
 # Proprietary and Confidential. Unauthorized copying of the content in this file, via any medium is strictly prohibited.
 
+import os
 import rospy
 from std_srvs.srv import Empty
 from gazebo_msgs.srv import GetModelState, SetModelConfiguration, DeleteModel, \
-    SpawnModel
-from geometry_msgs.msg import Pose, Point
+    SpawnModel, SpawnEntity
+from gazebo_msgs.msg import ModelState, ModelStates
+from geometry_msgs.msg import Pose, Point, Twist
 from controller_manager_msgs.srv import SwitchController, SwitchControllerRequest
 from moveit_msgs.msg import PlanningScene, PlanningSceneComponents
 from moveit_msgs.srv import GetPlanningScene
@@ -35,7 +37,7 @@ class SmartGrasper(object):
     __last_joint_state = None
     __object_pose = None
     __current_model_name = "cricket_ball"
-    __path_to_models = "/root/.gazebo/models/"
+    __path_to_models = os.getenv("HOME") + "/.gazebo/models/"
 
     def __init__(self):
         """
@@ -50,6 +52,7 @@ class SmartGrasper(object):
                                                   self.__joint_state_cb, queue_size=1)
 
         self.__tf_subscriber = rospy.Subscriber('tf', TFMessage, self.__tf_callback, queue_size=1)
+        self.__model_states_sub = rospy.Subscriber('/gazebo/model_states', ModelStates, self.__on_states_msg, queue_size=1)
 
         rospy.wait_for_service("/gazebo/get_model_state", 10.0)
         rospy.wait_for_service("/gazebo/reset_world", 10.0)
@@ -65,10 +68,12 @@ class SmartGrasper(object):
         rospy.wait_for_service("/gazebo/set_model_configuration")
         self.__set_model = rospy.ServiceProxy("/gazebo/set_model_configuration", SetModelConfiguration)
 
+        self.__set_model_state = rospy.Publisher("/gazebo/set_model_state", ModelState)
+
         rospy.wait_for_service("/gazebo/delete_model")
         self.__delete_model = rospy.ServiceProxy("/gazebo/delete_model", DeleteModel)
         rospy.wait_for_service("/gazebo/spawn_sdf_model")
-        self.__spawn_model = rospy.ServiceProxy("/gazebo/spawn_sdf_model", SpawnModel)
+        self.__spawn_model = rospy.ServiceProxy("/gazebo/spawn_sdf_model", SpawnEntity)
 
         rospy.wait_for_service('/get_planning_scene', 10.0)
         self.__get_planning_scene = rospy.ServiceProxy('/get_planning_scene', GetPlanningScene)
@@ -76,7 +81,6 @@ class SmartGrasper(object):
 
         self.arm_commander = MoveGroupCommander("arm")
         self.hand_commander = MoveGroupCommander("hand")
-
         self.__hand_traj_client = SimpleActionClient("/hand_controller/follow_joint_trajectory",
                                                      FollowJointTrajectoryAction)
         self.__arm_traj_client = SimpleActionClient("/arm_controller/follow_joint_trajectory",
@@ -91,7 +95,7 @@ class SmartGrasper(object):
             raise Exception("Failed to connect to /arm_controller/follow_joint_trajectory in 4sec.")
 
         rospy.loginfo("Done init")
-        self.reset_world()
+        # self.reset_world()
 
     def reset_world(self):
         """
@@ -107,7 +111,7 @@ class SmartGrasper(object):
                        'H1_F2J1', 'H1_F2J2', 'H1_F2J3', 'H1_F3J1', 'H1_F3J2', 'H1_F3J3']
         joint_positions = [1.2, 0.3, -1.5, -0.5, -1.5, 0.0, 0.0, -0.3, 0.0, 0.0, -0.3, 0.0, 0.0, -0.3, 0.0]
 
-        self.__set_model.call(model_name="smart_grasping_sandbox",
+        self.__set_model.call(model_name="robot",
                               urdf_param_name="robot_description",
                               joint_names=joint_names,
                               joint_positions=joint_positions)
@@ -323,22 +327,46 @@ class SmartGrasper(object):
         Replaces the current object with a new one.Replaces
         @new_model_name the name of the folder in which the object is (e.g. beer)
         """
-        try:
-            self.__delete_model(self.__current_model_name)
-        except:
-            rospy.logwarn("Failed to delete: " + self.__current_model_name)
+        # import pdb; pdb.set_trace()
+        res = None
+        # try:
+        #     self.__delete_model(self.__current_model_name)
+        # except:
+        #     rospy.logwarn("Failed to delete: " + self.__current_model_name)
         try:
             sdf = None
             initial_pose = Pose()
             initial_pose.position.x = 0.15
-            initial_pose.position.z = 0.82
+            initial_pose.position.z = 2.0
+
             with open(self.__path_to_models + new_model_name + "/model.sdf", "r") as model:
                 sdf = model.read()
-            res = self.__spawn_model(new_model_name, sdf, "", initial_pose, "world")
-            rospy.logerr("RES: " + str(res))
+
+            res = self.___spawn_model(new_model_name, sdf, "", initial_pose, "world")
+
+            rospy.loginfo((res))
             self.__current_model_name = new_model_name
         except:
-            rospy.logwarn("Failed to delete: " + self.__current_model_name)
+            rospy.logerr("In spawn model: " + str(res))
+
+    def __on_states_msg(self, msg):
+        for (idx, name) in enumerate(msg.name):
+            if(name=="cricket_ball"):
+                pass
+                # rospy.loginfo("Pose of the cricket_ball: " + str(msg.pose[idx].position.x) + " "
+                # + str(msg.pose[idx].position.y) + " "
+                # + str(msg.pose[idx].position.z))
+
+
+    def set_model_state(self, model_name, pose, twist=Twist(), reference_frame="world"):
+        # self.__pause_physics.call()
+        msg = ModelState()
+        msg.model_name = model_name
+        msg.pose = pose
+        msg.twist = twist
+        msg.reference_frame = reference_frame
+        self.__set_model_state.publish(msg)
+        # self.__unpause_physics.call()
 
     def __compute_arm_target_for_ball(self):
         ball_pose = self.get_object_pose()
