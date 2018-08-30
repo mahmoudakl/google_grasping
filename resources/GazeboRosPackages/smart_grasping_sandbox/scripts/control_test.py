@@ -42,7 +42,7 @@ def spawn_model(name, pose, reference_frame):
         except:
             rospy.logerr("Failed to delete model " + name)
     try:
-        new_model_name = 'cricket_ball'
+        new_model_name = name
         sdf = None
         res = None
 
@@ -55,8 +55,15 @@ def spawn_model(name, pose, reference_frame):
         rospy.logerr(res)
 
 
+# pose = Pose();pose.position.x = 0.112046;pose.position.y = 0.752566;pose.position.z = 0.826581;spawn_model("unit_box", pose, "world")
+# #0.112046 0.752566 0.816581
+#
+# pdb.set_trace()
 sgs = SmartGrasper()
+sgs.set_new_object("unit_box")
 sgs.pick()
+import ipdb; ipdb.set_trace()
+
 # sgs.move_tip_absolute(tip_pose)
 
 

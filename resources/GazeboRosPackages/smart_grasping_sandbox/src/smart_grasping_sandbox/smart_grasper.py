@@ -5,7 +5,7 @@ import os
 import rospy
 from std_srvs.srv import Empty
 from gazebo_msgs.srv import GetModelState, SetModelConfiguration, DeleteModel, \
-    SpawnEntity
+    SpawnModel, SpawnEntity
 from gazebo_msgs.msg import ModelState, ModelStates
 from geometry_msgs.msg import Pose, Point, Twist
 from controller_manager_msgs.srv import SwitchController, SwitchControllerRequest
@@ -72,8 +72,8 @@ class SmartGrasper(object):
 
         rospy.wait_for_service("/gazebo/delete_model")
         self.__delete_model = rospy.ServiceProxy("/gazebo/delete_model", DeleteModel)
-        rospy.wait_for_service("/gazebo/spawn_sdf_entity")
-        self.__spawn_model = rospy.ServiceProxy("/gazebo/spawn_sdf_entity", SpawnEntity)
+        rospy.wait_for_service("/gazebo/spawn_sdf_model")
+        self.__spawn_model = rospy.ServiceProxy("/gazebo/spawn_sdf_model", SpawnEntity)
 
         rospy.wait_for_service('/get_planning_scene', 10.0)
         self.__get_planning_scene = rospy.ServiceProxy('/get_planning_scene', GetPlanningScene)
@@ -308,19 +308,23 @@ class SmartGrasper(object):
         time.sleep(0.1)
 
         rospy.loginfo("Grasping")
-        self.move_tip(y=-0.164)
+        self.move_tip(y=-0.192)
         time.sleep(0.1)
         self.check_fingers_collisions(False)
-        time.sleep(0.1)
+        time.sleep(0.2)
         self.close_hand()
-        time.sleep(0.1)
+        time.sleep(2)
 
         rospy.loginfo("Lifting")
-        for _ in range(5):
-            self.move_tip(y=0.01)
-            time.sleep(0.1)
+        self.move_tip(y=0.3)
+        # for _ in range(5):
+        #     self.move_tip(y=0.01)
+        #     time.sleep(0.1)
 
         self.check_fingers_collisions(True)
+
+    def set_new_object(self,name):
+        self.__current_model_name = name
 
     def swap_object(self, new_model_name):
         """
@@ -351,7 +355,7 @@ class SmartGrasper(object):
 
     def __on_states_msg(self, msg):
         for (idx, name) in enumerate(msg.name):
-            if(name=="cricket_ball"):
+            if(name==self.__current_model_name):
                 self.__object_pose = msg.pose[idx]
                 # pass
                 # rospy.loginfo("Pose of the cricket_ball: " + str(msg.pose[idx].position.x) + " "
