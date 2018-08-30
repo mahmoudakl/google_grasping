@@ -14,11 +14,11 @@
       <env name="GAZEBO_MODEL_PATH" value="/home/missxa/NRP/GazeboRosPackages/src/://home/missxa/NRP/GazeboRosPackages/src/universal_robot:~/.gazebo/models:${GAZEBO_MODEL_PATH}"/>
       <env name="MESH_WORKSPACE_PATH" value="/home/missxa/NRP/GazeboRosPackages/src/"/>
   </include>
-
+<!--
   <include file="$(find gazebo2rviz)/launch/gazebo2rviz.launch">
       <env name="GAZEBO_MODEL_PATH" value="/home/missxa/NRP/GazeboRosPackages/src/://home/missxa/NRP/GazeboRosPackages/src/universal_robot:~/.gazebo/models:${GAZEBO_MODEL_PATH}"/>
       <env name="MESH_WORKSPACE_PATH" value="/home/missxa/NRP/GazeboRosPackages/src/"/>
-  </include>
+  </include> -->
 
   <!-- <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"/> -->
 
