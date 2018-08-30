@@ -113,6 +113,45 @@
       </link>
       <pose frame=''>-0.168004 0.136981 0 0 -0 0</pose>
     </model> -->
+    <!-- <model name='carpetground'>
+      <pose frame=''>-5.82005 4.20441 0 0 -0 0</pose>
+      <static>1</static>
+      <link name='body'>
+        <collision name='carpetground-collision'>
+          <pose frame=''>0 0 0.0125 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>6 6 0.025</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='carpetground'>
+          <cast_shadows>1</cast_shadows>
+          <geometry>
+            <mesh>
+              <uri>model://carpetground/meshes/carpetground.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+      </link>
+    </model> -->
     <model name='cricket_ball'>
       <pose frame=''>0 0 0 0 0 0</pose>
       <link name='link'>
@@ -256,7 +295,7 @@
     <joint name='myJoint' type='fixed'>
       <parent>world</parent>
       <child>table</child>
-      <pose>0 0 0.0 0 0 0</pose>
+      <pose>0 0 0.026042 0 0 0</pose>
   </joint>
     </model>
     <model name="biologylabchair1">
@@ -887,7 +926,7 @@
         <gravity>1</gravity>
       </link>
       <pose frame="">0 0 0 0 -0 0</pose>
-    </model> -->
+    </model>
     <model name="squarewindow_8">
       <static>1</static>
       <link name="squarewindow::body">
@@ -932,7 +971,7 @@
         <pose frame="">0 0 0 0 -0 0</pose>
       </link>
       <pose frame="">-5.43152 -10.45 2.01 0 -0 0</pose>
-    </model>
+    </model> -->
     <model name="squarewindow_9">
       <static>1</static>
       <link name="squarewindow::body">
@@ -8571,7 +8610,7 @@
       <real_time>0 0</real_time>
       <wall_time>1506689639 855808439</wall_time>
       <iterations>1</iterations>
-      
+
       <model name='cricket_ball'>
         <pose frame=''>0 0 0 0 0 0</pose>
         <scale>1 1 1</scale>
@@ -8587,6 +8626,16 @@
         <scale>1 1 1</scale>
 
       </model>
+      <!-- <model name='carpetground'>
+        <pose frame=''>-1.30465 0.712089 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='body'>
+          <pose frame=''>-1.30465 0.712089 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model> -->
       <!-- <model name='ur_description'>
         <pose frame='google_table__table'>-0.2 0.6 1.05 0 -0 0</pose>
         <scale>1 1 1</scale>
@@ -9236,6 +9285,16 @@
         <scale>1 1 1</scale>
         <link name="highwindow::body">
           <pose frame="">-6.419 9.737 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='ground_plane'>
+        <pose frame=''>2.36685 -2.57249 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>2.36685 -2.57249 0 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -10546,6 +10605,9 @@
       <static>true</static>
       <pose frame=''>0 0 0 0 0 0</pose>
     </include> -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
 
 
   </world>
