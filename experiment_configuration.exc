@@ -1,19 +1,23 @@
-<ExD xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.humanbrainproject.eu/SP10/2014/ExDConfig" xsi:schemaLocation="http://schemas.humanbrainproject.eu/SP10/2014/ExDConfig ../ExDConfFile.xsd">
-  <name>Google Grasping - Single Robot_Manipulation</name>
-  <thumbnail>google_grasping_single.png</thumbnail>
-  <description>This experiments loads the UR-10 arm with the Shadow Hand in the holodeck. Objects are placed on a table to be grasped. The robot can be controlled via the smart grasping sandbox via python scripts.</description>
-  <tags>icub robotics holodeck template</tags>
-  <timeout>840.0</timeout>
-  <configuration src="google_grasping_single.3ds" type="3d-settings"/>
-  <configuration src="google_grasping_single.uis" type="user-interaction-settings"/>
-  <maturity>production</maturity>
-  <environmentModel src="empty_virtuallab.sdf">
-    <robotPose theta="1.57" ux="0.0" uy="0.0" uz="1.57" x="0" y="0.0" z="0.035"/>
-  </environmentModel>
-  <bibiConf src="bibi_configuration.bibi"/>
-  <cameraPose>
-    <cameraPosition x="4.82578462912" y="-1.36703889486" z="1.62090225602"/>
-    <cameraLookAt x="1.929" y="0.286" z="1.0"/>
-  </cameraPose>
-  <rosLaunch src="smart_grasping_sandbox.launch" />
+<?xml version="1.0" encoding="utf-8"?>
+<ExD xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xmlns="http://schemas.humanbrainproject.eu/SP10/2014/ExDConfig"
+     xsi:schemaLocation="http://schemas.humanbrainproject.eu/SP10/2014/ExDConfig ../ExDConfFile.xsd">
+    <name>Google grasping experiment</name>
+    <thumbnail>GoogleGrasping.jpg</thumbnail>
+    <description>This experiment loads the universal robot arm with the shadow hand.</description>
+    <tags>grasping moveit</tags>
+    <timeout>840</timeout>
+    <configuration type="3d-settings" src="GoogleGrasping.ini"/>
+    <configuration type="brainvisualizer" src="brainvisualizer.json"/>
+	<configuration type="user-interaction-settings" src="GoogleGrasping.uis"/>
+    <maturity>production</maturity>
+    <environmentModel src="google_virtuallab/google_virtuallab.sdf">
+        <robotPose x="0" y="0" z="1.032" roll="0.0" pitch="-0.0" yaw="0"/>
+    </environmentModel>
+    <bibiConf src="bibi_configuration.bibi"/>
+    <cameraPose>
+        <cameraPosition x="4.5" y="0" z="1.8"/>
+        <cameraLookAt x="0" y="0" z="0.6"/>
+    </cameraPose>
+    <rosLaunch src="load_param.launch"/>
 </ExD>
