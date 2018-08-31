@@ -12,19 +12,25 @@ pip2.7 install tensorflow keras h5py sklearn bokeh bayesian-optimization pandas
 
 ## Setup & Compile
 clone this repository into your
-'''
+
+```
 ~/.opt/nrpStorage
-'''
-on first use call, this will copy all necessary files and setup the environemnts
-'''
+```
+
+on first use call:
+
+```
 ./deploy_experiment.sh
-'''
-you can also call the model, packages and experiment files individually:
-'''
+```
+
+This will copy all necessary files and setup the environemnts.
+You can also copy and setup the model, packages and experiment files individually:
+
+```
 ./deploy_experiment.sh m #handels only th model files
 ./deploy_experiment.sh e #handels only the experiment files
 ./deploy_experiment.sh g #handels only the gazebo packages
-'''
+```
 
 
 ## Run
