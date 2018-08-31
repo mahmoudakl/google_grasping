@@ -1,1 +1,0 @@
-../../../schunk_hand_control.py

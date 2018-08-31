@@ -1,12 +1,11 @@
-<?xml version="1.0" ?>
 <sdf version='1.6'>
   <model name='ur_description'>
-    <pose>0 0 0 0 0 0</pose>
+
     <link name='base_link'>
-      <pose>0 -1.3 0.03 0 0 3.14159</pose>
+      <pose frame=''>0 0 0 0 -0 0</pose>
       <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
         <mass>4</mass>
-        <pose>0 0 0 0 0 0</pose>
         <inertia>
           <ixx>0.00610633</ixx>
           <ixy>0</ixy>
@@ -16,135 +15,8 @@
           <izz>0.01125</izz>
         </inertia>
       </inertial>
-      <collision name="VIS_Camera_Fixture_Coll_2">
-        <pose>0.28347 -0.33897 1.455229 0.0 -0.0 0.0</pose>
-        <geometry>
-          <mesh>
-            <uri>model://google_grasp/meshes/visual/VIS_Camera_Fixture_Coll_2.dae</uri>
-            <scale>0.04 0.04 0.45</scale>
-          </mesh>
-        </geometry>
-      </collision>
-      <collision name="VIS_base_link_table_1">
-        <pose>-0.02002 -0.87278 0.71271 1.57079 -0.0 0.0</pose>
-        <geometry>
-          <mesh>
-            <uri>model://google_grasp/meshes/visual/VIS_Table_11_2.dae</uri>
-            <scale>0.008 0.011 0.008</scale>
-          </mesh>
-        </geometry>
-      </collision>
-      <collision name="COL_Bins_12_Coll">
-        <pose>-0.02002 -0.87279 0.71200 1.57080 -0.0 0.0</pose>
-        <geometry>
-          <mesh>
-            <uri>model://google_grasp/meshes/collisions/COL_Bins.dae</uri>
-            <scale>0.008 0.011 0.008</scale>
-          </mesh>
-        </geometry>
-      </collision>
-      <collision name="VIS_base_link_13">
-        <pose>0.0 0.0 0.5 0.0 -0.0 0.0</pose>
-        <geometry>
-          <mesh>
-            <uri>model://google_grasp/meshes/visual/VIS_base_link_13.dae</uri>
-            <scale>1.0 1.0 1.0</scale>
-          </mesh>
-        </geometry>
-      </collision>
-      <visual name="VIS_Camera_9_4">
-        <pose>0.32804 -0.43959 1.63634 -1.15192 5.08527e-15 -3.1416</pose>
-        <geometry>
-          <mesh>
-            <uri>model://google_grasp/meshes/visual/VIS_Camera_9_4.dae</uri>
-            <scale>0.01 0.01 0.01</scale>
-          </mesh>
-        </geometry>
-      </visual>
-      <visual name="VIS_Camera_Fixture_10_3">
-        <pose>0.26528 -0.33789 1.11712 1.570796 -0.0 0.0</pose>
-        <geometry>
-          <mesh>
-            <uri>model://google_grasp/meshes/visual/VIS_Camera_Fixture_10_3.dae</uri>
-            <scale>0.007 0.009 0.007</scale>
-          </mesh>
-        </geometry>
-      </visual>
-      <visual name="VIS_Table_11_2">
-        <pose>-0.02002 -0.87278 0.71271 1.57079 -0.0 0.0</pose>
-        <geometry>
-          <mesh>
-            <uri>model://google_grasp/meshes/visual/VIS_Table_11_2.dae</uri>
-            <scale>0.008 0.011 0.008</scale>
-          </mesh>
-        </geometry>
-      </visual>
-      <visual name="VIS_Bins_12">
-        <pose>-0.02000 -0.87279 0.71200 1.570796 -0.0 0.0</pose>
-        <geometry>
-          <mesh>
-            <uri>model://google_grasp/meshes/visual/VIS_Bins.dae</uri>
-            <scale>0.008 0.011 0.008</scale>
-          </mesh>
-        </geometry>
-      </visual>
-      <visual name="VIS_base_link_13">
-        <pose>0.0 0.0 0.5 0.0 -0.0 0.0</pose>
-        <geometry>
-          <mesh>
-            <uri>model://google_grasp/meshes/visual/VIS_base_link_13.dae</uri>
-            <scale>1.0 1.0 1.0</scale>
-          </mesh>
-        </geometry>
-      </visual>
-
-      <sensor type="camera" name="camera_eye">
-              <pose>0.32 -0.44 1.65 3.14 2.0 1.24</pose>
-              <update_rate>30.0</update_rate>
-              <always_on>1</always_on>
-              <visualize>true</visualize>
-              <topic>/grasping_camera/image</topic>
-              <camera name="camera_eye">
-                  <horizontal_fov>0.9</horizontal_fov>
-                  <image>
-                      <width>320</width>
-                      <height>240</height>
-                      <format>R8G8B8</format>
-                  </image>
-                  <clip>
-                      <near>0.01</near>
-                      <far>100</far>
-                  </clip>
-              <!--
-                  <noise>
-                      <type>gaussian</type>-->
-                      <!-- Noise is sampled independently per pixel on each frame.
-                        That pixel's noise value is added to each of its color
-                        channels, which at that point lie in the range [0,1]. -->
-                  <!--          <mean>0.0</mean>
-                      <stddev>0.007</stddev>
-                  </noise>
-              -->
-              </camera>
-              <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
-                <alwaysOn>true</alwaysOn>
-                  <updateRate>30.0</updateRate>
-                  <cameraName>camera_eye</cameraName>
-                  <imageTopicName>image_raw</imageTopicName>
-                  <cameraInfoTopicName>camera_info</cameraInfoTopicName>
-                  <frameName>camera_link</frameName>
-                  <hackBaseline>0.07</hackBaseline>
-                  <distortionK1>0.0</distortionK1>
-                <distortionK2>0.0</distortionK2>
-                  <distortionK3>0.0</distortionK3>
-                  <distortionT1>0.0</distortionT1>
-                  <distortionT2>0.0</distortionT2>
-              </plugin>
-            </sensor>
-
-      <!--
       <collision name='base_link_collision'>
-        <pose frame=''>0 1.3 -1 0 -0 0</pose>
+        <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -153,7 +25,7 @@
         </geometry>
       </collision>
       <visual name='base_link_visual'>
-        <pose frame=''>0 1.3 -1 0 -0 0</pose>
+        <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -161,9 +33,8 @@
           </mesh>
         </geometry>
       </visual>
-      -->
     </link>
-    <joint name='world_joint' type='prismatic'>
+    <joint name='world_joint' type='revolute'>
       <child>base_link</child>
       <parent>world</parent>
       <axis>
@@ -178,12 +49,11 @@
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
         <use_parent_model_frame>1</use_parent_model_frame>
-        <xyz>0 1 0</xyz>
+        <xyz>0 0 1</xyz>
       </axis>
     </joint>
-
     <link name='shoulder_link'>
-      <pose frame=''>0 -1 1.1273 0 -0 0</pose>
+      <pose frame=''>0 0 0.1273 0 -0 0</pose>
       <inertial>
         <pose frame=''>0 0 0 0 -0 0</pose>
         <mass>7.778</mass>
@@ -236,7 +106,7 @@
       </axis>
     </joint>
     <link name='upper_arm_link'>
-      <pose frame=''>0 -0.779059 1.1273 3.14159 1.57079 3.14159</pose>
+      <pose frame=''>0 0.220941 0.1273 3.14159 1.57079 3.14159</pose>
       <inertial>
         <pose frame=''>0 0 0.306 0 -0 0</pose>
         <mass>12.93</mass>
@@ -289,7 +159,7 @@
       </axis>
     </joint>
     <link name='forearm_link'>
-      <pose frame=''>0.612 -0.950959 1.1273 3.14159 1.57079 3.14159</pose>
+      <pose frame=''>0.612 0.049041 0.1273 3.14159 1.57079 3.14159</pose>
       <inertial>
         <pose frame=''>0 0 0.28615 0 -0 0</pose>
         <mass>3.87</mass>
@@ -342,7 +212,7 @@
       </axis>
     </joint>
     <link name='wrist_1_link'>
-      <pose frame=''>1.1843 -0.950959 1.1273 3.14159 0 3.14159</pose>
+      <pose frame=''>1.1843 0.049041 0.1273 3.14159 0 3.14159</pose>
       <inertial>
         <pose frame=''>0 0 0 0 -0 0</pose>
         <mass>1.96</mass>
@@ -395,7 +265,7 @@
       </axis>
     </joint>
     <link name='wrist_2_link'>
-      <pose frame=''>1.1843 -0.836059 1.1273 3.14159 0 3.14159</pose>
+      <pose frame=''>1.1843 0.163941 0.1273 3.14159 0 3.14159</pose>
       <inertial>
         <pose frame=''>0 0 0 0 -0 0</pose>
         <mass>1.96</mass>
@@ -448,7 +318,7 @@
       </axis>
     </joint>
     <link name='wrist_3_link'>
-      <pose frame=''>1.1843 -0.836059 1.0116 3.14159 0 3.14159</pose>
+      <pose frame=''>1.1843 0.163941 0.0116 3.14159 0 3.14159</pose>
       <inertial>
         <pose frame=''>0.000252 0.072377 0.002863 0 -0 0</pose>
         <mass>0.379715</mass>
@@ -483,7 +353,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://ur_description/meshes/fh_desc/v2/palm_link_simple.dae</uri>
+            <uri>model://fh_desc/meshes/v2/palm_link_simple.dae</uri>
           </mesh>
         </geometry>
         <surface>
@@ -518,7 +388,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://ur_description/meshes/fh_desc/v2/palm_link_simple.dae</uri>
+            <uri>model://fh_desc/meshes/v2/palm_link_simple.dae</uri>
           </mesh>
         </geometry>
         <material>
@@ -533,7 +403,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://ur_description/meshes/fh_desc/v2/finger_palm_link.dae</uri>
+            <uri>model://fh_desc/meshes/v2/finger_palm_link.dae</uri>
           </mesh>
         </geometry>
         <material>
@@ -548,7 +418,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://ur_description/meshes/fh_desc/v2/finger_palm_link.dae</uri>
+            <uri>model://fh_desc/meshes/v2/finger_palm_link.dae</uri>
           </mesh>
         </geometry>
         <material>
@@ -563,7 +433,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://ur_description/meshes/fh_desc/v2/finger_palm_link.dae</uri>
+            <uri>model://fh_desc/meshes/v2/finger_palm_link.dae</uri>
           </mesh>
         </geometry>
         <material>
@@ -601,7 +471,7 @@
       </axis>
     </joint>
     <link name='H1_F1_base_link'>
-      <pose frame=''>1.2293 -0.732194 0.985619 -1.5708 -0.762991 0</pose>
+      <pose frame=''>1.2293 0.267806 -0.014381 -1.5708 -0.762991 0</pose>
       <inertial>
         <pose frame=''>-0.000143 0.026569 0.053875 0 -0 0</pose>
         <mass>0.174652</mass>
@@ -619,7 +489,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://ur_description/meshes/fh_desc/v2/finger_base_link_simple.dae</uri>
+            <uri>model://fh_desc/meshes/v2/finger_base_link_simple.dae</uri>
           </mesh>
         </geometry>
         <surface>
@@ -645,7 +515,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://ur_description/meshes/fh_desc/v2/finger_base_link_simple.dae</uri>
+            <uri>model://fh_desc/meshes/v2/finger_base_link_simple.dae</uri>
           </mesh>
         </geometry>
         <material>
@@ -690,7 +560,7 @@
       </physics>
     </joint>
     <link name='H1_F1_link_1'>
-      <pose frame=''>1.25349 -0.615364 0.960322 -1.5001 -0.762991 0</pose>
+      <pose frame=''>1.25349 0.384636 -0.039678 -1.5001 -0.762991 0</pose>
       <inertial>
         <pose frame=''>-0.000142 -0.001354 0.027761 0 -0 0</pose>
         <mass>0.082776</mass>
@@ -708,7 +578,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://ur_description/meshes/fh_desc/v2/finger_prox_link_simple.dae</uri>
+            <uri>model://fh_desc/meshes/v2/finger_prox_link_simple.dae</uri>
           </mesh>
         </geometry>
         <surface>
@@ -734,7 +604,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://ur_description/meshes/fh_desc/v2/finger_prox_link_simple.dae</uri>
+            <uri>model://fh_desc/meshes/v2/finger_prox_link_simple.dae</uri>
           </mesh>
         </geometry>
         <material>
@@ -779,7 +649,7 @@
       </physics>
     </joint>
     <link name='H1_F1_link_2'>
-      <pose frame=''>1.25056 -0.555514 0.963385 -1.50697 -0.762991 0</pose>
+      <pose frame=''>1.25056 0.444486 -0.036615 -1.50697 -0.762991 0</pose>
       <inertial>
         <pose frame=''>0.000147 -0.001929 0.020669 0 -0 0</pose>
         <mass>0.0360682</mass>
@@ -797,7 +667,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://ur_description/meshes/fh_desc/v2/finger_dist_link_simple.dae</uri>
+            <uri>model://fh_desc/meshes/v2/finger_dist_link_simple.dae</uri>
           </mesh>
         </geometry>
         <surface>
@@ -823,7 +693,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://ur_description/meshes/fh_desc/omd-d18-tip.dae</uri>
+            <uri>model://fh_desc/meshes/omd-d18-tip.dae</uri>
           </mesh>
         </geometry>
         <surface>
@@ -849,7 +719,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://ur_description/meshes/fh_desc/v2/finger_dist_link_simple.dae</uri>
+            <uri>model://fh_desc/meshes/v2/finger_dist_link_simple.dae</uri>
           </mesh>
         </geometry>
         <material>
@@ -864,7 +734,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://ur_description/meshes/fh_desc/omd-d18-tip.dae</uri>
+            <uri>model://fh_desc/meshes/omd-d18-tip.dae</uri>
           </mesh>
         </geometry>
         <material>
@@ -910,7 +780,7 @@
       </physics>
     </joint>
     <link name='H1_F2_base_link'>
-      <pose frame=''>1.1843 -0.732194 1.04062 1.5708 -0.022402 -3.14159</pose>
+      <pose frame=''>1.1843 0.267806 0.04062 1.5708 -0.022402 -3.14159</pose>
       <inertial>
         <pose frame=''>-0.000143 0.026569 0.053875 0 -0 0</pose>
         <mass>0.174652</mass>
@@ -928,7 +798,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://ur_description/meshes/fh_desc/v2/finger_base_link_simple.dae</uri>
+            <uri>model://fh_desc/meshes/v2/finger_base_link_simple.dae</uri>
           </mesh>
         </geometry>
         <surface>
@@ -954,7 +824,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://ur_description/meshes/fh_desc/v2/finger_base_link_simple.dae</uri>
+            <uri>model://fh_desc/meshes/v2/finger_base_link_simple.dae</uri>
           </mesh>
         </geometry>
         <material>
@@ -999,7 +869,7 @@
       </physics>
     </joint>
     <link name='H1_F2_link_1'>
-      <pose frame=''>1.18508 -0.615364 1.07561 1.64149 -0.022402 -3.14159</pose>
+      <pose frame=''>1.18508 0.384636 0.07561 1.64149 -0.022402 -3.14159</pose>
       <inertial>
         <pose frame=''>-0.000142 -0.001354 0.027761 0 -0 0</pose>
         <mass>0.082776</mass>
@@ -1017,7 +887,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://ur_description/meshes/fh_desc/v2/finger_prox_link_simple.dae</uri>
+            <uri>model://fh_desc/meshes/v2/finger_prox_link_simple.dae</uri>
           </mesh>
         </geometry>
         <surface>
@@ -1043,7 +913,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://ur_description/meshes/fh_desc/v2/finger_prox_link_simple.dae</uri>
+            <uri>model://fh_desc/meshes/v2/finger_prox_link_simple.dae</uri>
           </mesh>
         </geometry>
         <material>
@@ -1088,7 +958,7 @@
       </physics>
     </joint>
     <link name='H1_F2_link_2'>
-      <pose frame=''>1.18499 -0.555514 1.07137 1.63463 -0.022402 -3.14159</pose>
+      <pose frame=''>1.18499 0.444486 0.07137 1.63463 -0.022402 -3.14159</pose>
       <inertial>
         <pose frame=''>0.000147 -0.001929 0.020669 0 -0 0</pose>
         <mass>0.0360682</mass>
@@ -1106,7 +976,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://ur_description/meshes/fh_desc/v2/finger_dist_link_simple.dae</uri>
+            <uri>model://fh_desc/meshes/v2/finger_dist_link_simple.dae</uri>
           </mesh>
         </geometry>
         <surface>
@@ -1132,7 +1002,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://ur_description/meshes/fh_desc/omd-d18-tip.dae</uri>
+            <uri>model://fh_desc/meshes/omd-d18-tip.dae</uri>
           </mesh>
         </geometry>
         <surface>
@@ -1158,7 +1028,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://ur_description/meshes/fh_desc/v2/finger_dist_link_simple.dae</uri>
+            <uri>model://fh_desc/meshes/v2/finger_dist_link_simple.dae</uri>
           </mesh>
         </geometry>
         <material>
@@ -1173,7 +1043,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://ur_description/meshes/fh_desc/omd-d18-tip.dae</uri>
+            <uri>model://fh_desc/meshes/omd-d18-tip.dae</uri>
           </mesh>
         </geometry>
         <material>
@@ -1219,7 +1089,7 @@
       </physics>
     </joint>
     <link name='H1_F3_base_link'>
-      <pose frame=''>1.1393 -0.732194 0.985619 -1.5708 0.807795 0</pose>
+      <pose frame=''>1.1393 0.267806 -0.014381 -1.5708 0.807795 0</pose>
       <inertial>
         <pose frame=''>-0.000143 0.026569 0.053875 0 -0 0</pose>
         <mass>0.174652</mass>
@@ -1237,7 +1107,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://ur_description/meshes/fh_desc/v2/finger_base_link_simple.dae</uri>
+            <uri>model://fh_desc/meshes/v2/finger_base_link_simple.dae</uri>
           </mesh>
         </geometry>
         <surface>
@@ -1263,7 +1133,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://ur_description/meshes/fh_desc/v2/finger_base_link_simple.dae</uri>
+            <uri>model://fh_desc/meshes/v2/finger_base_link_simple.dae</uri>
           </mesh>
         </geometry>
         <material>
@@ -1308,7 +1178,7 @@
       </physics>
     </joint>
     <link name='H1_F3_link_1'>
-      <pose frame=''>1.114 -0.615364 0.961431 -1.5001 0.807795 0</pose>
+      <pose frame=''>1.114 0.384636 -0.038569 -1.5001 0.807795 0</pose>
       <inertial>
         <pose frame=''>-0.000142 -0.001354 0.027761 0 -0 0</pose>
         <mass>0.082776</mass>
@@ -1326,7 +1196,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://ur_description/meshes/fh_desc/v2/finger_prox_link_simple.dae</uri>
+            <uri>model://fh_desc/meshes/v2/finger_prox_link_simple.dae</uri>
           </mesh>
         </geometry>
         <surface>
@@ -1352,7 +1222,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://ur_description/meshes/fh_desc/v2/finger_prox_link_simple.dae</uri>
+            <uri>model://fh_desc/meshes/v2/finger_prox_link_simple.dae</uri>
           </mesh>
         </geometry>
         <material>
@@ -1397,7 +1267,7 @@
       </physics>
     </joint>
     <link name='H1_F3_link_2'>
-      <pose frame=''>1.11707 -0.555514 0.96436 -1.50697 0.807795 0</pose>
+      <pose frame=''>1.11707 0.444486 -0.03564 -1.50697 0.807795 0</pose>
       <inertial>
         <pose frame=''>0.000147 -0.001929 0.020669 0 -0 0</pose>
         <mass>0.0360682</mass>
@@ -1415,7 +1285,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://ur_description/meshes/fh_desc/v2/finger_dist_link_simple.dae</uri>
+            <uri>model://fh_desc/meshes/v2/finger_dist_link_simple.dae</uri>
           </mesh>
         </geometry>
         <surface>
@@ -1441,7 +1311,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://ur_description/meshes/fh_desc/omd-d18-tip.dae</uri>
+            <uri>model://fh_desc/meshes/omd-d18-tip.dae</uri>
           </mesh>
         </geometry>
         <surface>
@@ -1467,7 +1337,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://ur_description/meshes/fh_desc/v2/finger_dist_link_simple.dae</uri>
+            <uri>model://fh_desc/meshes/v2/finger_dist_link_simple.dae</uri>
           </mesh>
         </geometry>
         <material>
@@ -1482,7 +1352,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://ur_description/meshes/fh_desc/omd-d18-tip.dae</uri>
+            <uri>model://fh_desc/meshes/omd-d18-tip.dae</uri>
           </mesh>
         </geometry>
         <material>
@@ -1527,10 +1397,12 @@
         </ode>
       </physics>
     </joint>
+<!--  -->
     <plugin name='ros_control' filename='libgazebo_ros_control.so'>
       <robotNamespace></robotNamespace>
       <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
-    </plugin> 
+    </plugin>
+<!-- -->
     <static>0</static>
     <plugin name='imu_controller' filename='libgazebo_ros_imu.so'>
       <alwaysOn>true</alwaysOn>

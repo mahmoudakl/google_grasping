@@ -1,1 +1,0 @@
-../../../schunk_gripper_control.py

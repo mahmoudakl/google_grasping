@@ -11,24 +11,21 @@ pip2.7 install tensorflow keras h5py sklearn bokeh bayesian-optimization pandas
 ```
 
 ## Setup & Compile
-```
-cd google_grasping
-git submodule init
-git submodule update --recursive
-cp resources/GazeboRosPackages/* $HBP/GazeboRosPackages/src -a
-cp resources/Models/* $HBP/Models/ -a
-mkdir $HBP/Experiments/google_grasping
-cp -L resources/Experiments/google_grasping/* $HBP/Experiments/google_grasping
-cd $HBP/Models
-./create-symlinks.sh
-```
+clone this repository into your
+'''
+~/.opt/nrpStorage
+'''
+on first use call, this will copy all necessary files and setup the environemnts
+'''
+./deploy_experiment.sh
+'''
+you can also call the model, packages and experiment files individually:
+'''
+./deploy_experiment.sh m #handels only th model files
+./deploy_experiment.sh e #handels only the experiment files
+./deploy_experiment.sh g #handels only the gazebo packages
+'''
 
-```
-cd $HBP/GazeboRosPackages
-catkin_make
-```
-
-Adjust `GAZEBO_MODEL_PATH` and `MESH_WORKSPACE_PATH` in `smart_grasping_sandbox/launch/smart_grasping_sandbox.launch` to point to your NRP GazeboRosPackages.
 
 ## Run
 1. Start the Neurorobotics Platform
