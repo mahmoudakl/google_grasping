@@ -1,1 +1,0 @@
-/home/nrp/.opt/nrpStorage/google_grasping/schunk_hand_control.py

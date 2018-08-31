@@ -1,1 +1,0 @@
-/home/nrp/.opt/nrpStorage/google_grasping/schunk_gripper_control.py
