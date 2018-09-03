@@ -15,7 +15,7 @@
       <arg name="verbose" value="$(arg verbose)"/>
 
       <arg name="physics" value="ode"/>
-      <env name="GAZEBO_MODEL_PATH" value="~/.gazebo/models:/home/missxa/NRP/GazeboRosPackages/src/:/home/missxa/NRP/GazeboRosPackages/src/universal_robot/universal_robot:${GAZEBO_MODEL_PATH}"/>
+      <env name="GAZEBO_MODEL_PATH" value="~/.gazebo/models:$HBP/GazeboRosPackages/src/:$HBP/GazeboRosPackages/src/universal_robot/universal_robot:${GAZEBO_MODEL_PATH}"/>
     </include>
   </group>
 

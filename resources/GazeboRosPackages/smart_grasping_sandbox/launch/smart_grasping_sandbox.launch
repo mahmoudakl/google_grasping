@@ -12,13 +12,13 @@
     <include file="$(find smart_grasp_moveit_config)/launch/move_group.launch"/>
 
     <include file="$(find gazebo2rviz)/launch/gazebo2moveit.launch">
-        <env name="GAZEBO_MODEL_PATH" value="/home/missxa/NRP/GazeboRosPackages/src/://home/missxa/NRP/GazeboRosPackages/src/universal_robot:~/.gazebo/models:${GAZEBO_MODEL_PATH}"/>
-        <env name="MESH_WORKSPACE_PATH" value="/home/missxa/NRP/GazeboRosPackages/src/"/>
+        <env name="GAZEBO_MODEL_PATH" value="$HBP/GazeboRosPackages/src/:/$HBP/GazeboRosPackages/src/universal_robot:~/.gazebo/models:${GAZEBO_MODEL_PATH}"/>
+        <env name="MESH_WORKSPACE_PATH" value="$HBP/GazeboRosPackages/src/"/>
     </include>
 <!-- 
      <include file="$(find gazebo2rviz)/launch/gazebo2rviz.launch">
-        <env name="GAZEBO_MODEL_PATH" value="/home/missxa/NRP/GazeboRosPackages/src/://home/missxa/NRP/GazeboRosPackages/src/universal_robot:~/.gazebo/models:${GAZEBO_MODEL_PATH}"/>
-        <env name="MESH_WORKSPACE_PATH" value="/home/missxa/NRP/GazeboRosPackages/src/"/>
+        <env name="GAZEBO_MODEL_PATH" value="$HBP/GazeboRosPackages/src/:/$HBP/GazeboRosPackages/src/universal_robot:~/.gazebo/models:${GAZEBO_MODEL_PATH}"/>
+        <env name="MESH_WORKSPACE_PATH" value="$HBP/GazeboRosPackages/src/"/>
     </include> -->
 
     <group if="$(arg gui)">
