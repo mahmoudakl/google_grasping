@@ -5,6 +5,7 @@ import numpy as np
 from scipy.stats import logistic
 from geometry_msgs.msg import Pose
 from gazebo_msgs.msg import ModelState
+from tf.transformations import quaternion_from_euler
 from gazebo_msgs.srv import GetModelState, SetModelState
 from hbp_nrp_virtual_coach.virtual_coach import VirtualCoach
 from smart_grasping_sandbox.smart_grasper import SmartGrasper
@@ -33,7 +34,7 @@ def array_to_pose(action):
 
 class CEMOptimizer:
 
-	def __init__(self, weights_dim, batch_size=100, deviation=1, deviation_lim=100, rho=0.1, eta=0.1, mean=None):
+	def __init__(self, weights_dim, batch_size=100, deviation=1, deviation_lim=10, rho=0.1, eta=0.1, mean=None):
 		self.rho = rho
 		self.eta = eta
 		self.weights_dim = weights_dim
@@ -49,7 +50,7 @@ class CEMOptimizer:
 		sorted_idx = (-rewards).argsort()[:self.select_num]
 		top_weights = weights[sorted_idx]
 		top_weights = np.reshape(top_weights, (self.select_num, self.weights_dim))
-		self.mean = np.sum(top_weights, axis=0) / self.select_num
+		self.mean = np.sum(top_weights, axis=0) / float(self.select_num)
 		self.deviation = np.std(top_weights, axis=0)
 		self.deviation[self.deviation > self.deviation_lim] = self.deviation_lim
 		if(len(self.deviation)!=self.weights_dim):
@@ -143,7 +144,7 @@ def train(object_name):
 		roslaunch.configure_logging(uuid)
 		launch = roslaunch.parent.ROSLaunchParent(uuid, [fh_desc_launch_file])
 		launch.start()
-		time.sleep(1)
+		time.sleep(10)
 
 		sim.start()
 		return sim
@@ -160,18 +161,25 @@ def train(object_name):
 	num_episodes = 100
 	MIN_LIFT_STEPS = 1
 	MAX_BALL_DISTANCE = 0.4
-	experiment_id = 'GoogleGrasping_0'
-	robot_reset_pose = array_to_pose([1, 0.8, 1.2, 1.7, 3.14, 0, 0])
+	experiment_id = 'GoogleGrasping_1'
+
+	# The reset pose the robot returns to after each attempt
+	robot_reset_position = np.array([0.0, 1.0, 1.5])
+	robot_reset_orientation = quaternion_from_euler(-np.pi/2, 0, 0)
+	robot_reset_pose = array_to_pose(np.append(robot_reset_position, robot_reset_orientation))
+	
 	get_state_srv = rospy.ServiceProxy("/gazebo/get_model_state", GetModelState)
-	#set_state_srv = rospy.ServiceProxy("/gazebo/set_model_state", SetModelState)
+	set_state_srv = rospy.ServiceProxy("/gazebo/set_model_state", SetModelState)
 	hand_joint_names = ["H1_F1J1", "H1_F1J2", "H1_F1J3", "H1_F2J1", "H1_F2J2", "H1_F2J3", "H1_F3J1", "H1_F3J2", "H1_F3J3"]
-	tray_boundaries_high = np.reshape(np.array([0.4, 1.15, 1.1, 1, 1, 1, 1]), (7, 1))
-	tray_boundaries_low = np.reshape(np.array([-0.4, 0.6, 0.9, -1, -1, -1, -1]), (7, 1))
+	tray_boundaries_high = np.reshape(np.array([0.4, 1.15, 1.3, 1, 1, 1, 1]), (7, 1))
+	tray_boundaries_low = np.reshape(np.array([-0.4, 0.6, 1.15, -1, -1, -1, -1]), (7, 1))
 
 	weights_dim = 7*1 + 8*7 + 8*1 + 8*8 + 8*7 + 8*1
-	opt = CEMOptimizer(weights_dim, 100, rho=0.01, eta=0.3, deviation=1, deviation_lim=20)
+	opt = CEMOptimizer(weights_dim, batch_size=100, rho=0.1, eta=0.3, deviation=1, deviation_lim=20)
 	sim = start_experiment(experiment_id)
 	sgs = SmartGrasper()
+	sgs.open_hand()
+	sgs.move_tip_absolute(robot_reset_pose)
 
   	for ep in range(num_episodes):
 		print("Episode Number:  {}".format(ep))
@@ -186,10 +194,16 @@ def train(object_name):
 			action = select_action(observation, weights[b])
 
 			print "==========================="
-			print "Episode # {}, Attempt # {}".format(ep, b)
+			print "Episode # {}, Attempt # {}".format(ep + 1, b + 1)
 			print action
-			print "==========================="
 			
+			
+			# correct action orientation
+			action.orientation.x = robot_reset_orientation[0]
+			action.orientation.y = robot_reset_orientation[1]
+			action.orientation.z = robot_reset_orientation[2]
+			action.orientation.w = robot_reset_orientation[3]
+
 			# move to pose and pick
 			sgs.open_hand()
 			time.sleep(1)
@@ -201,13 +215,17 @@ def train(object_name):
 			time.sleep(1)
 
 			reward = compute_reward(action, observation)
-			print "Reward: {}".format(reward)
+			sgs.open_hand()
+			sgs.check_fingers_collisions(True)
 
+			print "Reward: {}".format(reward)
+			print "==========================="
+
+			print " <<<< RESET POSE >>>>"
 			# reset robot pose
 			sgs.move_tip_absolute(robot_reset_pose)
 
-			accreward += reward
-			rewards.append(accreward)
+			rewards.append(reward)
 		opt.update_weights(weights, rewards)
 
 if __name__ == '__main__':
