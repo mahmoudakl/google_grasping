@@ -1,3 +1,4 @@
+import os
 import rospy
 import time
 import roslaunch
@@ -182,9 +183,10 @@ def train(object_name):
 	sgs.move_tip_absolute(robot_reset_pose)
 
   	for ep in range(num_episodes):
-		print("Episode Number:  {}".format(ep))
+		episode_dir = "episode_{}".format(ep)
+		os.mkdir(episode_dir)
 		weights = opt.sample_batch_weights()
-		rewards = []
+		rewards = np.array([])
 		opt.eta *= 0.99
 		print("deviation mean = {}".format(np.mean(opt.deviation)))
 		
@@ -196,8 +198,7 @@ def train(object_name):
 			print "==========================="
 			print "Episode # {}, Attempt # {}".format(ep + 1, b + 1)
 			print action
-			
-			
+
 			# correct action orientation
 			action.orientation.x = robot_reset_orientation[0]
 			action.orientation.y = robot_reset_orientation[1]
@@ -225,7 +226,12 @@ def train(object_name):
 			# reset robot pose
 			sgs.move_tip_absolute(robot_reset_pose)
 
-			rewards.append(reward)
+			rewards = np.append(rewards, reward)
+		np.save(os.path.join(episode_dir, 'rewards'), rewards)
+		np.save(os.path.join(episode_dir, 'weights'), weights)
+		f = open(os.path.join(episode_dir, 'avg_reward'), 'w')
+		f.write(str(np.mean(rewards)))
+		f.close()
 		opt.update_weights(weights, rewards)
 
 if __name__ == '__main__':
