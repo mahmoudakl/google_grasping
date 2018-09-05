@@ -7,3 +7,6 @@
 [submodule "resources/GazeboRosPackages/universal_robot"]
 	path = resources/GazeboRosPackages/universal_robot
 	url = https://github.com/Roboy/universal_robot.git
+[submodule "resources/GazeboRosPackages/pysdf"]
+	path = resources/GazeboRosPackages/pysdf
+	url = https://github.com/andreasBihlmaier/pysdf.git
