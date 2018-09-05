@@ -1,3 +1,4 @@
+<?xml version="1.0" ?>
 <sdf version='1.6'>
 
   <model name='smart_grasping_sandbox'>
@@ -89,6 +90,7 @@
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
         <use_parent_model_frame>1</use_parent_model_frame>
+        <initial_position>-1.40607359053954</initial_position>
       </axis>
     </joint>
     <link name='upper_arm_link'>
@@ -142,6 +144,7 @@
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
         <use_parent_model_frame>1</use_parent_model_frame>
+        <initial_position>-2.133715767457182</initial_position>
       </axis>
     </joint>
     <link name='forearm_link'>
@@ -195,6 +198,7 @@
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
         <use_parent_model_frame>1</use_parent_model_frame>
+        <initial_position>-1.3222583745511525</initial_position>
       </axis>
     </joint>
     <link name='wrist_1_link'>
@@ -248,6 +252,7 @@
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
         <use_parent_model_frame>1</use_parent_model_frame>
+        <initial_position>-1.2555197231730864</initial_position>
       </axis>
     </joint>
     <link name='wrist_2_link'>
@@ -301,6 +306,7 @@
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
         <use_parent_model_frame>1</use_parent_model_frame>
+        <initial_position>1.5706313139619263</initial_position>
       </axis>
     </joint>
     <link name='wrist_3_link'>
@@ -453,6 +459,7 @@
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
         <use_parent_model_frame>1</use_parent_model_frame>
+        <initial_position>0.16450941401399977</initial_position>
       </axis>
     </joint>
     <link name='H1_F1_base_link'>

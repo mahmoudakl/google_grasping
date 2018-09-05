@@ -21,7 +21,7 @@
         <pose>0.02002 0.87278 0.71271 1.57079 -0.0 0.0</pose>
         <geometry>
           <mesh>
-            <uri>model://google_grasp/meshes/visual/VIS_Table_11_2.dae</uri>
+            <uri>model://google_table/meshes/visual/VIS_Table_11_2.dae</uri>
             <scale>0.008 0.011 0.008</scale>
           </mesh>
         </geometry>
@@ -30,7 +30,7 @@
         <pose>0.02002 0.87278 0.71271 1.57079 -0.0 0.0</pose>
         <geometry>
           <mesh>
-            <uri>model://google_grasp/meshes/visual/VIS_Table_11_2.dae</uri>
+            <uri>model://google_table/meshes/visual/VIS_Table_11_2.dae</uri>
             <scale>0.008 0.011 0.008</scale>
           </mesh>
         </geometry>
@@ -40,7 +40,7 @@
         <pose>0.0 0.0 0.5 0.0 -0.0 0.0</pose>
         <geometry>
           <mesh>
-            <uri>model://google_grasp/meshes/visual/VIS_base_link_13.dae</uri>
+            <uri>model://google_table/meshes/visual/VIS_base_link_13.dae</uri>
             <scale>1.0 1.0 1.0</scale>
           </mesh>
         </geometry>
@@ -49,7 +49,7 @@
         <pose>0.0 0.0 0.5 0.0 -0.0 0.0</pose>
         <geometry>
           <mesh>
-            <uri>model://google_grasp/meshes/visual/VIS_base_link_13.dae</uri>
+            <uri>model://google_table/meshes/visual/VIS_base_link_13.dae</uri>
             <scale>1.0 1.0 1.0</scale>
           </mesh>
         </geometry>
@@ -59,7 +59,7 @@
         <pose>0.0 0.0 0.5 0.0 -0.0 0.0</pose>
         <geometry>
           <mesh>
-            <uri>model://google_grasp/meshes/visual/VIS_base_link_13.dae</uri>
+            <uri>model://google_table/meshes/visual/VIS_base_link_13.dae</uri>
             <scale>1.0 1.0 1.0</scale>
           </mesh>
         </geometry>
@@ -68,7 +68,7 @@
         <pose>0.02002 0.87278 0.71271 1.57079 -0.0 0.0</pose>
         <geometry>
           <mesh>
-            <uri>model://google_grasp/meshes/visual/VIS_Table_11_2.dae</uri>
+            <uri>model://google_table/meshes/visual/VIS_Table_11_2.dae</uri>
             <scale>0.008 0.011 0.008</scale>
           </mesh>
         </geometry>
