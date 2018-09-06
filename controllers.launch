@@ -6,18 +6,18 @@
   <arg name="gzweb" default="false"/>
   <arg name="verbose" default="false"/>
 
-  <param name="robot_description" command="$(find xacro)/xacro '$(find fh_desc)/model.urdf'" />
+  <param name="robot_description" command="$(find xacro)/xacro '$(find fh_desc)/model.urdf'" /> 
 
   <include file="$(find smart_grasp_moveit_config)/launch/move_group.launch"/>
 
   <include file="$(find gazebo2rviz)/launch/gazebo2moveit.launch">
-      <env name="GAZEBO_MODEL_PATH" value="$HBP/GazeboRosPackages/src/:/$HBP/GazeboRosPackages/src/universal_robot:~/.gazebo/models:${GAZEBO_MODEL_PATH}"/>
-      <env name="MESH_WORKSPACE_PATH" value="$HBP/GazeboRosPackages/src/"/>
+      <env name="GAZEBO_MODEL_PATH" value="/home/akl-ma/NRP/GazeboRosPackages/src/google_grasping_packages:/home/akl-ma/NRP/GazeboRosPackages/src/google_grasping_packages/universal_robot:/home/akl-ma/.gazebo/models:${GAZEBO_MODEL_PATH}"/>
+      <env name="MESH_WORKSPACE_PATH" value="/home/akl-ma/NRP/GazeboRosPackages/src/google_grasping_packages"/>
   </include>
 <!--
   <include file="$(find gazebo2rviz)/launch/gazebo2rviz.launch">
-      <env name="GAZEBO_MODEL_PATH" value="$HBP/GazeboRosPackages/src/:/$HBP/GazeboRosPackages/src/universal_robot:~/.gazebo/models:${GAZEBO_MODEL_PATH}"/>
-      <env name="MESH_WORKSPACE_PATH" value="$HBP/GazeboRosPackages/src/"/>
+      <env name="GAZEBO_MODEL_PATH" value="/home/akl-ma/NRP/GazeboRosPackages/src/:/home/akl-ma/NRP/GazeboRosPackages/src/universal_robot:~/.gazebo/models:${GAZEBO_MODEL_PATH}"/>
+      <env name="MESH_WORKSPACE_PATH" value="/home/akl-ma/NRP/GazeboRosPackages/src/"/>
   </include> -->
 
   <!-- <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"/> -->

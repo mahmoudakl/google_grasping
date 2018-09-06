@@ -1,4 +1,3 @@
-<?xml version="1.0" ?>
 <sdf version='1.6'>
 
   <model name='smart_grasping_sandbox'>
@@ -38,20 +37,6 @@
     <joint name='world_joint' type='fixed'>
       <child>base_link</child>
       <parent>world</parent>
-      <axis>
-        <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-        </limit>
-        <dynamics>
-          <damping>0</damping>
-          <friction>0</friction>
-          <spring_reference>0</spring_reference>
-          <spring_stiffness>0</spring_stiffness>
-        </dynamics>
-        <use_parent_model_frame>1</use_parent_model_frame>
-        <xyz>0 0 1</xyz>
-      </axis>
     </joint>
     <link name='shoulder_link'>
       <pose frame=''>0 0 0.1273 0 -0 0</pose>
@@ -104,7 +89,6 @@
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
         <use_parent_model_frame>1</use_parent_model_frame>
-        <initial_position>-1.40607359053954</initial_position>
       </axis>
     </joint>
     <link name='upper_arm_link'>
@@ -158,7 +142,6 @@
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
         <use_parent_model_frame>1</use_parent_model_frame>
-        <initial_position>-2.133715767457182</initial_position>
       </axis>
     </joint>
     <link name='forearm_link'>
@@ -212,7 +195,6 @@
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
         <use_parent_model_frame>1</use_parent_model_frame>
-        <initial_position>-1.3222583745511525</initial_position>
       </axis>
     </joint>
     <link name='wrist_1_link'>
@@ -266,7 +248,6 @@
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
         <use_parent_model_frame>1</use_parent_model_frame>
-        <initial_position>-1.2555197231730864</initial_position>
       </axis>
     </joint>
     <link name='wrist_2_link'>
@@ -320,7 +301,6 @@
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
         <use_parent_model_frame>1</use_parent_model_frame>
-        <initial_position>1.5706313139619263</initial_position>
       </axis>
     </joint>
     <link name='wrist_3_link'>
@@ -454,7 +434,6 @@
       <velocity_decay/>
       <gravity>1</gravity>
       <velocity_decay/>
-      <self_collide>0</self_collide>
     </link>
     <joint name='wrist_3_joint' type='revolute'>
       <child>wrist_3_link</child>
@@ -474,7 +453,6 @@
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
         <use_parent_model_frame>1</use_parent_model_frame>
-        <initial_position>0.16450941401399977</initial_position>
       </axis>
     </joint>
     <link name='H1_F1_base_link'>
@@ -534,7 +512,6 @@
       </visual>
       <gravity>1</gravity>
       <velocity_decay/>
-      <self_collide>0</self_collide>
     </link>
     <joint name='H1_F1J1' type='revolute'>
       <child>H1_F1_base_link</child>
@@ -623,7 +600,6 @@
       </visual>
       <gravity>1</gravity>
       <velocity_decay/>
-      <self_collide>0</self_collide>
     </link>
     <joint name='H1_F1J2' type='revolute'>
       <child>H1_F1_link_1</child>
@@ -754,7 +730,6 @@
       <velocity_decay/>
       <gravity>1</gravity>
       <velocity_decay/>
-      <self_collide>0</self_collide>
     </link>
     <joint name='H1_F1J3' type='revolute'>
       <child>H1_F1_link_2</child>
@@ -843,7 +818,6 @@
       </visual>
       <gravity>1</gravity>
       <velocity_decay/>
-      <self_collide>0</self_collide>
     </link>
     <joint name='H1_F2J1' type='revolute'>
       <child>H1_F2_base_link</child>
@@ -932,7 +906,6 @@
       </visual>
       <gravity>1</gravity>
       <velocity_decay/>
-      <self_collide>0</self_collide>
     </link>
     <joint name='H1_F2J2' type='revolute'>
       <child>H1_F2_link_1</child>
@@ -1063,7 +1036,6 @@
       <velocity_decay/>
       <gravity>1</gravity>
       <velocity_decay/>
-      <self_collide>0</self_collide>
     </link>
     <joint name='H1_F2J3' type='revolute'>
       <child>H1_F2_link_2</child>
@@ -1152,7 +1124,6 @@
       </visual>
       <gravity>1</gravity>
       <velocity_decay/>
-      <self_collide>0</self_collide>
     </link>
     <joint name='H1_F3J1' type='revolute'>
       <child>H1_F3_base_link</child>
@@ -1241,7 +1212,6 @@
       </visual>
       <gravity>1</gravity>
       <velocity_decay/>
-      <self_collide>0</self_collide>
     </link>
     <joint name='H1_F3J2' type='revolute'>
       <child>H1_F3_link_1</child>
@@ -1372,7 +1342,6 @@
       <velocity_decay/>
       <gravity>1</gravity>
       <velocity_decay/>
-      <self_collide>0</self_collide>
     </link>
     <joint name='H1_F3J3' type='revolute'>
       <child>H1_F3_link_2</child>
@@ -1404,12 +1373,10 @@
         </ode>
       </physics>
     </joint>
-<!--  -->
     <plugin name='ros_control' filename='libgazebo_ros_control.so'>
       <robotNamespace></robotNamespace>
       <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
     </plugin>
-<!-- -->
     <static>0</static>
     <plugin name='imu_controller' filename='libgazebo_ros_imu.so'>
       <alwaysOn>true</alwaysOn>

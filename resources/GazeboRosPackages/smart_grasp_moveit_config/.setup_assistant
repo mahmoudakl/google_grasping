@@ -2,7 +2,10 @@ moveit_setup_assistant_config:
   URDF:
     package: fh_desc
     relative_path: smart_grasping_sandbox.urdf
+    xacro_args: ""
   SRDF:
     relative_path: config/ur10.srdf
   CONFIG:
-    generated_timestamp: 1480683875
+    author_name: ak
+    author_email: unicorn@roboy.org
+    generated_timestamp: 1535545974

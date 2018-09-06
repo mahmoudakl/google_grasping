@@ -1,9 +1,7 @@
-<?xml version="1.0" ?>
 <sdf version='1.6'>
-
   <model name='smart_grasping_sandbox'>
     <link name='base_link'>
-      <pose frame=''>0 0 0 0 -0 0</pose>
+      <pose frame=''>0 -1 1 0 -0 0</pose>
       <inertial>
         <pose frame=''>0 0 0 0 -0 0</pose>
         <mass>4</mass>
@@ -35,7 +33,7 @@
         </geometry>
       </visual>
     </link>
-    <joint name='world_joint' type='fixed'>
+    <joint name='world_joint' type='revolute'>
       <child>base_link</child>
       <parent>world</parent>
       <axis>
@@ -54,7 +52,7 @@
       </axis>
     </joint>
     <link name='shoulder_link'>
-      <pose frame=''>0 0 0.1273 0 -0 0</pose>
+      <pose frame=''>0 -1 1.1273 0 -0 0</pose>
       <inertial>
         <pose frame=''>0 0 0 0 -0 0</pose>
         <mass>7.778</mass>
@@ -104,11 +102,10 @@
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
         <use_parent_model_frame>1</use_parent_model_frame>
-        <initial_position>-1.40607359053954</initial_position>
       </axis>
     </joint>
     <link name='upper_arm_link'>
-      <pose frame=''>0 0.220941 0.1273 3.14159 1.57079 3.14159</pose>
+      <pose frame=''>0 -0.779059 1.1273 3.14159 1.57079 3.14159</pose>
       <inertial>
         <pose frame=''>0 0 0.306 0 -0 0</pose>
         <mass>12.93</mass>
@@ -158,11 +155,10 @@
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
         <use_parent_model_frame>1</use_parent_model_frame>
-        <initial_position>-2.133715767457182</initial_position>
       </axis>
     </joint>
     <link name='forearm_link'>
-      <pose frame=''>0.612 0.049041 0.1273 3.14159 1.57079 3.14159</pose>
+      <pose frame=''>0.612 -0.950959 1.1273 3.14159 1.57079 3.14159</pose>
       <inertial>
         <pose frame=''>0 0 0.28615 0 -0 0</pose>
         <mass>3.87</mass>
@@ -212,11 +208,10 @@
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
         <use_parent_model_frame>1</use_parent_model_frame>
-        <initial_position>-1.3222583745511525</initial_position>
       </axis>
     </joint>
     <link name='wrist_1_link'>
-      <pose frame=''>1.1843 0.049041 0.1273 3.14159 0 3.14159</pose>
+      <pose frame=''>1.1843 -0.950959 1.1273 3.14159 0 3.14159</pose>
       <inertial>
         <pose frame=''>0 0 0 0 -0 0</pose>
         <mass>1.96</mass>
@@ -266,11 +261,10 @@
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
         <use_parent_model_frame>1</use_parent_model_frame>
-        <initial_position>-1.2555197231730864</initial_position>
       </axis>
     </joint>
     <link name='wrist_2_link'>
-      <pose frame=''>1.1843 0.163941 0.1273 3.14159 0 3.14159</pose>
+      <pose frame=''>1.1843 -0.836059 1.1273 3.14159 0 3.14159</pose>
       <inertial>
         <pose frame=''>0 0 0 0 -0 0</pose>
         <mass>1.96</mass>
@@ -320,11 +314,10 @@
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
         <use_parent_model_frame>1</use_parent_model_frame>
-        <initial_position>1.5706313139619263</initial_position>
       </axis>
     </joint>
     <link name='wrist_3_link'>
-      <pose frame=''>1.1843 0.163941 0.0116 3.14159 0 3.14159</pose>
+      <pose frame=''>1.1843 -0.836059 1.0116 3.14159 0 3.14159</pose>
       <inertial>
         <pose frame=''>0.000252 0.072377 0.002863 0 -0 0</pose>
         <mass>0.379715</mass>
@@ -474,11 +467,10 @@
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
         <use_parent_model_frame>1</use_parent_model_frame>
-        <initial_position>0.16450941401399977</initial_position>
       </axis>
     </joint>
     <link name='H1_F1_base_link'>
-      <pose frame=''>1.2293 0.267806 -0.014381 -1.5708 -0.762991 0</pose>
+      <pose frame=''>1.2293 -0.732194 0.985619 -1.5708 -0.762991 0</pose>
       <inertial>
         <pose frame=''>-0.000143 0.026569 0.053875 0 -0 0</pose>
         <mass>0.174652</mass>
@@ -567,7 +559,7 @@
       </physics>
     </joint>
     <link name='H1_F1_link_1'>
-      <pose frame=''>1.25349 0.384636 -0.039678 -1.5001 -0.762991 0</pose>
+      <pose frame=''>1.25349 -0.615364 0.960322 -1.5001 -0.762991 0</pose>
       <inertial>
         <pose frame=''>-0.000142 -0.001354 0.027761 0 -0 0</pose>
         <mass>0.082776</mass>
@@ -656,7 +648,7 @@
       </physics>
     </joint>
     <link name='H1_F1_link_2'>
-      <pose frame=''>1.25056 0.444486 -0.036615 -1.50697 -0.762991 0</pose>
+      <pose frame=''>1.25056 -0.555514 0.963385 -1.50697 -0.762991 0</pose>
       <inertial>
         <pose frame=''>0.000147 -0.001929 0.020669 0 -0 0</pose>
         <mass>0.0360682</mass>
@@ -787,7 +779,7 @@
       </physics>
     </joint>
     <link name='H1_F2_base_link'>
-      <pose frame=''>1.1843 0.267806 0.040619 1.5708 -0.022402 -3.14159</pose>
+      <pose frame=''>1.1843 -0.732194 1.04062 1.5708 -0.022402 -3.14159</pose>
       <inertial>
         <pose frame=''>-0.000143 0.026569 0.053875 0 -0 0</pose>
         <mass>0.174652</mass>
@@ -876,7 +868,7 @@
       </physics>
     </joint>
     <link name='H1_F2_link_1'>
-      <pose frame=''>1.18508 0.384636 0.07561 1.64149 -0.022402 -3.14159</pose>
+      <pose frame=''>1.18508 -0.615364 1.07561 1.64149 -0.022402 -3.14159</pose>
       <inertial>
         <pose frame=''>-0.000142 -0.001354 0.027761 0 -0 0</pose>
         <mass>0.082776</mass>
@@ -965,7 +957,7 @@
       </physics>
     </joint>
     <link name='H1_F2_link_2'>
-      <pose frame=''>1.18499 0.444486 0.071373 1.63463 -0.022402 -3.14159</pose>
+      <pose frame=''>1.18499 -0.555514 1.07137 1.63463 -0.022402 -3.14159</pose>
       <inertial>
         <pose frame=''>0.000147 -0.001929 0.020669 0 -0 0</pose>
         <mass>0.0360682</mass>
@@ -1096,7 +1088,7 @@
       </physics>
     </joint>
     <link name='H1_F3_base_link'>
-      <pose frame=''>1.1393 0.267806 -0.014381 -1.5708 0.807795 0</pose>
+      <pose frame=''>1.1393 -0.732194 0.985619 -1.5708 0.807795 0</pose>
       <inertial>
         <pose frame=''>-0.000143 0.026569 0.053875 0 -0 0</pose>
         <mass>0.174652</mass>
@@ -1185,7 +1177,7 @@
       </physics>
     </joint>
     <link name='H1_F3_link_1'>
-      <pose frame=''>1.114 0.384636 -0.038569 -1.5001 0.807795 0</pose>
+      <pose frame=''>1.114 -0.615364 0.961431 -1.5001 0.807795 0</pose>
       <inertial>
         <pose frame=''>-0.000142 -0.001354 0.027761 0 -0 0</pose>
         <mass>0.082776</mass>
@@ -1274,7 +1266,7 @@
       </physics>
     </joint>
     <link name='H1_F3_link_2'>
-      <pose frame=''>1.11707 0.444486 -0.03564 -1.50697 0.807795 0</pose>
+      <pose frame=''>1.11707 -0.555514 0.96436 -1.50697 0.807795 0</pose>
       <inertial>
         <pose frame=''>0.000147 -0.001929 0.020669 0 -0 0</pose>
         <mass>0.0360682</mass>
@@ -1404,12 +1396,9 @@
         </ode>
       </physics>
     </joint>
-<!--  -->
     <plugin name='ros_control' filename='libgazebo_ros_control.so'>
-      <robotNamespace></robotNamespace>
       <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
     </plugin>
-<!-- -->
     <static>0</static>
     <plugin name='imu_controller' filename='libgazebo_ros_imu.so'>
       <alwaysOn>true</alwaysOn>
@@ -1423,24 +1412,5 @@
       <xyzOffset>-0.0005 -0.0802 -2.44824e-15</xyzOffset>
       <rpyOffset>-0.0411233 -0.0274156 -1.61192</rpyOffset>
     </plugin>
-    <plugin name="gazebo_grasp_fix" filename="libgazebo_grasp_fix.so">
-     <arm>
-        <arm_name>robot</arm_name>
-        <palm_link> wrist_3_link  </palm_link>
-        <gripper_link> H1_F1_link_1 </gripper_link>
-        <gripper_link> H1_F1_link_2 </gripper_link>
-        <gripper_link> H1_F2_link_1 </gripper_link>
-        <gripper_link> H1_F2_link_2 </gripper_link>
-        <gripper_link> H1_F3_link_1 </gripper_link>
-        <gripper_link> H1_F3_link_2 </gripper_link>
-     </arm>
-    <forces_angle_tolerance>100</forces_angle_tolerance>
-    <update_rate>1</update_rate>
-    <grip_count_threshold>2</grip_count_threshold>
-    <max_grip_count>10</max_grip_count>
-    <release_tolerance>0.005</release_tolerance>
-    <disable_collisions_on_attach>false</disable_collisions_on_attach>
-    <contact_topic>__default_topic__</contact_topic>
-   </plugin>
   </model>
 </sdf>

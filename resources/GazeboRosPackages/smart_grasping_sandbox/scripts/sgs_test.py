@@ -1,31 +1,79 @@
 #!/usr/bin/python
 
-#with this function you can test the robot controlability, by using sgs function calls in the console
-#basic commands are: 
-#sgs.start() - to move the robot into starting position
-#sgs.move_tip(y=0.1) - to move the tool tip 10 cm into y direction (or any other direction/orientation - x,y,z,yaw,pitch,roll)
-
-#from bayes_opt import BayesianOptimization
+import os
 from smart_grasping_sandbox.smart_grasper import SmartGrasper
-from tf.transformations import quaternion_from_euler
-from math import pi
-import time
+from geometry_msgs.msg import Pose
+from gazebo_msgs.srv import  SpawnEntity, DeleteModel, GetWorldProperties, GetModelState
+from gazebo_msgs.msg import LinkStates
 import rospy
-from math import sqrt, pow
-import random
-from sys import argv
-from numpy import var, mean
-import numpy as np
-#from keras.models import Sequential, Model
-#from keras.layers import Dense, Activation, Flatten, Input, Concatenate
-#from keras.optimizers import Adam
-#from keras.optimizers import sgd
-#import keras
-import pickle
-
 import pdb
 
+__spawn_model = rospy.ServiceProxy("/gazebo/spawn_sdf_model", SpawnEntity)
+__delete_model = rospy.ServiceProxy("/gazebo/delete_model", DeleteModel)
+__get_world_properties = rospy.ServiceProxy("/gazebo/get_world_properties", GetWorldProperties)
+__get_model_state = rospy.ServiceProxy("/gazebo/get_model_state", GetModelState)
+__path_to_models = os.getenv("HOME") + "/.gazebo/models/"
+
+
+def __on_link_states_msg(msg):
+    for (idx, name) in enumerate(msg.name):
+        if(name=="cricket_ball::link"):
+            rospy.loginfo("Pose of the ball: " + str(msg.pose[idx].position.x) + " "
+            + str(msg.pose[idx].position.y) + " "
+            + str(msg.pose[idx].position.z))
+    ball_pose = get_absolute_model_pose("cricket_ball")
+    rospy.loginfo("P0se of the ball: " + str(ball_pose.position.x) + " "
+    + str(ball_pose.position.y) + " "
+    + str(ball_pose.position.z))
+# __model_states_sub = rospy.Subscriber('/gazebo/link_states', LinkStates, __on_link_states_msg, queue_size=1)
+
+
+
+
+def get_absolute_model_pose(name):
+    state = __get_model_state(name, "world")
+    return state.pose
+
+def spawn_model(name, pose, reference_frame):
+    world =__get_world_properties.call()
+    if name in world.model_names:
+        try:
+            __delete_model(name)
+        except:
+            rospy.logerr("Failed to delete model " + name)
+    try:
+        new_model_name = name
+        sdf = None
+        res = None
+
+        rospy.loginfo(__path_to_models + new_model_name + "/model.sdf")
+        with open(__path_to_models + new_model_name + "/model.sdf", "r") as model:
+            sdf = model.read()
+
+        res = __spawn_model(name, sdf, "", pose, reference_frame)
+    except:
+        rospy.logerr(res)
+
+
+# pose = Pose();pose.position.x = 0.112046;pose.position.y = 0.752566;pose.position.z = 0.826581;spawn_model("unit_box", pose, "world")
+# #0.112046 0.752566 0.816581
+#
+# pdb.set_trace()
 sgs = SmartGrasper()
-pdb.set_trace()
+sgs.set_new_object("unit_box")
+sgs.pick()
+import ipdb; ipdb.set_trace()
+
+# sgs.move_tip_absolute(tip_pose)
 
 
+# sgs.move_tip(x=-0.03)
+# import pdb; pdb.set_trace()
+# # pose.position.x = 0.15
+# pose = Pose()
+# pose.position.z = 0.8
+# pose.position.y = 0.5
+# spawn_model("cricket_ball", pose, "google_table__table")
+#
+#
+# import pdb; pdb.set_trace()
