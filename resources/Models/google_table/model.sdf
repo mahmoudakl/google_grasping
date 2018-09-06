@@ -16,6 +16,24 @@
           <izz>100.0</izz>
         </inertia>
       </inertial>
+      <collision name="VIS_Bins_12_Coll">
+        <pose>-0.0200 0.87279 0.71200 1.57080 -0.0 0.0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://google_grasp/meshes/visual/VIS_Bins_12_Coll.dae</uri>
+            <scale>0.008 0.011 0.008</scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="VIS_Bins_12">
+  				<pose>-0.0200 0.87279 0.71200 1.570796 -0.0 0.0</pose>
+  				<geometry>
+  					<mesh>
+  						<uri>model://google_grasp/meshes/visual/VIS_Bins_12_Coll.dae</uri>
+  						<scale>0.008 0.011 0.008</scale>
+  					</mesh>
+  				</geometry>
+      </visual>
       <!-- small table -->
             <collision name="VIS_base_link_table_1">
         <pose>0.02002 0.87278 0.71271 1.57079 -0.0 0.0</pose>
