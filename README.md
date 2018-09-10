@@ -56,7 +56,7 @@ You can also copy and setup the model, packages and experiment files individuall
   ```
 
 
-![alt text](google_grasping_single.png "Screenshot of a grasping attempt in the NRP experiment")
+![alt text](GoogleGrasping.jpg "Screenshot of a grasping attempt in the NRP experiment")
 
 
 The original experiment is described in detail here (https://ai.google/research/pubs/pub45450).

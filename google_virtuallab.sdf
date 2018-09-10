@@ -8764,7 +8764,7 @@
         <pose frame=''>0 0 0 0 0 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>0.112046 0.752566 1.1 0 0 0</pose>
+          <pose frame=''>0.112046 0.752566 0.9 0 0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -8772,7 +8772,7 @@
       </model>
 
       <model name='google_table'>
-        <pose frame=''>0 0 0.03 0 -0 0</pose>
+        <pose frame=''>0 0 0.0265 0 -0 0</pose>
         <scale>1 1 1</scale>
       </model>
 
